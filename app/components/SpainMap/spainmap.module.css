@@ -1,0 +1,16 @@
+.province:hover {
+  fill: var(--Terciary);
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0 0 0;
+}
+
+.label {
+  color: var(--Secondary);
+  height: 2em;
+  font-size: 1.3em;
+}
