@@ -13,7 +13,7 @@ export async function GET(request) {
             'Content-Type': 'application/json',
             Authorization: `Basic ${infojobsToken}`
         },
-    });
+    })
     const product = await res.json()
 
     return NextResponse.json({ product })
