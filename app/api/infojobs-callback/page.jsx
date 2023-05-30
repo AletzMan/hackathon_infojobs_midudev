@@ -1,8 +1,6 @@
-"use client"
-
 import { useRouter } from "next/navigation"
 
-export const InfoJobsCallback = () => {
+export default function InfoJobsCallback() {
   const router = useRouter()
   const { code } = router.query // Obtiene el código de verificación de los parámetros de consulta
   console.log(code)
