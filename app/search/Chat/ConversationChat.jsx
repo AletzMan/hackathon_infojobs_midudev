@@ -1,44 +1,41 @@
-"use client";
-import { ChatBotIcon, SendMessageIcon } from "@/app/constants";
-import { useEffect, useRef, useState } from "react";
-import uuid from "react-uuid";
-import styles from "./chat.module.css";
+"use client"
+import { ChatBotIcon, SendMessageIcon } from "@/app/constants"
+import { useEffect, useRef, useState } from "react"
+import uuid from "react-uuid"
+import styles from "./chat.module.css"
 
 const initConversation = {
   id: uuid(),
   name: "bot",
   message:
     "Hola soy InfoBot, tu asistente virtual y estoy aquí para ayudarte a encontrar tu próximo empleo..",
-};
+}
 const initUser = {
   id: uuid(),
   name: "user",
   message: "Quiero un empleo de desarrollo",
-};
+}
 
 export function ConversationChat({ setMessageState }) {
-  const [conversation, setConversation] = useState([
-    initConversation,
-    initUser,
-  ]);
-  const [message, setMessage] = useState("");
+  const [conversation, setConversation] = useState([initConversation, initUser])
+  const [message, setMessage] = useState("")
 
   const HandlerSendMessage = () => {
-    const newMessage = [...conversation];
+    const newMessage = [...conversation]
     const newChatUser = {
       id: uuid(),
       name: "user",
       message: message,
-    };
-    newMessage.push(newChatUser);
-    setConversation(newMessage);
-    setMessage("");
-  };
+    }
+    newMessage.push(newChatUser)
+    setConversation(newMessage)
+    setMessage("")
+  }
 
   const HandlerChangeMessage = (text) => {
-    setMessage(text);
-    setMessageState(text);
-  };
+    setMessage(text)
+    setMessageState(text)
+  }
   //console.log(chatRef.current.scrollHeight);
   return (
     <section className={styles.conversation}>
@@ -78,5 +75,5 @@ export function ConversationChat({ setMessageState }) {
         </button>
       </div>
     </section>
-  );
+  )
 }

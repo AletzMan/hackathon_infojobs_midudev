@@ -1,25 +1,25 @@
-"use client";
-import styles from "./offers.module.css";
-import Image from "next/image";
+"use client"
+import styles from "./offers.module.css"
+import Image from "next/image"
 const PATH_IMAGE =
-  "https://media.infojobs.net/appgrade/pictures/pic-company-logo.png";
-import imagesearch from "../../../assets/content-card-buscar.svg";
-import { GetInfoJobsOfferDetails } from "@/app/services/infojobsAPI";
-import { useEffect, useState } from "react";
-import { ButtonsOffer } from "./ButtonsOffer";
-import uuid from "react-uuid";
-import { ConvertLineBreaks } from "@/app/utilities/functions";
+  "https://media.infojobs.net/appgrade/pictures/pic-company-logo.png"
+import imagesearch from "../../../assets/content-card-buscar.svg"
+import { GetInfoJobsOfferDetails } from "@/app/services/infojobsAPI"
+import { useEffect, useState } from "react"
+import { ButtonsOffer } from "./ButtonsOffer"
+import uuid from "react-uuid"
+import { ConvertLineBreaks } from "@/app/utilities/functions"
 
 export function OfferView({ offerSelected }) {
-  const [offers, setOffers] = useState({});
+  const [offers, setOffers] = useState({})
 
   useEffect(() => {
     const getJobs = async () => {
-      const data = await GetInfoJobsOfferDetails(offerSelected);
-      setOffers(data);
-    };
-    getJobs();
-  }, [offerSelected]);
+      const data = await GetInfoJobsOfferDetails(offerSelected)
+      setOffers(data)
+    }
+    getJobs()
+  }, [offerSelected])
 
   //console.log(offers?.details?.minRequirements);
 
@@ -139,5 +139,5 @@ export function OfferView({ offerSelected }) {
         </>
       )}
     </>
-  );
+  )
 }

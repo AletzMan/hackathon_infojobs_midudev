@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import styles from "./offers.module.css";
+import styles from "./offers.module.css"
 import {
   CopyLinkIcon,
   FavIcon,
@@ -10,31 +10,29 @@ import {
   ShareIcon,
   TwitterIcon,
   WhatsAppIcon,
-} from "@/app/constants";
-import { useState } from "react";
-import Link from "next/link";
+} from "@/app/constants"
+import { useState } from "react"
+import Link from "next/link"
 
 export function ButtonsOffer({ detailsOffer }) {
-  const [stateButtons, setStateButtons] = useState([false, false, false]);
+  const [stateButtons, setStateButtons] = useState([false, false, false])
 
   const HandlerButtonsState = (button) => {
     if (button === 0)
-      setStateButtons((prev) => [!prev[button], prev[1], prev[2]]);
-    if (button === 1)
-      setStateButtons((prev) => [prev[0], !prev[button], false]);
-    if (button === 2)
-      setStateButtons((prev) => [prev[0], false, !prev[button]]);
-  };
+      setStateButtons((prev) => [!prev[button], prev[1], prev[2]])
+    if (button === 1) setStateButtons((prev) => [prev[0], !prev[button], false])
+    if (button === 2) setStateButtons((prev) => [prev[0], false, !prev[button]])
+  }
 
   function CopyClipboardLink(link) {
     navigator.clipboard
       .writeText(link)
       .then(function () {
-        console.log("Enlace copiado al portapapeles");
+        console.log("Enlace copiado al portapapeles")
       })
       .catch(function (error) {
-        console.error("Error al copiar el enlace al portapapeles:", error);
-      });
+        console.error("Error al copiar el enlace al portapapeles:", error)
+      })
   }
 
   return (
@@ -117,5 +115,5 @@ export function ButtonsOffer({ detailsOffer }) {
         )}
       </section>
     </>
-  );
+  )
 }

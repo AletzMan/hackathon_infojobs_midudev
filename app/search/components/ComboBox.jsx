@@ -1,15 +1,15 @@
-import { ArrayProvinces } from "@/app/constants";
-import { InputLabel, MenuItem, Select } from "@mui/material";
-import FormControl from "@mui/material/FormControl";
-import { useState } from "react";
-import styles from "./combobox.module.css";
+import { ArrayProvinces } from "@/app/constants"
+import { InputLabel, MenuItem, Select } from "@mui/material"
+import FormControl from "@mui/material/FormControl"
+import { useState } from "react"
+import styles from "./combobox.module.css"
 
 export function ComboBox({ parameter, arrayItems, title }) {
-  const items = arrayItems.find((item) => item.key === parameter);
-  const [item, setItem] = useState(items?.value);
+  const items = arrayItems.find((item) => item.key === parameter)
+  const [item, setItem] = useState(items?.value)
   const handleChange = (event) => {
-    setItem(event.target.value);
-  };
+    setItem(event.target.value)
+  }
   //console.log(provinces);
   return (
     <FormControl variant="filled" sx={{ m: 1, minWidth: 170 }} size="small">
@@ -43,5 +43,5 @@ export function ComboBox({ parameter, arrayItems, title }) {
         ))}
       </Select>
     </FormControl>
-  );
+  )
 }

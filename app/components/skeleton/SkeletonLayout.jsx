@@ -1,6 +1,6 @@
-import "react-loading-skeleton/dist/skeleton.css";
-import Skeleton from "react-loading-skeleton";
-import styles from "./skeleton.module.css";
+import "react-loading-skeleton/dist/skeleton.css"
+import Skeleton from "react-loading-skeleton"
+import styles from "./skeleton.module.css"
 
 export function SkeletonLayout({ count }) {
   function SkeletonSingle() {
@@ -73,7 +73,7 @@ export function SkeletonLayout({ count }) {
           />
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -82,5 +82,5 @@ export function SkeletonLayout({ count }) {
       <SkeletonSingle />
       <SkeletonSingle />
     </>
-  );
+  )
 }

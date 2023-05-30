@@ -1,37 +1,37 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import PropTypes from "prop-types";
-import { Global } from "@emotion/react";
-import { styled } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { grey } from "@mui/material/colors";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Skeleton from "@mui/material/Skeleton";
-import Typography from "@mui/material/Typography";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { Fab } from "@mui/material";
-import { ChatBotIcon } from "@/app/constants";
-import { ConversationChat } from "./ConversationChat";
+import * as React from "react"
+import PropTypes from "prop-types"
+import { Global } from "@emotion/react"
+import { styled } from "@mui/material/styles"
+import CssBaseline from "@mui/material/CssBaseline"
+import { grey } from "@mui/material/colors"
+import Button from "@mui/material/Button"
+import Box from "@mui/material/Box"
+import Skeleton from "@mui/material/Skeleton"
+import Typography from "@mui/material/Typography"
+import SwipeableDrawer from "@mui/material/SwipeableDrawer"
+import { Fab } from "@mui/material"
+import { ChatBotIcon } from "@/app/constants"
+import { ConversationChat } from "./ConversationChat"
 
-const drawerBleeding = 0;
+const drawerBleeding = 0
 
-const colorHeader = "#CDCDCD";
-const colorTextHeader = "#167db7";
-const colorChat = "#E0E0E0";
-const colorTextChat = "#050505";
-const colorTextButton = "#167db7";
+const colorHeader = "#CDCDCD"
+const colorTextHeader = "#167db7"
+const colorChat = "#E0E0E0"
+const colorTextChat = "#050505"
+const colorTextButton = "#167db7"
 
 const Root = styled("div")(({ theme }) => ({
   height: "100%",
   backgroundColor: "transparent",
-}));
+}))
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: colorChat,
   width: "23em",
-}));
+}))
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
@@ -41,7 +41,7 @@ const Puller = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: 8,
   left: "calc(50% - 15px)",
-}));
+}))
 
 const thumbStyles = {
   WebkitSliderThumb: {
@@ -49,36 +49,36 @@ const thumbStyles = {
     width: "20px",
     height: "20px",
   },
-};
+}
 
 export function ChatDrawer(props) {
-  const { window } = props;
-  const [open, setOpen] = React.useState(false);
-  const [messageState, setMessageState] = React.useState("");
-  const chatRef = React.useRef(null);
+  const { window } = props
+  const [open, setOpen] = React.useState(false)
+  const [messageState, setMessageState] = React.useState("")
+  const chatRef = React.useRef(null)
 
   React.useEffect(() => {
     if (chatRef) {
       const handleScroll = (event) => {
-        const { currentTarget: target } = event;
-        target.scroll({ top: target.scrollHeight });
-        console.log("CAMBIO");
-      };
+        const { currentTarget: target } = event
+        target.scroll({ top: target.scrollHeight })
+        console.log("CAMBIO")
+      }
 
-      chatRef.current?.addEventListener("DOMNodeInserted", handleScroll);
+      chatRef.current?.addEventListener("DOMNodeInserted", handleScroll)
 
       return () => {
-        chatRef.current?.removeEventListener("DOMNodeInserted", handleScroll);
-      };
+        chatRef.current?.removeEventListener("DOMNodeInserted", handleScroll)
+      }
     }
-  }, [messageState]);
+  }, [messageState])
 
   const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
+    setOpen(newOpen)
+  }
   // This is used only for the example
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    window !== undefined ? () => window().document.body : undefined
 
   return (
     <Root>
@@ -212,5 +212,5 @@ export function ChatDrawer(props) {
         </StyledBox>
       </SwipeableDrawer>
     </Root>
-  );
+  )
 }

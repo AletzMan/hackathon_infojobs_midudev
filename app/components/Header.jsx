@@ -1,8 +1,8 @@
-import { Logo, LogoSmall } from "./Logo";
-import styles from "./header.module.css";
-import Link from "next/link";
-import { links, Menu } from "../constants";
-import { GetOffers } from "../services/infojobsAPI";
+import { Logo, LogoSmall } from "./Logo"
+import styles from "./header.module.css"
+import Link from "next/link"
+import { links, Menu } from "../constants"
+import { GetOffers } from "../services/infojobsAPI"
 
 export function Header() {
   return (
@@ -25,5 +25,5 @@ export function Header() {
         <Menu />
       </nav>
     </header>
-  );
+  )
 }
