@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { SkeletonLayout } from "@/app/components/skeleton/SkeletonLayout";
+import { SkeletonLayout } from "@/app/components/skeleton/SkeletonLayout"
 import {
   ArrayCategory,
   ArrayContractType,
@@ -10,83 +10,83 @@ import {
   ArrowIcon,
   ArrowPrevIcon,
   CopyLinkIcon,
-} from "@/app/constants";
-import { useEffect, useState } from "react";
-import { GetInfoJobsOffers } from "../../services/infojobsAPI";
-import OfferPreview from "./OfferPreview";
-import styles from "./offers.module.css";
-import { Montserrat } from "next/font/google";
-import { OfferView } from "./OfferView";
-import { ComboBox } from "./ComboBox";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import SwipeableEdgeDrawer from "./SwipeDrawer";
+} from "@/app/constants"
+import { useEffect, useState } from "react"
+import { GetInfoJobsOffers } from "../../services/infojobsAPI"
+import OfferPreview from "./OfferPreview"
+import styles from "./offers.module.css"
+import { Montserrat } from "next/font/google"
+import { OfferView } from "./OfferView"
+import { ComboBox } from "./ComboBox"
+import Box from "@mui/material/Box"
+import TextField from "@mui/material/TextField"
+import Stack from "@mui/material/Stack"
+import Button from "@mui/material/Button"
+import SwipeableEdgeDrawer from "./SwipeDrawer"
 
-const font = Montserrat({ subsets: ["latin"] });
+const font = Montserrat({ subsets: ["latin"] })
 
 export function OffersByProvince({ parameter }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [offers, setOffers] = useState({});
-  const [selectedOfferId, setSelectedOfferId] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [offers, setOffers] = useState({})
+  const [selectedOfferId, setSelectedOfferId] = useState(null)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const getJobs = async () => {
-      const data = await GetInfoJobsOffers(`${parameter}`, `${currentPage}`);
-      setOffers(data);
-    };
-    getJobs();
-  }, [currentPage]);
+      const data = await GetInfoJobsOffers(`${parameter}`, `${currentPage}`)
+      setOffers(data)
+    }
+    getJobs()
+  }, [currentPage])
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+    setCurrentPage(page)
+  }
   const handlePreviousPage = () => {
-    setCurrentPage(currentPage - 1);
-  };
+    setCurrentPage(currentPage - 1)
+  }
 
   const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
-  };
+    setCurrentPage(currentPage + 1)
+  }
 
   const handleFirstPage = () => {
-    setCurrentPage(1);
-  };
+    setCurrentPage(1)
+  }
 
   const handleLastPage = () => {
-    setCurrentPage(offers?.product?.totalPages);
-  };
+    setCurrentPage(offers?.product?.totalPages)
+  }
 
   const toggleDrawer = (newOpen) => {
-    setOpen(newOpen);
-  };
+    setOpen(newOpen)
+  }
 
   const HandlerSelectedOffer = (id) => {
-    setSelectedOfferId(id);
-    toggleDrawer(true);
-  };
+    setSelectedOfferId(id)
+    toggleDrawer(true)
+  }
 
-  console.log(open);
+  console.log(open)
 
   const renderPageButtons = () => {
-    const pageRange = 5; // Cantidad de botones intermedios a mostrar
-    const pageButtons = [];
-    let startPage = Math.max(1, currentPage - Math.floor(pageRange / 2));
+    const pageRange = 5 // Cantidad de botones intermedios a mostrar
+    const pageButtons = []
+    let startPage = Math.max(1, currentPage - Math.floor(pageRange / 2))
     let endPage = Math.min(
       offers?.product?.totalPages,
       startPage + pageRange - 1
-    );
+    )
 
     if (endPage - startPage < pageRange - 1) {
-      startPage = Math.max(1, endPage - pageRange + 1);
+      startPage = Math.max(1, endPage - pageRange + 1)
     }
 
     for (let page = startPage; page <= endPage; page++) {
-      const isActive = page === currentPage;
+      const isActive = page === currentPage
       function handleClick() {
-        handlePageChange(page);
+        handlePageChange(page)
       }
       pageButtons.push(
         <button
@@ -99,10 +99,10 @@ export function OffersByProvince({ parameter }) {
         >
           {page}
         </button>
-      );
+      )
     }
-    return pageButtons;
-  };
+    return pageButtons
+  }
 
   return (
     <>
@@ -220,5 +220,5 @@ export function OffersByProvince({ parameter }) {
         />
       </div>
     </>
-  );
+  )
 }

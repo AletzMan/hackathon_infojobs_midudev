@@ -1,11 +1,11 @@
-import { ChatBotIcon } from "../constants";
+import { ChatBotIcon } from "../constants"
 
-const { Configuration, OpenAIApi } = require("openai");
+const { Configuration, OpenAIApi } = require("openai")
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+})
+const openai = new OpenAIApi(configuration)
 
 export async function ChatBot() {
     const response = await openai.createCompletion({
@@ -17,7 +17,7 @@ export async function ChatBot() {
         frequency_penalty: 0.0,
         presence_penalty: 0.6,
         stop: [" Human:", " AI:"],
-    });
+    })
 
-    return response;
+    return response
 }

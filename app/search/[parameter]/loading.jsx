@@ -3,5 +3,5 @@ export default function Loading() {
     <>
       <h2>Cargando ofertas...</h2>
     </>
-  );
+  )
 }

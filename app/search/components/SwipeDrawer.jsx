@@ -1,26 +1,26 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import { Global } from "@emotion/react";
-import { styled } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { grey } from "@mui/material/colors";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Skeleton from "@mui/material/Skeleton";
-import Typography from "@mui/material/Typography";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { OfferView } from "./OfferView";
-import styles from "./offers.module.css";
-const drawerBleeding = 10;
+import * as React from "react"
+import PropTypes from "prop-types"
+import { Global } from "@emotion/react"
+import { styled } from "@mui/material/styles"
+import CssBaseline from "@mui/material/CssBaseline"
+import { grey } from "@mui/material/colors"
+import Button from "@mui/material/Button"
+import Box from "@mui/material/Box"
+import Skeleton from "@mui/material/Skeleton"
+import Typography from "@mui/material/Typography"
+import SwipeableDrawer from "@mui/material/SwipeableDrawer"
+import { OfferView } from "./OfferView"
+import styles from "./offers.module.css"
+const drawerBleeding = 10
 
 const Root = styled("div")(({ theme }) => ({
   height: "100%",
   backgroundColor: "#021227",
-}));
+}))
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: "#021227",
-}));
+}))
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
@@ -31,24 +31,24 @@ const Puller = styled(Box)(({ theme }) => ({
   top: 8,
   left: "calc(50% - 15px)",
   backgroundColor: "#021227",
-}));
+}))
 
 function SwipeableEdgeDrawer(props) {
-  const { window } = props;
-  const [open, setOpen] = React.useState(props.openDescription);
+  const { window } = props
+  const [open, setOpen] = React.useState(props.openDescription)
 
   const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
+    setOpen(newOpen)
+  }
 
   React.useEffect(() => {
-    setOpen(props.openDescription);
-  }, [props.openDescription]);
+    setOpen(props.openDescription)
+  }, [props.openDescription])
 
-  console.log(open, props.openDescription);
+  console.log(open, props.openDescription)
   // This is used only for the example
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    window !== undefined ? () => window().document.body : undefined
 
   return (
     <Root>
@@ -76,7 +76,7 @@ function SwipeableEdgeDrawer(props) {
         anchor="bottom"
         open={open}
         onClose={() => {
-          toggleDrawer(false), props.setOpen(false);
+          toggleDrawer(false), props.setOpen(false)
         }}
         onOpen={toggleDrawer(true)}
         swipeAreaWidth={drawerBleeding}
@@ -112,7 +112,7 @@ function SwipeableEdgeDrawer(props) {
         </StyledBox>
       </SwipeableDrawer>
     </Root>
-  );
+  )
 }
 
 SwipeableEdgeDrawer.propTypes = {
@@ -121,6 +121,6 @@ SwipeableEdgeDrawer.propTypes = {
    * You won't need it on your project.
    */
   window: PropTypes.func,
-};
+}
 
-export default SwipeableEdgeDrawer;
+export default SwipeableEdgeDrawer

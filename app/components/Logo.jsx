@@ -12,7 +12,7 @@ export function Logo({ className }) {
         fill="#FFFFFF"
       />
     </svg>
-  );
+  )
 }
 
 export function LogoSmall({ className }) {
@@ -30,5 +30,5 @@ export function LogoSmall({ className }) {
         fill="#167DB7"
       />
     </svg>
-  );
+  )
 }

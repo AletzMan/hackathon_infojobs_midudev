@@ -1,10 +1,10 @@
-import NavigationOffers from "../components/OfferPreview";
-import { OffersByProvince } from "../components/OffersByProvince";
-import styles from "./search.module.css";
+import NavigationOffers from "../components/OfferPreview"
+import { OffersByProvince } from "../components/OffersByProvince"
+import styles from "./search.module.css"
 
 export default async function LayoutParameter({ children, params }) {
-  const { parameter } = params;
-  console.log(parameter);
+  const { parameter } = params
+  console.log(parameter)
 
   return (
     <main className={styles.main}>
@@ -23,5 +23,5 @@ export default async function LayoutParameter({ children, params }) {
       />
       {children}
     </main>
-  );
+  )
 }

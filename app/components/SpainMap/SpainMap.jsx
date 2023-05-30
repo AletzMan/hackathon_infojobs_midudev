@@ -1,14 +1,14 @@
-"use client";
-import { provinces } from "@/app/constants";
-import Link from "next/link";
-import { useState } from "react";
-import styles from "./spainmap.module.css";
+"use client"
+import { provinces } from "@/app/constants"
+import Link from "next/link"
+import { useState } from "react"
+import styles from "./spainmap.module.css"
 
 export default function SpainMap() {
-  const [nameProvince, setNameProvince] = useState("Elija una ciudad del mapa");
+  const [nameProvince, setNameProvince] = useState("Elija una ciudad del mapa")
   const HandlerMouseHover = (province) => {
-    setNameProvince(province);
-  };
+    setNameProvince(province)
+  }
 
   return (
     <article className={styles.article}>
@@ -31,5 +31,5 @@ export default function SpainMap() {
         ))}
       </svg>
     </article>
-  );
+  )
 }

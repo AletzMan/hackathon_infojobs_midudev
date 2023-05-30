@@ -1,7 +1,7 @@
-"use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { EMailIcon, LocationIcon, PhoneIcon } from "../constants";
+"use client"
+import Image from "next/image"
+import { useEffect, useState } from "react"
+import { EMailIcon, LocationIcon, PhoneIcon } from "../constants"
 import {
   GetCurriculum,
   GetCurriculumData,
@@ -9,52 +9,52 @@ import {
   GetCurriculumFutureJob,
   GetCurriculumSkills,
   GetInfoCandidate,
-} from "../services/infojobsAPI";
-import { CalculateAge, CapitalizeFirstLetter } from "../utilities/functions";
-import styles from "./dashboard.module.css";
-import uuid from "react-uuid";
+} from "../services/infojobsAPI"
+import { CalculateAge, CapitalizeFirstLetter } from "../utilities/functions"
+import styles from "./dashboard.module.css"
+import uuid from "react-uuid"
 
 export default function Dashboard() {
-  const [candidate, setCandidate] = useState({});
-  const [curriculum, setCurriculum] = useState({});
-  const [futureJob, setFutureJob] = useState({});
-  const [experience, setExperience] = useState({});
-  const [skills, setSkills] = useState({});
+  const [candidate, setCandidate] = useState({})
+  const [curriculum, setCurriculum] = useState({})
+  const [futureJob, setFutureJob] = useState({})
+  const [experience, setExperience] = useState({})
+  const [skills, setSkills] = useState({})
   useEffect(() => {
     const getCandidate = async () => {
-      const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
-      const data = await GetInfoCandidate(accessToken.access_token);
-      const cv = await GetCurriculum(accessToken.access_token);
+      const accessToken = JSON.parse(sessionStorage.getItem("accessToken"))
+      const data = await GetInfoCandidate(accessToken.access_token)
+      const cv = await GetCurriculum(accessToken.access_token)
 
       const dataCV = await GetCurriculumData(
         accessToken.access_token,
         cv?.curriculum[0].code
-      );
+      )
 
       const dataFB = await GetCurriculumFutureJob(
         accessToken.access_token,
         cv?.curriculum[0].code
-      );
+      )
 
       const dataEX = await GetCurriculumExperience(
         accessToken.access_token,
         cv?.curriculum[0].code
-      );
+      )
 
       const dataSkills = await GetCurriculumSkills(
         accessToken.access_token,
         cv?.curriculum[0].code
-      );
-      setCandidate(data?.candidate);
-      setCurriculum(dataCV?.curriculum);
-      setFutureJob(dataFB?.futureJob);
-      setExperience(dataEX?.experience.experience);
-      setSkills(dataSkills?.skills);
-    };
-    getCandidate();
-  }, []);
+      )
+      setCandidate(data?.candidate)
+      setCurriculum(dataCV?.curriculum)
+      setFutureJob(dataFB?.futureJob)
+      setExperience(dataEX?.experience.experience)
+      setSkills(dataSkills?.skills)
+    }
+    getCandidate()
+  }, [])
 
-  console.log(skills);
+  console.log(skills)
   return (
     <>
       {candidate.id > 0 && (
@@ -202,5 +202,5 @@ export default function Dashboard() {
         </>
       )}
     </>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-const infojobsToken = process.env.INFOJOBS_TOKEN;
+const infojobsToken = process.env.INFOJOBS_TOKEN
 const API_URL = 'https://api.infojobs.net/api/9/offer?province='
 
 export async function GetOffers(parameter, page) {

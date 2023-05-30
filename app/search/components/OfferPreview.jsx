@@ -1,14 +1,14 @@
-"use client";
-import { GetElapsedTime } from "@/app/utilities/functions";
-import Image from "next/image";
-import styles from "./offers.module.css";
+"use client"
+import { GetElapsedTime } from "@/app/utilities/functions"
+import Image from "next/image"
+import styles from "./offers.module.css"
 const PATH_IMAGE =
-  "https://media.infojobs.net/appgrade/pictures/pic-company-logo.png";
+  "https://media.infojobs.net/appgrade/pictures/pic-company-logo.png"
 
 export default function OfferPreview({ Job, isSelected, onClick }) {
-  const timeDiff = GetElapsedTime(Job.updated);
+  const timeDiff = GetElapsedTime(Job.updated)
 
-  let isOfferNew = Job.updated === Job.published;
+  let isOfferNew = Job.updated === Job.published
 
   return (
     <article
@@ -54,5 +54,5 @@ export default function OfferPreview({ Job, isSelected, onClick }) {
       </p>
       {!Job.urgent && <span className={styles.urgent}>Se precisa urgente</span>}
     </article>
-  );
+  )
 }

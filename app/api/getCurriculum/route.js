@@ -1,12 +1,12 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
 
-const infojobsToken = process.env.INFOJOBS_TOKEN;
+const infojobsToken = process.env.INFOJOBS_TOKEN
 
 const API_URL = 'https://api.infojobs.net/api/2/curriculum'
 
 export async function GET(request) {
-    const { searchParams } = new URL(request.url);
-    const code = searchParams.get('q');
+    const { searchParams } = new URL(request.url)
+    const code = searchParams.get('q')
     console.log('TOKEN', code)
     const res = await fetch(API_URL, {
         headers: {
@@ -14,8 +14,8 @@ export async function GET(request) {
             Authorization: `Basic ${infojobsToken}, Bearer ${code}`
         },
     });
-    const curriculum = await res.json();
+    const curriculum = await res.json()
 
-    return NextResponse.json({ curriculum });
+    return NextResponse.json({ curriculum })
 }
 

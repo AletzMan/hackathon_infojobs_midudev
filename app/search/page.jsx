@@ -1,6 +1,6 @@
-import SpainMap from "../components/SpainMap/SpainMap";
-import { ChatDrawer } from "./Chat/Chat";
-import styles from "./search.module.css";
+import SpainMap from "../components/SpainMap/SpainMap"
+import { ChatDrawer } from "./Chat/Chat"
+import styles from "./search.module.css"
 
 export default function SearchPage() {
   return (
@@ -12,5 +12,5 @@ export default function SearchPage() {
         <span className={styles.light}></span>
       </div>
     </main>
-  );
+  )
 }
