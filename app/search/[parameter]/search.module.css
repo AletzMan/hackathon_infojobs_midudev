@@ -1,0 +1,16 @@
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  padding-top: 5em;
+  z-index: 1;
+}
+.title {
+  margin: 1rem 0 2rem 0;
+  color: rgb(38, 113, 163);
+}
+
+.parameter {
+  color: var(--Terciary);
+}

@@ -1,0 +1,39 @@
+.main {
+  padding: 4.5em 1em;
+  background-color: #021227;
+  color: aliceblue;
+}
+
+.chat {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 2em;
+  right: 3em;
+  width: 5.5em;
+  height: 3em;
+  border-radius: 5em;
+}
+
+.light {
+  position: absolute;
+  box-shadow: 0px 0px 1px 2px #3188da;
+  width: 9em;
+  height: 3em;
+  border-radius: 4em;
+  animation: animationButtonChat 0.7s infinite alternate;
+}
+
+.title {
+  color: aqua;
+}
+
+@keyframes animationButtonChat {
+  0% {
+    box-shadow: 0px 0px 1px 2px #3188da;
+  }
+  100% {
+    box-shadow: 0px 0px 15px 2px #087deb;
+  }
+}

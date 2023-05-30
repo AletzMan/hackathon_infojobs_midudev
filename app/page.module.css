@@ -3,6 +3,44 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  /*min-height: 100vh;*/
+  padding: 6em 1em 1em 3em;
+  max-width: 1350px;
+  margin: 0 auto;
+  background-color: #021227;
+}
+
+.title {
+  color: var(--Terciary);
+  text-align: center;
+}
+
+.subTitle {
+  margin: 1.5em 0;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.textLogin {
+  text-align: center;
+  max-width: 35em;
+  background-color: #dedede15;
+  padding: 0.8em;
+  border-radius: 0.4em;
+}
+
+.buttonLogin {
+  margin: 1.5em 0;
+  background-color: var(--Primary);
+  padding: 0.7em 1em;
+  color: var(--Font);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 0.3em;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.buttonLogin:hover {
+  border-color: #cae1ff;
 }

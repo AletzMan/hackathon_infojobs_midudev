@@ -1,0 +1,190 @@
+.title {
+  padding: 2.5em 1em 0.5em 0.5em;
+}
+.section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1em;
+  padding: 0.5em 1em 1em 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.containerUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.6em;
+  border: 1px solid #999999;
+  border-radius: 0.5em;
+}
+
+.photoProfile {
+  border-radius: 6em 3em 4em 7em;
+}
+
+.photoProfileactive {
+  border: 5px solid #5ecf32;
+}
+.photoProfilemiddle {
+  border: 5px solid #f7c00d;
+}
+.photoProfileinactive {
+  border: 5px solid #e00505;
+}
+
+.name {
+  font-size: 1.3em;
+}
+
+.location,
+.email,
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+}
+
+.containerContact {
+  display: flex;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.6em;
+  gap: 0.5em;
+  border: 1px solid #999999;
+  border-radius: 0.5em;
+}
+
+.futureJob {
+  display: grid;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: min-content;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.6em;
+  gap: 0.5em;
+  border: 1px solid #999999;
+  border-radius: 0.5em;
+}
+
+.subcategory {
+  display: flex;
+  flex-direction: column;
+}
+.subcategoryTitle {
+  font-weight: 500;
+  color: #999999;
+  font-size: 0.8em;
+}
+
+.subcategoryInfo {
+  font-size: 0.9em;
+}
+.subcategoryPosition {
+  font-size: 0.8em;
+  background-color: #6293aa;
+  border-radius: 2em;
+  padding: 0.1em 1em;
+  margin: 0.3em 0;
+  text-align: center;
+  word-wrap: normal;
+  max-width: max-content;
+}
+.futureJobTitle {
+  grid-column: 1 / span 3;
+}
+.subcategoryFutureOne {
+  grid-row: 2 / 3;
+}
+
+.subcategoryFutureThree {
+  display: flex;
+  flex-direction: column;
+}
+
+.experiences {
+  display: flex;
+  grid-row: 2 / span 2;
+  grid-column: 2 / 3;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.6em;
+  gap: 0.5em;
+  border: 1px solid #999999;
+  border-radius: 0.5em;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  background-color: #1d1d1d;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: 1px solid #3d3d3d;
+}
+
+.experiencesTitle {
+  color: #458eee;
+}
+
+.experiencesName {
+  font-size: 0.9em;
+}
+
+.experiencesDate {
+  font-size: 0.8em;
+  margin: 0 0 0.5em 0;
+}
+
+.experiencesDescription {
+  font-size: 0.9em;
+  margin: 1em 0;
+}
+
+.experiencesExpertise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.experiencesSkill {
+  background-color: #80eba9;
+  color: #123f01;
+  padding: 0.2em 1em;
+  width: max-content;
+  border-radius: 1em;
+  font-size: 0.75em;
+}
+
+.skills {
+  display: flex;
+  grid-row: 3 / span 1;
+  grid-column: 1 / 2;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.6em;
+  gap: 0.5em;
+  border: 1px solid #999999;
+  border-radius: 0.5em;
+}
+
+.containerSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.skill {
+  background-color: #f8dea6;
+  color: #3f2201;
+  padding: 0.2em 1em;
+  width: max-content;
+  border-radius: 1em;
+  font-size: 0.75em;
+}

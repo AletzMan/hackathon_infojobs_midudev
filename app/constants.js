@@ -21,7 +21,7 @@ export const links = [
     {
         id: 3,
         name: "CV",
-        route: "/posts",
+        route: "/dashboard",
         icon: CVIcon
     },
 ];
@@ -53,7 +53,138 @@ function CVIcon() {
 
 export function Menu() {
     return (
-        <svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.5 5a1 1 0 0 0 0 2h17a1 1 0 1 0 0-2h-17Zm-1 7a1 1 0 0 1 1-1h17a1 1 0 1 1 0 2h-17a1 1 0 0 1-1-1Zm0 6.001a1 1 0 0 1 1-1h17a1 1 0 1 1 0 2h-17a1 1 0 0 1-1-1Z" clip-rule="evenodd" /></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 5a1 1 0 0 0 0 2h17a1 1 0 1 0 0-2h-17Zm-1 7a1 1 0 0 1 1-1h17a1 1 0 1 1 0 2h-17a1 1 0 0 1-1-1Zm0 6.001a1 1 0 0 1 1-1h17a1 1 0 1 1 0 2h-17a1 1 0 0 1-1-1Z" /></svg>
+    )
+}
+
+export function FavIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 30 30">
+            <path strokeWidth={0.5} stroke="#59a0c3" fill="#59a0c3" d="M22.45 6a5.47 5.47 0 0 1 3.91 1.64a5.7 5.7 0 0 1 0 8L16 26.13L5.64 15.64a5.7 5.7 0 0 1 0-8a5.48 5.48 0 0 1 7.82 0l2.54 2.6l2.53-2.58A5.44 5.44 0 0 1 22.45 6m0-2a7.47 7.47 0 0 0-5.34 2.24L16 7.36l-1.11-1.12a7.49 7.49 0 0 0-10.68 0a7.72 7.72 0 0 0 0 10.82L16 29l11.79-11.94a7.72 7.72 0 0 0 0-10.82A7.49 7.49 0 0 0 22.45 4Z" />
+        </svg >
+    )
+}
+export function ShareIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 22 19">
+            <path fill="#59a0c3" d="M15.815 0C17.575 0 19 1.45 19 3.235s-1.424 3.234-3.185 3.234a3.155 3.155 0 0 1-2.378-1.084l-6.284 3.44c.14.364.216.76.216 1.175c0 .542-.13 1.052-.363 1.501l6.008 3.725a3.177 3.177 0 0 1 2.801-1.695c1.76 0 3.185 1.45 3.185 3.234C19 18.55 17.576 20 15.815 20c-1.76 0-3.184-1.45-3.184-3.235l.003-.138l-6.53-4.046a3.138 3.138 0 0 1-1.92.654C2.425 13.235 1 11.785 1 10s1.424-3.235 3.185-3.235c.852 0 1.626.34 2.197.893l6.382-3.493a3.282 3.282 0 0 1-.133-.93C12.63 1.45 14.055 0 15.815 0Zm0 14.926c-.992 0-1.8.822-1.8 1.84c0 1.017.808 1.839 1.8 1.839c.993 0 1.8-.822 1.8-1.84c0-1.017-.807-1.839-1.8-1.839ZM4.185 8.161c-.993 0-1.8.822-1.8 1.839s.807 1.84 1.8 1.84c.992 0 1.8-.823 1.8-1.84c0-1.017-.808-1.84-1.8-1.84Zm11.63-6.766c-.992 0-1.8.822-1.8 1.84c0 1.017.808 1.839 1.8 1.839c.993 0 1.8-.822 1.8-1.84c0-1.017-.807-1.839-1.8-1.839Z" />
+        </svg>
+    )
+}
+export function OptionsIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 22">
+            <path fill="#59a0c3" d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0-4 0zm0-6a2 2 0 1 0 4 0a2 2 0 0 0-4 0zm0 12a2 2 0 1 0 4 0a2 2 0 0 0-4 0z" />
+        </svg>
+    )
+}
+export function ArrowPrevIcon() {
+    return (
+        <svg width="25" height="31" viewBox="0 0 24 24" style={{ transform: "rotate(180deg)" }}>
+            <path fill="none" stroke="#4396bf99" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="m15 6l-6 6l6 6" />
+        </svg>
+    )
+}
+export function ArrowIcon() {
+    return (
+        <svg width="25" height="31" viewBox="0 0 24 24" >
+            <path fill="none" stroke="#4396bf99" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="m15 6l-6 6l6 6" />
+        </svg>
+    )
+}
+export function ArrowFirstIcon() {
+    return (
+        <svg width="25" height="32" viewBox="0 0 24 24" style={{ transform: "rotate(180deg)" }}
+        ><path fill="#4396bf99" stroke="#4396bf" strokeWidth="0" d="M6.29 8.11L10.18 12l-3.89 3.89A.996.996 0 1 0 7.7 17.3l4.59-4.59a.996.996 0 0 0 0-1.41L7.7 6.7a.996.996 0 0 0-1.41 0c-.38.39-.38 1.03 0 1.41zM17 6c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1z" />
+        </svg>
+    )
+}
+export function ArrowLastIcon() {
+    return (
+        <svg width="25" height="32" viewBox="0 0 24 24"
+        ><path fill="#4396bf99" stroke="#4396bf" strokeWidth="0" d="M6.29 8.11L10.18 12l-3.89 3.89A.996.996 0 1 0 7.7 17.3l4.59-4.59a.996.996 0 0 0 0-1.41L7.7 6.7a.996.996 0 0 0-1.41 0c-.38.39-.38 1.03 0 1.41zM17 6c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1z" />
+        </svg>
+    )
+}
+export function EMailIcon() {
+    return (
+        <svg width="32" height="32" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M5 5h13a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3m0 1c-.5 0-.94.17-1.28.47l7.78 5.03l7.78-5.03C18.94 6.17 18.5 6 18 6H5m6.5 6.71L3.13 7.28C3.05 7.5 3 7.75 3 8v9a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V8c0-.25-.05-.5-.13-.72l-8.37 5.43Z" />
+        </svg>
+    )
+}
+export function LocationIcon() {
+    return (
+        <svg width="32" height="32" viewBox="0 0 50 50">
+            <path fill="currentColor" d="m25 42.5l-.8-.9C23.7 41.1 12 27.3 12 19c0-7.2 5.8-13 13-13s13 5.8 13 13c0 8.3-11.7 22.1-12.2 22.7l-.8.8zM25 8c-6.1 0-11 4.9-11 11c0 6.4 8.4 17.2 11 20.4c2.6-3.2 11-14 11-20.4c0-6.1-4.9-11-11-11z" />
+            <path fill="currentColor" d="M25 24c-2.8 0-5-2.2-5-5s2.2-5 5-5s5 2.2 5 5s-2.2 5-5 5zm0-8c-1.7 0-3 1.3-3 3s1.3 3 3 3s3-1.3 3-3s-1.3-3-3-3z" />
+        </svg>
+    )
+}
+export function PhoneIcon() {
+    return (
+        <svg width="32" height="32" viewBox="0 0 256 256">
+            <path fill="currentColor" d="M156.14 39a4 4 0 0 1 4.86-2.87A82.24 82.24 0 0 1 219.86 95a4 4 0 0 1-2.86 4.86a3.65 3.65 0 0 1-1 .14a4 4 0 0 1-3.86-3A74.35 74.35 0 0 0 159 43.86a4 4 0 0 1-2.86-4.86ZM151 75.86C166 79.89 176.11 90 180.14 105a4 4 0 0 0 3.86 3a3.65 3.65 0 0 0 1-.14a4 4 0 0 0 2.83-4.89c-4.8-18-16.85-30-34.83-34.84a4 4 0 0 0-2 7.73Zm76.94 98.72A52.25 52.25 0 0 1 176 220C98.8 220 36 157.2 36 80a52.25 52.25 0 0 1 45.42-51.91a12 12 0 0 1 12.48 7.19L115 82.42a12 12 0 0 1-1 11.36c-.09.13-.18.26-.28.38l-21.2 25.21a3.9 3.9 0 0 0-.18 3.69c7.84 16.05 24.65 32.73 40.89 40.57a3.93 3.93 0 0 0 3.7-.21l24.87-21.12l.38-.29a12 12 0 0 1 11.38-1l47.22 21.16a12 12 0 0 1 7.13 12.41Zm-10.35-5.12l-47.24-21.16a3.93 3.93 0 0 0-3.57.27L142 169.69l-.37.28a12 12 0 0 1-11.79.87c-18-8.69-35.91-26.48-44.6-44.27a12 12 0 0 1 .76-11.75c.09-.14.19-.26.29-.39l21.19-25.2a4 4 0 0 0 .23-3.6L86.57 38.49A4 4 0 0 0 82.9 36a3.87 3.87 0 0 0-.48 0A44.23 44.23 0 0 0 44 80c0 72.78 59.22 132 132 132a44.23 44.23 0 0 0 44-38.42a4 4 0 0 0-2.44-4.12Z" />
+        </svg>
+    )
+}
+
+export function CopyLinkIcon() {
+    return (
+        <svg width="20" height="20" viewBox="0 0 24 24">
+            <g fill="currentColor">
+                <path d="M15.729 3.884c1.434-1.44 3.532-1.47 4.693-.304c1.164 1.168 1.133 3.28-.303 4.72l-2.423 2.433a.75.75 0 0 0 1.062 1.059l2.424-2.433c1.911-1.919 2.151-4.982.303-6.838c-1.85-1.857-4.907-1.615-6.82.304L9.819 7.692c-1.911 1.919-2.151 4.982-.303 6.837a.75.75 0 1 0 1.063-1.058c-1.164-1.168-1.132-3.28.303-4.72l4.848-4.867Z" />
+                <path d="M14.485 9.47a.75.75 0 0 0-1.063 1.06c1.164 1.168 1.133 3.279-.303 4.72l-4.847 4.866c-1.435 1.44-3.533 1.47-4.694.304c-1.164-1.168-1.132-3.28.303-4.72l2.424-2.433a.75.75 0 0 0-1.063-1.059l-2.424 2.433c-1.911 1.92-2.151 4.982-.303 6.838c1.85 1.858 4.907 1.615 6.82-.304l4.847-4.867c1.911-1.918 2.151-4.982.303-6.837Z" />
+            </g>
+        </svg>
+    )
+}
+
+export function WhatsAppIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M17.6 6.32A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.88 11.89L4 20l4.2-1.1a7.93 7.93 0 0 0 3.79 1a8 8 0 0 0 8-7.93a8 8 0 0 0-2.39-5.65ZM12 18.53a6.58 6.58 0 0 1-3.36-.92l-.24-.15l-2.49.66l.66-2.43l-.16-.25a6.6 6.6 0 0 1 10.25-8.17a6.65 6.65 0 0 1 2 4.66a6.66 6.66 0 0 1-6.66 6.6Zm3.61-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1a9 9 0 0 1-.63.77c-.11.14-.23.15-.43 0a5.33 5.33 0 0 1-2.69-2.35c-.21-.35.2-.33.58-1.08a.38.38 0 0 0 0-.35c0-.1-.45-1.08-.61-1.47s-.32-.33-.45-.34h-.39a.71.71 0 0 0-.53.25A2.19 2.19 0 0 0 8 10.17a3.82 3.82 0 0 0 .81 2.05a8.89 8.89 0 0 0 3.39 3a3.85 3.85 0 0 0 2.38.5a2 2 0 0 0 1.33-.94a1.62 1.62 0 0 0 .12-.94c-.09-.1-.22-.15-.42-.25Z" />
+        </svg>
+    )
+}
+
+export function TwitterIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M22.5 3.589a.5.5 0 0 0-.755-.43a7.938 7.938 0 0 1-2.266.912a4.662 4.662 0 0 0-3.238-1.29a4.731 4.731 0 0 0-4.707 5.135a11.527 11.527 0 0 1-7.717-4.18a.5.5 0 0 0-.82.067a4.777 4.777 0 0 0-.633 2.377a4.724 4.724 0 0 0 .762 2.579l-.06-.033a.504.504 0 0 0-.497.03a.543.543 0 0 0-.247.458c-.004.118.003.237.022.353a4.692 4.692 0 0 0 1.818 3.383a.5.5 0 0 0-.335.632a4.704 4.704 0 0 0 3.088 3.057a7.998 7.998 0 0 1-4.854.963a.5.5 0 0 0-.332.917A12.442 12.442 0 0 0 8.468 20.5a12.299 12.299 0 0 0 11.986-9.006c.339-1.137.512-2.318.514-3.505c0-.12 0-.245-.003-.372A5.37 5.37 0 0 0 22.5 3.59zm-2.424 3.533a.498.498 0 0 0-.117.349a11.366 11.366 0 0 1-.464 3.741A11.174 11.174 0 0 1 8.468 19.5a11.45 11.45 0 0 1-4.443-.897a8.867 8.867 0 0 0 4.525-1.86a.5.5 0 0 0-.3-.893A3.71 3.71 0 0 1 5.1 14c.425.001.847-.057 1.254-.174a.5.5 0 0 0-.042-.97a3.706 3.706 0 0 1-2.905-2.898a4.72 4.72 0 0 0 1.313.228a.473.473 0 0 0 .492-.35a.5.5 0 0 0-.2-.567a3.696 3.696 0 0 1-1.648-3.09c0-.413.067-.823.2-1.213a12.515 12.515 0 0 0 8.54 3.995a.45.45 0 0 0 .409-.179a.5.5 0 0 0 .103-.434a3.642 3.642 0 0 1-.1-.842A3.73 3.73 0 0 1 16.24 3.78a3.68 3.68 0 0 1 2.71 1.179a.499.499 0 0 0 .462.148a8.94 8.94 0 0 0 2.055-.671a4.92 4.92 0 0 1-1.392 2.686z" />
+        </svg>
+    )
+}
+
+export function ReportIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M8 3v2m0 16v-8m0-8h12l-2 4l2 4H8m0-8v8" />
+        </svg>
+    )
+}
+
+export function PrintIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M7 9.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3zm0 2a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1zM19.5 6H18V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5V6H4.5A2.502 2.502 0 0 0 2 8.5V15a3.003 3.003 0 0 0 3 3h1v3.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V18h1a3.003 3.003 0 0 0 3-3V8.5A2.502 2.502 0 0 0 19.5 6zM7 3h10v3H7V3zm10 18H7v-6h10v6zm4-6a2.003 2.003 0 0 1-2 2h-1v-2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5V17H5a2.003 2.003 0 0 1-2-2V8.5A1.5 1.5 0 0 1 4.5 7h15A1.5 1.5 0 0 1 21 8.5V15z" />
+        </svg>
+    )
+}
+
+export function ChatBotIcon({ className }) {
+    return (
+        <svg className={className} width="27" height="27" viewBox="0 0 2048 2048" style={{ marginRight: '1em' }}>
+            <path fill="currentColor" d="M768 1024H640V896h128v128zm512 0h-128V896h128v128zm512-128v256h-128v320q0 40-15 75t-41 61t-61 41t-75 15h-264l-440 376v-376H448q-40 0-75-15t-61-41t-41-61t-15-75v-320H128V896h128V704q0-40 15-75t41-61t61-41t75-15h448V303q-29-17-46-47t-18-64q0-27 10-50t27-40t41-28t50-10q27 0 50 10t40 27t28 41t10 50q0 34-17 64t-47 47v209h448q40 0 75 15t61 41t41 61t15 75v192h128zm-256-192q0-26-19-45t-45-19H448q-26 0-45 19t-19 45v768q0 26 19 45t45 19h448v226l264-226h312q26 0 45-19t19-45V704zm-851 462q55 55 126 84t149 30q78 0 149-29t126-85l90 91q-73 73-167 112t-198 39q-103 0-197-39t-168-112l90-91z" />
+        </svg>
+    )
+}
+
+export function SendMessageIcon({ className }) {
+    return (
+        <svg className={className} width="22" height="22" viewBox="0 0 28 28">
+            <path fill="currentColor" d="M3.79 2.625c-.963-.46-2.021.42-1.746 1.451l2.016 7.533a1 1 0 0 0 .824.732l9.884 1.412c.286.04.286.454 0 .495l-9.883 1.411a1 1 0 0 0-.824.732l-2.017 7.537c-.275 1.03.783 1.91 1.746 1.451L25.288 15.13c.949-.452.949-1.804 0-2.257L3.79 2.626Z" />
+        </svg>
     )
 }
 
@@ -246,7 +377,7 @@ export const provinces = [
     },
     {
         id: 35,
-        name: "Balears",
+        name: "Illes Balears",
         drawn: "m 329.49737,204.00734 0.8,2.25 0.81,0.2 0.63,1.49 1.16,0.67 1.2,-0.72 0.45,1.12 -0.43,0.51 -3.67,-1.36 -2.04,1.73 -0.17,-3.08 1.49,-0.76 -0.23,-2.05 z m 3.46,-12.88 0.78,1.02 1.42,0.08 -0.51,1.13 1.02,1.39 -1.14,0.45 -0.07,1.05 -1.47,0.24 -0.15,1.47 -1.6,1.29 -1.71,0.36 -0.47,2.9 -0.64,-0.49 -0.43,0.56 -0.82,-1.67 -0.76,0.58 -1.47,-0.9 -0.7,0.93 -0.77,-0.6 -0.34,-1.29 0.7,-1.41 -0.65,-0.76 0.44,-0.64 2.41,0.06 -0.71,-0.76 0.18,-1.4 2.11,-1.79 0.54,0.44 0.37,-0.66 0.88,0.07 0.23,-0.57 0.49,0.44 0.71,-0.89 1.08,0.16 1.05,-0.79 z m 51.55,-33.43 -0.36,0.78 -3.74,1.66 0.73,1.75 3.1,-1.29 -0.9,2.07 -1.66,0.18 0.57,2.19 3.52,1.96 2.34,-1.23 0.55,-1.17 2.61,1.78 0.89,-0.13 -0.29,1.05 0.83,0.24 -0.68,0.4 -0.61,2.86 -1.21,0.2 -0.38,1.41 0.59,0.57 -0.77,0.1 -2.52,3.05 -0.66,3.31 -1.31,2.15 -3.51,1.97 -1.37,1.71 -0.72,0.12 -1.09,-1.78 -0.85,-0.21 0.16,-0.83 -1.05,-1.06 -1.34,0.44 -0.98,-0.53 -2.91,0.12 -1.4,-1.74 0.15,-1.41 -0.76,-1.32 0.84,-1.37 -2.35,-1.96 -0.85,-0.21 -1.65,1.34 -1.57,0.28 -0.53,2.68 -0.97,-0.65 -0.53,0.31 -0.51,-2.78 -1.13,0.48 -0.19,-0.63 -0.77,0.73 -0.03,-0.53 -0.75,0.09 0.27,-0.48 -0.78,-0.83 0.49,-1.81 3.07,-1.66 1.98,-1.96 1.78,-0.6 2.67,-3.11 0.68,0.15 0.14,-0.79 2.42,-1.78 2.05,-0.24 3.28,-2.31 1.08,0.42 1.68,-1.12 2.48,0.22 1.31,-1.11 1.42,-0.14 z m 26.63,-5.13 0.57,0.24 0.14,1.62 0.64,-0.51 0.07,1.23 0.28,-1.65 0.57,-0.02 0.56,0.3 -0.37,1.14 0.7,0.41 0.24,-0.53 0.87,1.52 1.54,0.02 -0.47,1.31 0.8,0.5 0.92,2.82 -0.19,1.97 -0.72,0.82 -2.26,-0.56 -6.69,-4.24 -5.13,0.33 0.23,-2.8 -1.07,-0.25 -0.13,-0.61 0.97,-1.46 3.46,-0.45 1.36,0.47 1.48,-0.6 0.81,0.6 0.67,-0.34 0.15,-1.28 z"
     },
     {
@@ -331,3 +462,731 @@ export const provinces = [
         drawn: "m 77.72737,64.727342 2.47,1.82 2,-0.32 0.78,0.58 2.67,-0.01 0.88,0.88 2.13,-0.82 3.54,-0.19 0.58,1.18 2.5,1.23 1.6,-0.73 4.03,0.34 2.31,1.4 0.17,-0.75 1.12,0.05 0.43,-0.64 1.62,1.87 2.29,-1.04 0.82,0.93 2.04,-0.28 -0.31,-0.74 0.6,-0.16 1.47,1.53 -0.45,0.97 1.4,0.17 0.06,1.09 1.04,-0.53 0.29,-1.47 0.69,0.09 0,0 1.47,3.44 -0.37,1.2 1.43,0.7 0.22,-1.44 -0.5,-0.46 0.79,-0.7 0,0 1.39,-0.45 0,0 2.94,2.58 0.79,-0.11 -2.47,1.81 1.28,0.72 -1.1,3.65 1.3,0.14 0.23,0.58 -3.43,2.17 0.5,1.67 0.41,-0.37 0.11,1.2 0.92,0.73 -0.02,2.69 1.79,0.61 -0.69,1.09 1.97,1.88 -3.56,2.01 0.61,0.97 -0.44,1.21 0.97,0.47 -0.83,1.769998 1.32,4.13 -0.06,1.75 -1.43,1.31 0.27,0.63 1.31,-0.14 0,0 -0.28,2.28 -0.95,0.35 -0.86,-0.96 -1.33,-0.19 -0.23,-1.63 -2.12,0.3 -0.23,1.33 -0.03,-1.36 -2.45,-1.55 -0.7,0.6 -1.24,-0.49 -0.88,-1.27 -3.32,1.21 -4.07,-0.92 -0.72,0.83 0.25,1.62 -1.23,1.55 -0.8,-1.4 -1.31,0.78 0.4,-1.83 -1.63,-0.84 -2.22,1.25 -5.62,-3.28 -4.98,-0.94 0,0 1.29,-0.46 0.69,-1.73 1.09,-0.34 -0.27,-1.19 2.19,-0.04 -0.5,-0.969998 1.18,-1.02 -0.32,-0.59 3.57,-5.11 -0.24,-0.6 -2.64,-2.57 -1.84,-0.86 -3.13,-0.46 -1.64,1.13 -1.53,-1.17 -0.64,-2.37 1.64,-5.25 -1.71,-0.49 0.76,-2.3 -1.17,-1.1 -1.13,1.09 -2.41,0.26 -1.55,-0.42 -0.56,-1.66 -1.31,-0.35 -0.58,2.01 -3.41,-0.01 -0.5,-1.03 -0.79,-0.17 0,0 0.69,-2.23 -0.42,-1.15 -1.16,0.1 -0.64,-0.89 0.93,-0.39 0.41,-1.54 1.03,-0.34 0.39,-1.77 1.3,-0.71 0.44,-1.02 1.33,-0.58 1.73,0.52 -0.49,-0.95 z"
     },
 ];
+
+
+export const ArrayProvinces = [
+    {
+        "id": 28,
+        "value": "A Coruña",
+        "order": 1,
+        "key": "a-coruna",
+        "parent": 17
+    },
+    {
+        "id": 2,
+        "value": "Álava/Araba",
+        "order": 2,
+        "key": "alava-araba",
+        "parent": 17
+    },
+    {
+        "id": 3,
+        "value": "Albacete",
+        "order": 3,
+        "key": "albacete",
+        "parent": 17
+    },
+    {
+        "id": 4,
+        "value": "Alicante/Alacant",
+        "order": 4,
+        "key": "alicante-alacant",
+        "parent": 17
+    },
+    {
+        "id": 5,
+        "value": "Almería",
+        "order": 5,
+        "key": "almeria",
+        "parent": 17
+    },
+    {
+        "id": 6,
+        "value": "Asturias",
+        "order": 6,
+        "key": "asturias",
+        "parent": 17
+    },
+    {
+        "id": 7,
+        "value": "Ávila",
+        "order": 7,
+        "key": "avila",
+        "parent": 17
+    },
+    {
+        "id": 8,
+        "value": "Badajoz",
+        "order": 8,
+        "key": "badajoz",
+        "parent": 17
+    },
+    {
+        "id": 9,
+        "value": "Barcelona",
+        "order": 9,
+        "key": "barcelona",
+        "parent": 17
+    },
+    {
+        "id": 10,
+        "value": "Burgos",
+        "order": 10,
+        "key": "burgos",
+        "parent": 17
+    },
+    {
+        "id": 11,
+        "value": "Cáceres",
+        "order": 11,
+        "key": "caceres",
+        "parent": 17
+    },
+    {
+        "id": 12,
+        "value": "Cádiz",
+        "order": 12,
+        "key": "cadiz",
+        "parent": 17
+    },
+    {
+        "id": 13,
+        "value": "Cantabria",
+        "order": 13,
+        "key": "cantabria",
+        "parent": 17
+    },
+    {
+        "id": 14,
+        "value": "Castellón/Castelló",
+        "order": 14,
+        "key": "castellon-castello",
+        "parent": 17
+    },
+    {
+        "id": 15,
+        "value": "Ceuta",
+        "order": 15,
+        "key": "ceuta",
+        "parent": 17
+    },
+    {
+        "id": 16,
+        "value": "Ciudad Real",
+        "order": 16,
+        "key": "ciudad-real",
+        "parent": 17
+    },
+    {
+        "id": 17,
+        "value": "Córdoba",
+        "order": 17,
+        "key": "cordoba",
+        "parent": 17
+    },
+    {
+        "id": 18,
+        "value": "Cuenca",
+        "order": 18,
+        "key": "cuenca",
+        "parent": 17
+    },
+    {
+        "id": 19,
+        "value": "Girona",
+        "order": 19,
+        "key": "girona",
+        "parent": 17
+    },
+    {
+        "id": 21,
+        "value": "Granada",
+        "order": 20,
+        "key": "granada",
+        "parent": 17
+    },
+    {
+        "id": 22,
+        "value": "Guadalajara",
+        "order": 21,
+        "key": "guadalajara",
+        "parent": 17
+    },
+    {
+        "id": 23,
+        "value": "Guipúzcoa/Gipuzkoa",
+        "order": 22,
+        "key": "guipuzcoa-gipuzkoa",
+        "parent": 17
+    },
+    {
+        "id": 24,
+        "value": "Huelva",
+        "order": 23,
+        "key": "huelva",
+        "parent": 17
+    },
+    {
+        "id": 25,
+        "value": "Huesca",
+        "order": 24,
+        "key": "huesca",
+        "parent": 17
+    },
+    {
+        "id": 26,
+        "value": "Islas Baleares/Illes Balears",
+        "order": 25,
+        "key": "illes-balears",
+        "parent": 17
+    },
+    {
+        "id": 27,
+        "value": "Jaén",
+        "order": 26,
+        "key": "jaen",
+        "parent": 17
+    },
+    {
+        "id": 29,
+        "value": "La Rioja",
+        "order": 27,
+        "key": "la-rioja",
+        "parent": 17
+    },
+    {
+        "id": 20,
+        "value": "Las Palmas",
+        "order": 28,
+        "key": "las-palmas",
+        "parent": 17
+    },
+    {
+        "id": 30,
+        "value": "León",
+        "order": 29,
+        "key": "leon",
+        "parent": 17
+    },
+    {
+        "id": 31,
+        "value": "Lleida",
+        "order": 30,
+        "key": "lleida",
+        "parent": 17
+    },
+    {
+        "id": 32,
+        "value": "Lugo",
+        "order": 31,
+        "key": "lugo",
+        "parent": 17
+    },
+    {
+        "id": 33,
+        "value": "Madrid",
+        "order": 32,
+        "key": "madrid",
+        "parent": 17
+    },
+    {
+        "id": 34,
+        "value": "Málaga",
+        "order": 33,
+        "key": "malaga",
+        "parent": 17
+    },
+    {
+        "id": 35,
+        "value": "Melilla",
+        "order": 34,
+        "key": "melilla",
+        "parent": 17
+    },
+    {
+        "id": 36,
+        "value": "Murcia",
+        "order": 35,
+        "key": "murcia",
+        "parent": 17
+    },
+    {
+        "id": 37,
+        "value": "Navarra",
+        "order": 36,
+        "key": "navarra",
+        "parent": 17
+    },
+    {
+        "id": 38,
+        "value": "Ourense",
+        "order": 37,
+        "key": "ourense",
+        "parent": 17
+    },
+    {
+        "id": 39,
+        "value": "Palencia",
+        "order": 38,
+        "key": "palencia",
+        "parent": 17
+    },
+    {
+        "id": 40,
+        "value": "Pontevedra",
+        "order": 39,
+        "key": "pontevedra",
+        "parent": 17
+    },
+    {
+        "id": 41,
+        "value": "Salamanca",
+        "order": 40,
+        "key": "salamanca",
+        "parent": 17
+    },
+    {
+        "id": 46,
+        "value": "Santa Cruz de Tenerife",
+        "order": 41,
+        "key": "santa-cruz-de-tenerife",
+        "parent": 17
+    },
+    {
+        "id": 42,
+        "value": "Segovia",
+        "order": 42,
+        "key": "segovia",
+        "parent": 17
+    },
+    {
+        "id": 43,
+        "value": "Sevilla",
+        "order": 43,
+        "key": "sevilla",
+        "parent": 17
+    },
+    {
+        "id": 44,
+        "value": "Soria",
+        "order": 44,
+        "key": "soria",
+        "parent": 17
+    },
+    {
+        "id": 45,
+        "value": "Tarragona",
+        "order": 45,
+        "key": "tarragona",
+        "parent": 17
+    },
+    {
+        "id": 47,
+        "value": "Teruel",
+        "order": 46,
+        "key": "teruel",
+        "parent": 17
+    },
+    {
+        "id": 48,
+        "value": "Toledo",
+        "order": 47,
+        "key": "toledo",
+        "parent": 17
+    },
+    {
+        "id": 49,
+        "value": "Valencia/Val??ncia",
+        "order": 48,
+        "key": "valencia-valencia",
+        "parent": 17
+    },
+    {
+        "id": 50,
+        "value": "Valladolid",
+        "order": 49,
+        "key": "valladolid",
+        "parent": 17
+    },
+    {
+        "id": 51,
+        "value": "Vizcaya/Bizkaia",
+        "order": 50,
+        "key": "vizcaya-bizkaia",
+        "parent": 17
+    },
+    {
+        "id": 52,
+        "value": "Zamora",
+        "order": 51,
+        "key": "zamora",
+        "parent": 17
+    },
+    {
+        "id": 53,
+        "value": "Zaragoza",
+        "order": 52,
+        "key": "zaragoza",
+        "parent": 17
+    }
+]
+
+export const ArrayCategory = [
+    {
+        "id": 20,
+        "value": "Administración Pública",
+        "order": 1,
+        "key": "administracion-publica"
+    },
+    {
+        "id": 10,
+        "value": "Administración de empresas",
+        "order": 2,
+        "key": "administracion-empresas"
+    },
+    {
+        "id": 170,
+        "value": "Atención a clientes",
+        "order": 3,
+        "key": "atencion-a-cliente"
+    },
+    {
+        "id": 30,
+        "value": "Calidad, producción e I+D",
+        "order": 4,
+        "key": "calidad-produccion-id"
+    },
+    {
+        "id": 190,
+        "value": "Comercial y ventas",
+        "order": 5,
+        "key": "comercial-ventas"
+    },
+    {
+        "id": 40,
+        "value": "Compras, logística y almacén",
+        "order": 6,
+        "key": "compras-logistica-almacen"
+    },
+    {
+        "id": 50,
+        "value": "Diseño y artes gráficas",
+        "order": 7,
+        "key": "diseno-artes-graficas"
+    },
+    {
+        "id": 60,
+        "value": "Educación y formación",
+        "order": 8,
+        "key": "educacion-formacion"
+    },
+    {
+        "id": 70,
+        "value": "Finanzas y banca",
+        "order": 9,
+        "key": "finanzas-banca"
+    },
+    {
+        "id": 150,
+        "value": "Informática y telecomunicaciones",
+        "order": 10,
+        "key": "informatica-telecomunicaciones"
+    },
+    {
+        "id": 80,
+        "value": "Ingenieros y técnicos",
+        "order": 11,
+        "key": "ingenieros-tecnicos"
+    },
+    {
+        "id": 90,
+        "value": "Inmobiliario y construcción",
+        "order": 12,
+        "key": "inmobiliario-construccion"
+    },
+    {
+        "id": 100,
+        "value": "Legal",
+        "order": 13,
+        "key": "legal"
+    },
+    {
+        "id": 110,
+        "value": "Marketing y comunicación",
+        "order": 14,
+        "key": "marketing-comunicacion"
+    },
+    {
+        "id": 120,
+        "value": "Profesiones, artes y oficios",
+        "order": 15,
+        "key": "profesiones-artes-oficios"
+    },
+    {
+        "id": 130,
+        "value": "Recursos humanos",
+        "order": 16,
+        "key": "recursos-humanos"
+    },
+    {
+        "id": 140,
+        "value": "Sanidad y salud",
+        "order": 17,
+        "key": "sanidad-salud"
+    },
+    {
+        "id": 210,
+        "value": "Sector Farmacéutico",
+        "order": 18,
+        "key": "sector-farmaceutico"
+    },
+    {
+        "id": 160,
+        "value": "Turismo y restauración",
+        "order": 19,
+        "key": "turismo-restauracion"
+    },
+    {
+        "id": 200,
+        "value": "Ventas al detalle",
+        "order": 20,
+        "key": "venta-detalle"
+    },
+    {
+        "id": 180,
+        "value": "Otros",
+        "order": 21,
+        "key": "otros"
+    }
+]
+
+export const ArrayStudies = [
+    {
+        "id": 10,
+        "value": "Sin estudios",
+        "order": 5,
+        "key": "sin-estudios"
+    },
+    {
+        "id": 20,
+        "value": "Educación Secundaria Obligatoria",
+        "order": 10,
+        "key": "educacion-secundaria-obligatoria"
+    },
+    {
+        "id": 50,
+        "value": "Bachillerato",
+        "order": 20,
+        "key": "bachillerato"
+    },
+    {
+        "id": 35,
+        "value": "Ciclo Formativo Grado Medio",
+        "order": 30,
+        "key": "ciclo-formativo-grado-medio"
+    },
+    {
+        "id": 60,
+        "value": "Ciclo Formativo Grado Superior",
+        "order": 40,
+        "key": "ciclo-formativo-grado-superior"
+    },
+    {
+        "id": 23,
+        "value": "Enseñanzas artísticas (regladas)",
+        "order": 50,
+        "key": "ensenanzas-artisticas-regladas"
+    },
+    {
+        "id": 27,
+        "value": "Enseñanzas deportivas (regladas)",
+        "order": 60,
+        "key": "ensenanzas-deportivas-regladas"
+    },
+    {
+        "id": 125,
+        "value": "Grado",
+        "order": 70,
+        "key": "grado"
+    },
+    {
+        "id": 140,
+        "value": "Licenciatura",
+        "order": 80,
+        "key": "licenciado"
+    },
+    {
+        "id": 110,
+        "value": "Diplomatura",
+        "order": 90,
+        "key": "diplomado"
+    },
+    {
+        "id": 120,
+        "value": "Ingeniería Técnica",
+        "order": 100,
+        "key": "ingeniero-tecnico"
+    },
+    {
+        "id": 130,
+        "value": "Ingeniería Superior",
+        "order": 110,
+        "key": "ingeniero-superior"
+    },
+    {
+        "id": 143,
+        "value": "Postgrado",
+        "order": 120,
+        "key": "postgrado"
+    },
+    {
+        "id": 147,
+        "value": "Máster",
+        "order": 130,
+        "key": "master"
+    },
+    {
+        "id": 150,
+        "value": "Doctorado",
+        "order": 140,
+        "key": "doctorado"
+    },
+    {
+        "id": 160,
+        "value": "Otros títulos, certificaciones y carnés",
+        "order": 150,
+        "key": "otros-titulos-certificaciones-y-carnes"
+    },
+    {
+        "id": 170,
+        "value": "Otros cursos y formación no reglada",
+        "order": 160,
+        "key": "otros-cursos-y-formacion-no-reglada"
+    },
+    {
+        "id": 30,
+        "value": "Formación Profesional Grado Medio",
+        "order": 170,
+        "key": "formacion-profesional-grado-medio"
+    },
+    {
+        "id": 55,
+        "value": "Formación Profesional Grado Superior",
+        "order": 180,
+        "key": "formacion-profesional-grado-superior"
+    }
+]
+
+export const ArrayWorkDay = [
+    {
+        "id": 1,
+        "value": "Completa",
+        "order": 2,
+        "key": "completa"
+    },
+    {
+        "id": 10,
+        "value": "Indiferente",
+        "order": 3,
+        "key": "indiferente"
+    },
+    {
+        "id": 2,
+        "value": "Parcial - Mañana",
+        "order": 4,
+        "key": "parcial-manana"
+    },
+    {
+        "id": 3,
+        "value": "Parcial - Tarde",
+        "order": 5,
+        "key": "parcial-tarde"
+    },
+    {
+        "id": 4,
+        "value": "Parcial - Noche",
+        "order": 6,
+        "key": "parcial-noche"
+    },
+    {
+        "id": 5,
+        "value": "Parcial - Indiferente",
+        "order": 7,
+        "key": "parcial-indiferente"
+    },
+    {
+        "id": 6,
+        "value": "Intensiva - Mañana",
+        "order": 8,
+        "key": "intensiva-manana"
+    },
+    {
+        "id": 7,
+        "value": "Intensiva - Tarde",
+        "order": 9,
+        "key": "intensiva-tarde"
+    },
+    {
+        "id": 8,
+        "value": "Intensiva - Noche",
+        "order": 10,
+        "key": "intensiva-noche"
+    },
+    {
+        "id": 9,
+        "value": "Intensiva - Indiferente",
+        "order": 11,
+        "key": "intensiva-indiferente"
+    }
+]
+
+export const ArrayContractType = [
+    {
+        "id": 10,
+        "value": "Autónomo",
+        "order": 15,
+        "key": "autonomo"
+    },
+    {
+        "id": 8,
+        "value": "De duración determinada",
+        "order": 20,
+        "key": "de-duracion-determinada"
+    },
+    {
+        "id": 6,
+        "value": "De relevo",
+        "order": 30,
+        "key": "de-relevo"
+    },
+    {
+        "id": 9,
+        "value": "Fijo discontinuo",
+        "order": 40,
+        "key": "fijo-discontinuo"
+    },
+    {
+        "id": 3,
+        "value": "Formativo",
+        "order": 50,
+        "key": "formativo"
+    },
+    {
+        "id": 1,
+        "value": "Indefinido",
+        "order": 60,
+        "key": "indefinido"
+    },
+    {
+        "id": 4,
+        "value": "A tiempo parcial",
+        "order": 65,
+        "key": "a-tiempo-parcial"
+    },
+    {
+        "id": 5,
+        "value": "Otros contratos",
+        "order": 70,
+        "key": "otros-contratos"
+    }
+]
