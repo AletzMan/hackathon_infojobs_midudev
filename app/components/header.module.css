@@ -1,4 +1,7 @@
 .header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 .nav {
@@ -28,4 +31,21 @@
 
 .link:hover {
   opacity: 0.5;
+}
+.logo,
+.logosmall {
+  align-self: center;
+  justify-self: center;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .logosmall {
+    display: none;
+  }
 }

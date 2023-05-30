@@ -1,0 +1,99 @@
+.conversation {
+  display: flex;
+  flex-direction: column;
+  margin: 5.5em 0 2em 0;
+  color: #0f0f0f;
+}
+
+.containerBotChat {
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  word-wrap: break-word;
+  margin: 0.35em 0;
+}
+
+.bot {
+  font-size: 0.85em;
+  background-color: #167db7;
+  padding: 0.5em 1em;
+  border-radius: 1em 1em 1em 0;
+  color: #f0eded;
+  width: max-content;
+  max-width: 16.5em;
+  align-self: flex-end;
+  justify-self: flex-start;
+}
+.containerBotChatIcon {
+  color: #167db7;
+  background-color: #cac6c6;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.4em 0.45em;
+  border-radius: 2em 2em 0 2em;
+  margin: 0 0.5em 0 0;
+  align-self: flex-end;
+}
+
+.containerUserChat {
+  display: grid;
+  grid-template-columns: 1fr 3em;
+  margin: 0.35em 0;
+  width: 100%;
+}
+
+.user {
+  font-size: 0.85em;
+  background-color: #83c4e9;
+  padding: 0.5em 1em;
+  border-radius: 1em 1em 0 1em;
+  color: #0f084e;
+  text-align: left;
+  width: max-content;
+  max-width: 16.5em;
+  align-self: flex-end;
+  justify-self: end;
+}
+
+.containerUserChatIcon {
+  color: #167db7;
+  background-color: #cac6c6;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.4em 0.45em;
+  border-radius: 2em 2em 2em 0;
+  margin: 0 0 0 0.5em;
+  align-self: flex-end;
+}
+
+.inputContainer {
+  position: fixed;
+  bottom: 0.5em;
+}
+
+.input {
+  width: 25.4em;
+  padding: 0.65em 3.1em 0.65em 1.5em;
+  border-radius: 2em;
+  background-color: #e2dfdf;
+  border: 1px solid #167db765;
+  color: #0f0f0f;
+}
+
+.inputSend {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.1em;
+  background-color: transparent;
+  border: none;
+  border-radius: 1em;
+  padding: 0.15em 0.2em 0.15em 0.25em;
+  width: 2.2em;
+  height: 2.2em;
+}
+.inputSendIcon {
+  cursor: pointer;
+  color: #167db7;
+}
+.inputSendIcon:hover {
+  opacity: 0.6;
+}
