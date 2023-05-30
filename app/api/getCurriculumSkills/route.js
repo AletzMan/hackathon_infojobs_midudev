@@ -14,7 +14,7 @@ export async function GET(request) {
             'Content-Type': 'application/json',
             Authorization: `Basic ${infojobsToken}, Bearer ${code}`
         },
-    });
+    })
     const skills = await res.json()
 
     return NextResponse.json({ skills })
