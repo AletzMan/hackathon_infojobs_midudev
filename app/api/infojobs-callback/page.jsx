@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 
 export default function InfoJobsCallback() {
   const router = useRouter()
-  const { code } = router.query // Obtiene el código de verificación de los parámetros de consulta
+  const { code } = router.query || {} // Obtiene el código de verificación de los parámetros de consulta
   console.log(code)
 
   useEffect(() => {
