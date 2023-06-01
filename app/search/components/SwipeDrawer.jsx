@@ -1,4 +1,3 @@
-import * as React from "react"
 import PropTypes from "prop-types"
 import { Global } from "@emotion/react"
 import { styled } from "@mui/material/styles"
@@ -11,6 +10,7 @@ import Typography from "@mui/material/Typography"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import { OfferView } from "./OfferView"
 import styles from "./offers.module.css"
+import { useState } from "react"
 const drawerBleeding = 10
 
 const Root = styled("div")(({ theme }) => ({
@@ -35,7 +35,7 @@ const Puller = styled(Box)(({ theme }) => ({
 
 function SwipeableEdgeDrawer(props) {
   const { window } = props
-  const [open, setOpen] = React.useState(props.openDescription)
+  const [open, setOpen] = useState(props.openDescription)
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen)

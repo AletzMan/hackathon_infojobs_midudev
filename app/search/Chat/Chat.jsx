@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import PropTypes from "prop-types"
 import { Global } from "@emotion/react"
 import { styled } from "@mui/material/styles"
@@ -16,6 +15,7 @@ import { ChatBotIcon } from "@/app/constants"
 import { ConversationChat } from "./ConversationChat"
 import SwipeableEdgeDrawer from "../components/SwipeDrawer"
 import ModalView from "../components/ModalView"
+import { useRef, useState } from "react"
 
 const drawerBleeding = 0
 
@@ -55,11 +55,11 @@ const thumbStyles = {
 
 export function ChatDrawer(props) {
   const { window } = props
-  const [open, setOpen] = React.useState(false)
-  const [messageState, setMessageState] = React.useState("")
-  const chatRef = React.useRef(null)
-  const [selectedOfferId, setSelectedOfferId] = React.useState(null)
-  const [openOffer, setOpenOffer] = React.useState(false)
+  const [open, setOpen] = useState(false)
+  const [messageState, setMessageState] = useState("")
+  const chatRef = useRef(null)
+  const [selectedOfferId, setSelectedOfferId] = useState(null)
+  const [openOffer, setOpenOffer] = useState(false)
 
   React.useEffect(() => {
     if (chatRef) {
