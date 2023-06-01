@@ -13,7 +13,7 @@ const authorizationUrl = `https://www.infojobs.net/api/oauth/user-authorize/inde
 
 export function LoginSection() {
   const session =
-    window && window.sessionStorage
+    typeof window !== "undefined"
       ? JSON.parse(sessionStorage?.getItem("accessToken"))
       : null
 
