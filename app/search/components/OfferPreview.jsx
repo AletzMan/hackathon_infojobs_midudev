@@ -1,4 +1,6 @@
 "use client"
+
+import React from "react"
 import { GetElapsedTime } from "@/app/utilities/functions"
 import Image from "next/image"
 import styles from "./offers.module.css"

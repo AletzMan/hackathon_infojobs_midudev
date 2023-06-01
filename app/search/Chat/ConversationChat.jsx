@@ -2,7 +2,7 @@
 
 import { ChatBotIcon, SendMessageIcon } from "@/app/constants"
 import { GetOffers } from "@/app/services/infojobsAPI"
-import { GetKeyWords, GetOpenAIResponse } from "@/app/services/openAI"
+import { GetKeyWords } from "@/app/services/openAI"
 import {
   CapitalizeFirstLetter,
   GetInitialCapitalLetter,
