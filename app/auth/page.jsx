@@ -105,7 +105,6 @@ const AuthorizationPage = () => {
   //const state = "OPTIONAL_CLIENT_LOCAL_STATE";
 */
   const authorizationUrl = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${scope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
-
   return (
     <div style={{ paddingTop: "5em" }}>
       <h1>Tu aplicación</h1>
