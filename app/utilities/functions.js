@@ -65,4 +65,6 @@ export function ShareLinkTwitter(url, text) {
     window.open(urlShare, "_blank")
 }
 
-
+export function GetInitialCapitalLetter(word) {
+    return word.charAt(0).toUpperCase()
+}

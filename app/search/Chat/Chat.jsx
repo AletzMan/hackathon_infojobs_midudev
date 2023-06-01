@@ -14,6 +14,8 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import { Fab } from "@mui/material"
 import { ChatBotIcon } from "@/app/constants"
 import { ConversationChat } from "./ConversationChat"
+import SwipeableEdgeDrawer from "../components/SwipeDrawer"
+import ModalView from "../components/ModalView"
 
 const drawerBleeding = 0
 
@@ -30,7 +32,7 @@ const Root = styled("div")(({ theme }) => ({
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: colorChat,
-  width: "23em",
+  width: "26em",
 }))
 
 const Puller = styled(Box)(({ theme }) => ({
@@ -56,6 +58,8 @@ export function ChatDrawer(props) {
   const [open, setOpen] = React.useState(false)
   const [messageState, setMessageState] = React.useState("")
   const chatRef = React.useRef(null)
+  const [selectedOfferId, setSelectedOfferId] = React.useState(null)
+  const [openOffer, setOpenOffer] = React.useState(false)
 
   React.useEffect(() => {
     if (chatRef) {
@@ -81,136 +85,152 @@ export function ChatDrawer(props) {
     window !== undefined ? () => window().document.body : undefined
 
   return (
-    <Root>
-      <CssBaseline />
-      <Global
-        styles={{
-          ".MuiDrawer-root > .MuiPaper-root": {
-            height: `calc(50% - ${drawerBleeding}px)`,
-            overflow: "visible",
-            width: "23em",
-            borderTopRightRadius: 18,
-            borderTopLeftRadius: 18,
-            margin: "0 0 0 auto",
-          },
-        }}
-      />
-      <Box
-        sx={{
-          textAlign: "center",
-          pt: 1,
-          padding: "0",
-          display: "flex",
-          gap: "1em",
-          borderRadius: "4em",
-        }}
-      >
-        <Fab
-          variant="extended"
-          onClick={toggleDrawer(true)}
-          style={{ color: colorTextButton, fontWeight: "bold" }}
-        >
-          <ChatBotIcon />
-          ChatBot
-        </Fab>
-      </Box>
-      <SwipeableDrawer
-        container={container}
-        anchor="bottom"
-        open={open}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
-        disableSwipeToOpen={false}
-        ModalProps={{
-          keepMounted: true,
-        }}
-      >
-        {" "}
-        <StyledBox
-          ref={chatRef}
-          sx={{
-            position: "absolute",
-            px: 2,
-            pb: 2,
-            height: "100%",
-            overflowY: "auto",
-            borderTopRightRadius: 15,
-            borderTopLeftRadius: 15,
-            scrollbarColor: "#393939",
+    <>
+      <Root>
+        <CssBaseline />
+        <Global
+          styles={{
+            ".MuiDrawer-root > .MuiPaper-root": {
+              height: `calc(80% - ${drawerBleeding}px)`,
+              overflow: "visible",
+              width: "26em",
 
-            "::-webkit-slider-thumb": {
-              backgroundColor: "red",
-              borderRadius: "4px",
-              width: "10px",
-            },
-            "::-webkit-scrollbar": {
-              width: "10px",
-              backgroundColor: "#ACACAC",
-              borderRadius: "5px",
+              borderTopRightRadius: 18,
+              borderTopLeftRadius: 18,
+              margin: "0 0 0 auto",
             },
           }}
-        >
-          {/*<Skeleton variant="rectangular" height="100%" />*/}
-          <ConversationChat setMessageState={setMessageState} />
-        </StyledBox>
-        <StyledBox
+        />
+        <Box
           sx={{
-            position: "absolute",
-            top: -drawerBleeding,
-            visibility: "visible",
-            borderTopRightRadius: 18,
-            borderTopLeftRadius: 18,
+            textAlign: "center",
+            pt: 1,
+            padding: "0",
+            display: "flex",
+            gap: "1em",
+            borderRadius: "4em",
           }}
         >
-          <Puller />
-          <Typography
-            sx={{
-              p: 2,
-              color: "text.secondary",
-              textAlign: "center",
-              color: colorTextHeader,
-              fontWeight: "bold",
-              backgroundColor: colorHeader,
-              borderRadius: "1em 0 0 0",
-              borderBottom: "1px solid #15151535",
-              display: "flex",
-              alignItems: "center",
-            }}
+          <Fab
+            variant="extended"
+            onClick={toggleDrawer(true)}
+            style={{ color: colorTextButton, fontWeight: "bold" }}
           >
             <ChatBotIcon />
-            <div
-              style={{
+            ChatBot
+          </Fab>
+        </Box>
+        <SwipeableDrawer
+          container={container}
+          anchor="bottom"
+          open={open}
+          onClose={toggleDrawer(false)}
+          onOpen={toggleDrawer(true)}
+          swipeAreaWidth={drawerBleeding}
+          disableSwipeToOpen={false}
+          ModalProps={{
+            keepMounted: true,
+          }}
+        >
+          {" "}
+          <StyledBox
+            ref={chatRef}
+            sx={{
+              position: "absolute",
+              px: 2,
+              pb: 2,
+              height: "100%",
+              overflowY: "auto",
+              borderTopRightRadius: 15,
+              borderTopLeftRadius: 15,
+              scrollbarColor: "#393939",
+
+              "::-webkit-scrollbar-thumb": {
+                backgroundColor: "#252525",
+                borderRadius: "4px",
+                width: "10px",
+              },
+              "::-webkit-scrollbar": {
+                width: "10px",
+                backgroundColor: "#ACACAC",
+                borderRadius: "0 5px 5px 0",
+              },
+              "::-webkit-scrollbar-track": {
+                backgroundColor: "#999999" /* Color de la pista */,
+                borderRadius: "0 4px 4px 0",
+              },
+            }}
+          >
+            {/*<Skeleton variant="rectangular" height="100%" />*/}
+            <ConversationChat
+              setMessageState={setMessageState}
+              setOpenOffer={setOpenOffer}
+              setSelectedOfferId={setSelectedOfferId}
+            />
+          </StyledBox>
+          <StyledBox
+            sx={{
+              position: "absolute",
+              top: -drawerBleeding,
+              visibility: "visible",
+              borderTopRightRadius: 18,
+              borderTopLeftRadius: 18,
+            }}
+          >
+            <Puller />
+            <Box
+              sx={{
+                p: 2,
+                color: "text.secondary",
+                textAlign: "center",
+                color: colorTextHeader,
+                fontWeight: "bold",
+                backgroundColor: colorHeader,
+                borderRadius: "1em 0 0 0",
+                borderBottom: "1px solid #15151535",
                 display: "flex",
-                maxWidth: "7.5em",
-                flexWrap: "wrap",
                 alignItems: "center",
               }}
             >
-              InfoBot - Chat
+              <ChatBotIcon />
               <div
                 style={{
-                  width: "0.7em",
-                  height: "0.7em",
-                  backgroundColor: "#32CD32",
-                  margin: "0 0 0 0.2em",
-                  borderRadius: "1em",
-                }}
-              ></div>
-              <span
-                style={{
-                  color: "black",
-                  fontWeight: "normal",
-                  fontSize: "0.8em",
-                  margin: "0 0 0 0.3em",
+                  display: "flex",
+                  maxWidth: "7.5em",
+                  flexWrap: "wrap",
+                  alignItems: "center",
                 }}
               >
-                Online
-              </span>
-            </div>
-          </Typography>
-        </StyledBox>
-      </SwipeableDrawer>
-    </Root>
+                InfoBot - Chat
+                <div
+                  style={{
+                    width: "0.7em",
+                    height: "0.7em",
+                    backgroundColor: "#32CD32",
+                    margin: "0 0 0 0.2em",
+                    borderRadius: "1em",
+                  }}
+                ></div>
+                <span
+                  style={{
+                    color: "black",
+                    fontWeight: "normal",
+                    fontSize: "0.8em",
+                    margin: "0 0 0 0.3em",
+                  }}
+                >
+                  Online
+                </span>
+              </div>
+            </Box>
+          </StyledBox>
+        </SwipeableDrawer>
+      </Root>
+      <ModalView
+        selectedOfferId={selectedOfferId}
+        openOffer={openOffer}
+        setOpenOffer={setOpenOffer}
+      />
+    </>
   )
 }

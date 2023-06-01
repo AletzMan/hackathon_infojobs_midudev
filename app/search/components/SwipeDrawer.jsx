@@ -15,17 +15,17 @@ const drawerBleeding = 10
 
 const Root = styled("div")(({ theme }) => ({
   height: "100%",
-  backgroundColor: "#021227",
+  backgroundColor: "#CDCDCD",
 }))
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor: "#021227",
+  backgroundColor: "#454545",
 }))
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
   height: 6,
-  backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
+  backgroundColor: theme.palette.mode === "light" ? grey[600] : grey[900],
   borderRadius: 3,
   position: "absolute",
   top: 8,

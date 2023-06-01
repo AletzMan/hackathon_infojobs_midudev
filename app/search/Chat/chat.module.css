@@ -13,16 +13,22 @@
 }
 
 .bot {
+  display: flex;
+  flex-direction: column;
   font-size: 0.85em;
   background-color: #167db7;
   padding: 0.5em 1em;
-  border-radius: 1em 1em 1em 0;
+  border-radius: 2em 1em 1em 0;
   color: #f0eded;
   width: max-content;
-  max-width: 16.5em;
+  max-width: 20.5em;
   align-self: flex-end;
   justify-self: flex-start;
 }
+
+.messageBot {
+}
+
 .containerBotChatIcon {
   color: #167db7;
   background-color: #cac6c6;
@@ -45,16 +51,19 @@
   font-size: 0.85em;
   background-color: #83c4e9;
   padding: 0.5em 1em;
-  border-radius: 1em 1em 0 1em;
+  border-radius: 1em 2em 0 1em;
   color: #0f084e;
   text-align: left;
   width: max-content;
-  max-width: 16.5em;
+  max-width: 20.5em;
   align-self: flex-end;
   justify-self: end;
 }
 
 .containerUserChatIcon {
+  display: flex;
+  align-items: center;
+  justify-self: center;
   color: #167db7;
   background-color: #cac6c6;
   width: 2.5em;
@@ -71,7 +80,7 @@
 }
 
 .input {
-  width: 25.4em;
+  width: 28em;
   padding: 0.65em 3.1em 0.65em 1.5em;
   border-radius: 2em;
   background-color: #e2dfdf;
@@ -96,4 +105,61 @@
 }
 .inputSendIcon:hover {
   opacity: 0.6;
+}
+
+.offersContainer {
+  background-color: #cac6c625;
+  border-radius: 0.4em;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+
+.offersSkills {
+  background-color: #ff6340cd;
+  padding: 0.4em 0.4em;
+  margin: 0.2em 0em;
+  border-radius: 0.2em;
+  text-decoration: none;
+  border: 1px solid #310c04;
+  font-size: 0.9em;
+  color: #f3f3f3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  cursor: pointer;
+}
+
+.offersSkills:hover {
+  opacity: 0.6;
+}
+
+.waitResponse {
+  position: absolute;
+  bottom: 1em;
+  font-size: 2.5em;
+  color: #1c87c5;
+}
+.waitResponse::after {
+  content: "";
+  animation: animationWait 1s infinite alternate;
+}
+
+@keyframes animationWait {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+  100% {
+    content: "....";
+  }
 }

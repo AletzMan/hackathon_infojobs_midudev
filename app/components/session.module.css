@@ -1,0 +1,6 @@
+.counter {
+  position: absolute;
+  z-index: 5;
+  right: 2em;
+  color: aliceblue;
+}
