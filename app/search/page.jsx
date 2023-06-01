@@ -1,7 +1,5 @@
-import { SwipeableDrawer } from "@mui/material"
 import SpainMap from "../components/SpainMap/SpainMap"
 import { ChatDrawer } from "./Chat/Chat"
-import ModalView from "./components/ModalView"
 import styles from "./search.module.css"
 
 export default function SearchPage() {
