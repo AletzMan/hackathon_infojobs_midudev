@@ -23,7 +23,7 @@ export default function Dashboard() {
   const [experience, setExperience] = useState({})
   const [skills, setSkills] = useState({})
   const accessToken =
-    window && window.sessionStorage
+    typeof window !== "undefined"
       ? JSON.parse(sessionStorage?.getItem("accessToken"))
       : null
   useEffect(() => {
