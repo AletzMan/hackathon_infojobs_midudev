@@ -291,13 +291,16 @@
 }
 
 .headerdetails {
+  position: relative;
+  width: 100%;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: repeat(3, auto);
   padding: 1em;
   color: #000000;
-  background-color: #ecebeb;
+  background-color: #afcde6;
   border-radius: 0.4em 0.4em 0 0;
+  border-bottom: 1px solid #000000;
 }
 .headerdetailstitle {
   grid-column: 1 / span 3;
@@ -316,11 +319,20 @@
 }
 
 .headerlogocompany {
-  display: flex;
-  grid-row: 1 / span 2;
-  grid-column: 4 / 5;
+  position: absolute;
+  right: 0.7em;
+  top: 0.7em;
   gap: 0.5em;
   border-radius: 1em;
+}
+
+@media (max-width: 480px) {
+  .headerlogocompany {
+    width: 2.8em;
+    height: 2.8em;
+    right: 0.2em;
+    top: 0.2em;
+  }
 }
 
 .buttonsOffer {
@@ -436,10 +448,11 @@
 }
 
 .typeOfferOption {
-  background-color: #e9e9e935;
+  background-color: #408ed635;
   padding: 0.3em 1em;
-  border: 1px solid #00000035;
+  border: 1px solid #324ab6cd;
   border-radius: 2em;
+  text-align: center;
 }
 
 .profiledescription {
@@ -452,8 +465,10 @@
   display: flex;
   flex-direction: column;
   margin: 1em 0 1em 0;
-  padding-bottom: 1em;
+  padding: 0.5em 0.5em 1em 0.5em;
   border-bottom: 1px solid #707070;
+  border-radius: 0.4em 0 0 0;
+  background-color: #c9e0ee;
 }
 .aboutEmploymentTitle {
   font-size: 1em;
@@ -471,6 +486,13 @@
 .categoryDescription {
   font-size: 0.8em;
 }
+
+.sectionDescription {
+  background-color: #c9e0ee;
+  padding: 0.5em 0.5em 1em 0.5em;
+  border-radius: 0.4em 0 0 0;
+}
+
 .skillContainer {
   display: flex;
   flex-flow: row wrap;

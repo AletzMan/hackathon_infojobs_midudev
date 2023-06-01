@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import { ButtonsOffer } from "./ButtonsOffer"
 import uuid from "react-uuid"
 import { ConvertLineBreaks } from "@/app/utilities/functions"
+import { Skeleton } from "@mui/material"
 
 export function OfferView({ offerSelected }) {
   const [offers, setOffers] = useState({})
@@ -41,9 +42,18 @@ export function OfferView({ offerSelected }) {
       {offerSelected && (
         <>
           <header className={styles.headerdetails}>
-            <h4 className={styles.headerdetailstitle}>
-              {offers?.details?.title}
-            </h4>
+            {offers?.details && (
+              <h4 className={styles.headerdetailstitle}>
+                {offers?.details?.title}
+              </h4>
+            )}
+            {!offers?.details && (
+              <Skeleton
+                variant="text"
+                sx={{ fontSize: "1rem" }}
+                className={styles.headerdetailstitle}
+              />
+            )}
             <div className={styles.headerdetailscompany}>
               <span className={styles.headerdetailsprovince}>
                 {offers?.details?.province?.value}
@@ -51,6 +61,12 @@ export function OfferView({ offerSelected }) {
               <span className={styles.headerdetailscompanyname}>
                 {offers?.details?.profile?.name}
               </span>
+              {!offers?.details && (
+                <Skeleton
+                  variant="text"
+                  sx={{ fontSize: "1rem", width: "10em" }}
+                />
+              )}
             </div>
             <Image
               className={styles.headerlogocompany}
@@ -126,15 +142,17 @@ export function OfferView({ offerSelected }) {
                 )}
               </div>
             </div>
-            <h5 className={styles.aboutEmploymentTitle}>Descripción</h5>
-            {offers?.details?.description && (
-              <p
-                className={styles.categoryDescription}
-                dangerouslySetInnerHTML={{
-                  __html: ConvertLineBreaks(offers?.details?.description),
-                }}
-              ></p>
-            )}
+            <div className={styles.sectionDescription}>
+              <h5 className={styles.aboutEmploymentTitle}>Descripción</h5>
+              {offers?.details?.description && (
+                <p
+                  className={styles.categoryDescription}
+                  dangerouslySetInnerHTML={{
+                    __html: ConvertLineBreaks(offers?.details?.description),
+                  }}
+                ></p>
+              )}
+            </div>
           </section>
         </>
       )}

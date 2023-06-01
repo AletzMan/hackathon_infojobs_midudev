@@ -2,9 +2,9 @@ import { Logo, LogoSmall } from "./Logo"
 import styles from "./header.module.css"
 import Link from "next/link"
 import { links, Menu } from "../constants"
-import { GetOffers } from "../services/infojobsAPI"
 
 export function Header() {
+  console.log("ENTRO")
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>

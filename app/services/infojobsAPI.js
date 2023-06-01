@@ -1,7 +1,9 @@
+import { CapitalizeFirstLetter } from "../utilities/functions"
+
 const infojobsToken = process.env.INFOJOBS_TOKEN
 const API_URL = 'https://api.infojobs.net/api/9/offer?province='
 
-export async function GetOffers(parameter, page) {
+/*export async function GetOffers(parameter, page) {
     console.log(`${API_URL}${parameter}&page=${page}`)
     const res = await fetch(`${API_URL}${parameter}&page=${page}`, {
         headers: {
@@ -11,10 +13,24 @@ export async function GetOffers(parameter, page) {
     })
     const data = await res.json()
     return data
-}
+}*/
 
 export async function GetInfoJobsOffers(query, page) {
     const res = await fetch(`/api/getJobs?q=${query}&p=${page}`)
+
+    const data = await res.json()
+    return data
+}
+
+export async function GetOffers(arrayQuery) {
+    let skills = ''
+    for (let index = 0; index < arrayQuery?.skills?.length; index++) {
+        skills += (arrayQuery?.skills[index] + " ").replace(" ", ",")
+    }
+    const query = arrayQuery?.work + "," + skills
+    const location = arrayQuery?.location
+    const salary = arrayQuery?.salary
+    const res = await fetch(`/api/getOffers?q=${skills}&p=${location}&s=${salary}`)
 
     const data = await res.json()
     return data

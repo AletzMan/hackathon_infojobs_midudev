@@ -13,6 +13,16 @@ import {
 import { CalculateAge, CapitalizeFirstLetter } from "../utilities/functions"
 import styles from "./dashboard.module.css"
 import uuid from "react-uuid"
+import Backdrop from "@mui/material/Backdrop"
+import CircularProgress from "@mui/material/CircularProgress"
+import { Button } from "@mui/material"
+import Link from "next/link"
+
+const scope =
+  "MY_APPLICATIONS,CANDIDATE_PROFILE_WITH_EMAIL,CANDIDATE_READ_CURRICULUM_SKILLS,CV,CANDIDATE_READ_CURRICULUM_CVTEXT,CANDIDATE_READ_CURRICULUM_EDUCATION,CANDIDATE_READ_CURRICULUM_PERSONAL_DATA,CANDIDATE_READ_CURRICULUM_FUTURE_JOB,CANDIDATE_READ_CURRICULUM_EXPERIENCE"
+const clientId = "23456f49ebdd416db1a906c5abfb438e"
+const redirectUri = "http://hackatoninfojobs.com:3000/request-token"
+const authorizationUrl = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${scope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
 
 export default function Dashboard() {
   const [candidate, setCandidate] = useState({})
@@ -20,43 +30,116 @@ export default function Dashboard() {
   const [futureJob, setFutureJob] = useState({})
   const [experience, setExperience] = useState({})
   const [skills, setSkills] = useState({})
+  const accessToken = JSON.parse(sessionStorage.getItem("accessToken"))
   useEffect(() => {
     const getCandidate = async () => {
-      const accessToken = JSON.parse(sessionStorage.getItem("accessToken"))
-      const data = await GetInfoCandidate(accessToken.access_token)
-      const cv = await GetCurriculum(accessToken.access_token)
+      const data = await GetInfoCandidate(accessToken?.access_token)
+      //const cv = await GetCurriculum(accessToken?.access_token)
 
-      const dataCV = await GetCurriculumData(
-        accessToken.access_token,
-        cv?.curriculum[0].code
-      )
+      if (accessToken) {
+        /*const dataCV = await GetCurriculumData(
+          accessToken.access_token,
+          cv?.curriculum[0].code
+        )
 
-      const dataFB = await GetCurriculumFutureJob(
-        accessToken.access_token,
-        cv?.curriculum[0].code
-      )
+        const dataFB = await GetCurriculumFutureJob(
+          accessToken.access_token,
+          cv?.curriculum[0].code
+        )
 
-      const dataEX = await GetCurriculumExperience(
-        accessToken.access_token,
-        cv?.curriculum[0].code
-      )
+        const dataEX = await GetCurriculumExperience(
+          accessToken.access_token,
+          cv?.curriculum[0].code
+        )
 
-      const dataSkills = await GetCurriculumSkills(
-        accessToken.access_token,
-        cv?.curriculum[0].code
-      )
-      setCandidate(data?.candidate)
-      setCurriculum(dataCV?.curriculum)
-      setFutureJob(dataFB?.futureJob)
-      setExperience(dataEX?.experience.experience)
-      setSkills(dataSkills?.skills)
+        const dataSkills = await GetCurriculumSkills(
+          accessToken.access_token,
+          cv?.curriculum[0].code
+        )*/
+        const userInfo = JSON.parse(sessionStorage.getItem("userInfo"))
+        const futureJob = JSON.parse(sessionStorage.getItem("futureJob"))
+        const userExperience = JSON.parse(
+          sessionStorage.getItem("userExperience")
+        )
+        const userSkills = JSON.parse(sessionStorage.getItem("userSkills"))
+
+        setCandidate(data?.candidate)
+        setCurriculum(userInfo)
+        setFutureJob(futureJob)
+        setExperience(userExperience.experience)
+        setSkills(userSkills)
+      }
     }
     getCandidate()
   }, [])
 
-  console.log(skills)
   return (
     <>
+      {!skills?.expertise && (
+        <div
+          style={{
+            position: "absolute",
+            top: "5em",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100vw",
+          }}
+        >
+          {accessToken && (
+            <span
+              style={{
+                fontSize: "2.5em",
+                fontWeight: "bold",
+                textAlign: "center",
+                backgroundColor: "#45cd3225",
+                padding: "0.1em 0.5em",
+                borderRadius: "0.8em",
+                marginTop: "5em",
+              }}
+            >
+              CARGANDO
+            </span>
+          )}
+          <Backdrop
+            sx={{ color: "#fff", zIndex: 1 }}
+            style={{ display: "flex", flexDirection: "column" }}
+            open={true}
+          >
+            {accessToken && <CircularProgress color="primary" />}
+            {!accessToken && (
+              <>
+                <p
+                  style={{
+                    maxWidth: "35em",
+                    textAlign: "center",
+                    margin: "0 0 1.5em 0",
+                  }}
+                >
+                  Inicia sesión y descubre una experiencia laboral más
+                  personalizada. Obtén acceso a funciones exclusivas, postula a
+                  empleos de manera ágil y mantente al tanto de las últimas
+                  oportunidades laborales.
+                </p>
+                <Link
+                  style={{
+                    backgroundColor: "var(--Primary)",
+                    padding: "0.7em 1em",
+                    textDecoration: "none",
+                    borderRadius: "0.4em",
+                    fontWeight: "500",
+                    color: "white",
+                  }}
+                  href={authorizationUrl}
+                  as={authorizationUrl}
+                >
+                  Inicio de sesión
+                </Link>
+              </>
+            )}
+          </Backdrop>
+        </div>
+      )}
       {candidate.id > 0 && (
         <>
           <h1 className={styles.title}>Mi currículum</h1>
