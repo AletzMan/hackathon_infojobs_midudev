@@ -15,7 +15,7 @@ import { ChatBotIcon } from "@/app/constants"
 import { ConversationChat } from "./ConversationChat"
 import SwipeableEdgeDrawer from "../components/SwipeDrawer"
 import ModalView from "../components/ModalView"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const drawerBleeding = 0
 
@@ -61,7 +61,7 @@ export function ChatDrawer(props) {
   const [selectedOfferId, setSelectedOfferId] = useState(null)
   const [openOffer, setOpenOffer] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (chatRef) {
       const handleScroll = (event) => {
         const { currentTarget: target } = event

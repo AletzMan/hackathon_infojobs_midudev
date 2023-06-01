@@ -22,7 +22,9 @@ export function ConversationChat({
   setOpenOffer,
   setSelectedOfferId,
 }) {
-  const userInfo = JSON.parse(sessionStorage.getItem("userInfo"))
+  const userInfo = window.sessionStorage
+    ? JSON.parse(sessionStorage.getItem("userInfo"))
+    : null
   const initConversation = {
     id: uuid(),
     name: "bot",

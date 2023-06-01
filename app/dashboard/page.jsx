@@ -22,7 +22,10 @@ export default function Dashboard() {
   const [futureJob, setFutureJob] = useState({})
   const [experience, setExperience] = useState({})
   const [skills, setSkills] = useState({})
-  const accessToken = JSON.parse(sessionStorage.getItem("accessToken"))
+  const accessToken =
+    window && window.sessionStorage
+      ? JSON.parse(sessionStorage?.getItem("accessToken"))
+      : null
   useEffect(() => {
     const getCandidate = async () => {
       const data = await GetInfoCandidate(accessToken?.access_token)
@@ -48,12 +51,12 @@ export default function Dashboard() {
           accessToken.access_token,
           cv?.curriculum[0].code
         )*/
-        const userInfo = JSON.parse(sessionStorage.getItem("userInfo"))
-        const futureJob = JSON.parse(sessionStorage.getItem("futureJob"))
+        const userInfo = JSON.parse(sessionStorage?.getItem("userInfo"))
+        const futureJob = JSON.parse(sessionStorage?.getItem("futureJob"))
         const userExperience = JSON.parse(
-          sessionStorage.getItem("userExperience")
+          sessionStorage?.getItem("userExperience")
         )
-        const userSkills = JSON.parse(sessionStorage.getItem("userSkills"))
+        const userSkills = JSON.parse(sessionStorage?.getItem("userSkills"))
 
         setCandidate(data?.candidate)
         setCurriculum(userInfo)

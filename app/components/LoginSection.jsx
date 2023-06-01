@@ -12,7 +12,10 @@ const redirectUri = "http://hackatoninfojobs.com:3000/request-token"
 const authorizationUrl = `https://www.infojobs.net/api/oauth/user-authorize/index.xhtml?scope=${scope}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
 
 export function LoginSection() {
-  const session = JSON.parse(sessionStorage.getItem("accessToken"))
+  const session =
+    window && window.sessionStorage
+      ? JSON.parse(sessionStorage?.getItem("accessToken"))
+      : null
 
   return (
     <>
