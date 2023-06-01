@@ -1,6 +1,7 @@
 import SpainMap from "../components/SpainMap/SpainMap"
 import { ChatDrawer } from "./Chat/Chat"
 import styles from "./search.module.css"
+import React from "react"
 
 export default function SearchPage() {
   return (

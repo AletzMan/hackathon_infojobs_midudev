@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { SkeletonLayout } from "@/app/components/skeleton/SkeletonLayout"
 import {
   ArrayCategory,

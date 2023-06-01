@@ -1,4 +1,4 @@
-import NavigationOffers from "../components/OfferPreview"
+import React from "react"
 import { OffersByProvince } from "../components/OffersByProvince"
 import styles from "./search.module.css"
 

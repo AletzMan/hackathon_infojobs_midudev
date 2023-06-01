@@ -1,21 +1,16 @@
 "use client"
 
-import PropTypes from "prop-types"
 import { Global } from "@emotion/react"
 import { styled } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
 import { grey } from "@mui/material/colors"
-import Button from "@mui/material/Button"
 import Box from "@mui/material/Box"
-import Skeleton from "@mui/material/Skeleton"
-import Typography from "@mui/material/Typography"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import { Fab } from "@mui/material"
 import { ChatBotIcon } from "@/app/constants"
 import { ConversationChat } from "./ConversationChat"
-import SwipeableEdgeDrawer from "../components/SwipeDrawer"
 import ModalView from "../components/ModalView"
-import { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 const drawerBleeding = 0
 
