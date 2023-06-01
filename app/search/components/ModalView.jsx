@@ -1,10 +1,11 @@
 "use client"
-import * as React from "react"
+
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 import { OfferView } from "./OfferView"
+import { useState } from "react"
 
 const style = {
   position: "absolute",
@@ -45,7 +46,7 @@ export default function ModalView({
   selectedOfferId,
   setOpenOffer,
 }) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const handleClose = () => setOpenOffer(false)
 
   return (

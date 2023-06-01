@@ -2,20 +2,12 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { EMailIcon, LocationIcon, PhoneIcon } from "../constants"
-import {
-  GetCurriculum,
-  GetCurriculumData,
-  GetCurriculumExperience,
-  GetCurriculumFutureJob,
-  GetCurriculumSkills,
-  GetInfoCandidate,
-} from "../services/infojobsAPI"
+import { GetInfoCandidate } from "../services/infojobsAPI"
 import { CalculateAge, CapitalizeFirstLetter } from "../utilities/functions"
 import styles from "./dashboard.module.css"
 import uuid from "react-uuid"
 import Backdrop from "@mui/material/Backdrop"
 import CircularProgress from "@mui/material/CircularProgress"
-import { Button } from "@mui/material"
 import Link from "next/link"
 
 const scope =
