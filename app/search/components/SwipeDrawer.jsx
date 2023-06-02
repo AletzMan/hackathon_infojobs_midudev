@@ -1,12 +1,10 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Global } from "@emotion/react"
 import { styled } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
 import { grey } from "@mui/material/colors"
-import Button from "@mui/material/Button"
 import Box from "@mui/material/Box"
-import Skeleton from "@mui/material/Skeleton"
 import Typography from "@mui/material/Typography"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
 import { OfferView } from "./OfferView"
@@ -16,11 +14,11 @@ const drawerBleeding = 10
 
 const Root = styled("div")(({ theme }) => ({
   height: "100%",
-  backgroundColor: "#CDCDCD",
+  backgroundColor: "red",
 }))
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor: "#454545",
+  backgroundColor: "#07295a",
 }))
 
 const Puller = styled(Box)(({ theme }) => ({
@@ -42,11 +40,10 @@ function SwipeableEdgeDrawer(props) {
     setOpen(newOpen)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOpen(props.openDescription)
   }, [props.openDescription])
 
-  console.log(open, props.openDescription)
   // This is used only for the example
   const container =
     window !== undefined ? () => window().document.body : undefined

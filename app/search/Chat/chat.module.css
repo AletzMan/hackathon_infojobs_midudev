@@ -1,5 +1,7 @@
 .conversation {
+  position: relative;
   display: flex;
+  width: 100%;
   flex-direction: column;
   margin: 5.5em 0 2em 0;
   color: #0f0f0f;
@@ -16,12 +18,12 @@
   display: flex;
   flex-direction: column;
   font-size: 0.85em;
-  background-color: #167db7;
+  background-color: #3c799c;
   padding: 0.5em 1em;
   border-radius: 2em 1em 1em 0;
-  color: #f0eded;
-  width: max-content;
-  max-width: 20.5em;
+  color: #f8f4f4;
+  width: 70%;
+  min-width: 20.5em;
   align-self: flex-end;
   justify-self: flex-start;
 }
@@ -72,23 +74,29 @@
 }
 
 .inputContainer {
-  position: fixed;
-  bottom: 0.5em;
+  position: sticky;
+  margin: 1em 0 0 0;
+  bottom: 0em;
+  width: 100%;
+  padding: 0.5em;
+  backdrop-filter: blur(10px);
+  border-radius: 2em;
+  background-color: #938ae215;
 }
 
 .input {
-  width: 28em;
+  width: 100%;
   padding: 0.65em 3.1em 0.65em 1.5em;
   border-radius: 2em;
-  background-color: #e2dfdf;
-  border: 1px solid #167db765;
+  background-color: #f3eded;
+  border: 1px solid #0c507785;
   color: #0f0f0f;
 }
 
 .inputSend {
   position: absolute;
-  right: 0.5em;
-  bottom: 0.1em;
+  right: 0.7em;
+  bottom: 0.6em;
   background-color: transparent;
   border: none;
   border-radius: 1em;
@@ -105,7 +113,7 @@
 }
 
 .offersContainer {
-  background-color: #cac6c625;
+  background-color: #8da7c025;
   border-radius: 0.4em;
   display: flex;
   flex-direction: column;
@@ -113,7 +121,7 @@
 }
 
 .offersSkills {
-  background-color: #ff6340cd;
+  background-color: #92abd1cd;
   padding: 0.4em 0.4em;
   margin: 0.2em 0em;
   border-radius: 0.2em;
@@ -129,7 +137,7 @@
 }
 
 .offersSkills:hover {
-  opacity: 0.6;
+  background-color: #bb3214cd;
 }
 
 .waitResponse {

@@ -23,14 +23,11 @@ export async function GetInfoJobsOffers(query, page) {
 }
 
 export async function GetOffers(arrayQuery) {
-    let skills = ''
-    for (let index = 0; index < arrayQuery?.skills?.length; index++) {
-        skills += (arrayQuery?.skills[index] + " ").replace(" ", ",")
-    }
-    const query = arrayQuery?.work + "," + skills
+    let query = arrayQuery?.work?.replace(" ", ",")
+    //const query = arrayQuery?.work + "," + skills
     const location = arrayQuery?.location
     const salary = arrayQuery?.salary
-    const res = await fetch(`/api/getOffers?q=${skills}&p=${location}&s=${salary}`)
+    const res = await fetch(`/api/getOffers?q=${query}&p=${location}&s=${salary}`)
 
     const data = await res.json()
     return data

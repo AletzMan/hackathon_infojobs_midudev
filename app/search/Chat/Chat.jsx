@@ -27,7 +27,8 @@ const Root = styled("div")(({ theme }) => ({
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: colorChat,
-  width: "26em",
+  width: "100%",
+  minWidth: "414px",
 }))
 
 const Puller = styled(Box)(({ theme }) => ({
@@ -88,8 +89,8 @@ export function ChatDrawer(props) {
             ".MuiDrawer-root > .MuiPaper-root": {
               height: `calc(80% - ${drawerBleeding}px)`,
               overflow: "visible",
-              width: "26em",
-
+              width: "80%",
+              minWidth: "414px",
               borderTopRightRadius: 18,
               borderTopLeftRadius: 18,
               margin: "0 0 0 auto",
@@ -131,10 +132,11 @@ export function ChatDrawer(props) {
           <StyledBox
             ref={chatRef}
             sx={{
-              position: "absolute",
+              position: "relative",
               px: 2,
               pb: 2,
               height: "100%",
+              width: "100%",
               overflowY: "auto",
               borderTopRightRadius: 15,
               borderTopLeftRadius: 15,

@@ -1,7 +1,8 @@
 .main {
   padding: 4.5em 1em;
   background-color: #021227;
-  color: rgb(201, 201, 201);
+  color: rgb(245, 229, 229);
+  text-align: center;
 }
 
 .chat {

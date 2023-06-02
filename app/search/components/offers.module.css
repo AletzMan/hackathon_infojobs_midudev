@@ -7,13 +7,13 @@
   flex-wrap: wrap;
   margin: 1em auto;
   padding: 0.2em 0.5em;
-  background-color: #d3dde2;
+  background-color: #4e70a7;
   border-radius: 0.3em;
   max-width: 1400px;
 }
 
 .comboboxItem {
-  color: #000000;
+  color: #5a5757;
 }
 
 .job {
@@ -24,25 +24,28 @@
   grid-template-rows: repeat(7, auto);
   margin: 0.5em;
   padding: 0.5em;
-  background-color: #efefef;
-  border-radius: 0.2em;
+  background-color: #15273d;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #7194c4;
+  border-radius: 0.2em 0.2em 0 0;
   cursor: pointer;
   transition: background-color 0.25s;
 }
 
 .jobtrue {
-  background-color: #cfe6eb;
+  background-color: #2d4563;
+  border: 3px solid #509bce;
 }
 
 .jobfalse:hover {
-  background-color: #dedede;
+  background-color: #1f4069;
 }
 
 .date {
   max-width: 10em;
   font-size: 0.75em;
-  color: #976718;
-  background-color: #fcd49945;
+  color: #f0b775;
+  background-color: #eec07b45;
   padding: 0.2em 0.6em;
   border-radius: 2em;
   text-align: center;
@@ -52,13 +55,13 @@
   grid-column: 1 / span 3;
   grid-row: 3 / 4;
   font-size: 1em;
-  color: #046ee7;
+  color: #eef6ff;
 }
 
 .province {
   grid-column: 1 / 2;
   grid-row: 8 / 9;
-  color: #000000;
+  color: #e4e4e4;
 }
 
 .company {
@@ -67,7 +70,7 @@
   grid-column: 1 / span 3;
   grid-row: 7 / 8;
   align-self: flex-end;
-  color: #000000;
+  color: #e9e9e9;
 }
 
 .logocompany {
@@ -86,7 +89,7 @@
   padding: 0.3em 0.7em;
   margin: 0.5em 0.5em 0.5em 0;
   background-color: #0df32c45;
-  color: #04570f;
+  color: #d4f5d9;
   border-radius: 2em;
   max-width: 5em;
   text-align: center;
@@ -98,7 +101,7 @@
   padding: 0.3em 0.7em;
   margin: 0.5em 0.5em 0.5em 0;
   background-color: #f0e77145;
-  color: #7c7402;
+  color: #fff897;
   border-radius: 2em;
   min-width: 12em;
   max-width: 12em;
@@ -111,7 +114,7 @@
   padding: 0.3em 0.7em;
   margin: 0.5em 0.5em 0.5em 0;
   background-color: #8f8f8f45;
-  color: #8f8f8f;
+  color: #c9c9c9;
   border-radius: 2em;
   max-width: 7em;
   text-align: center;
@@ -123,7 +126,7 @@
   padding: 0.3em 0.7em;
   margin: 0 0.5em 0 0;
   background-color: #0debf345;
-  color: #057074;
+  color: #9cebee;
   text-align: center;
   border-radius: 2em;
 }
@@ -133,8 +136,8 @@
   grid-row: 1 / 2;
   font-size: 0.7em;
   padding: 0.3em 0.7em;
-  background-color: #ff000045;
-  color: #750606;
+  background-color: #e0191975;
+  color: #ee9e9e;
   text-align: center;
   border-radius: 2em;
 }
@@ -142,7 +145,7 @@
 .workdescription {
   grid-column: 1 / span 4;
   grid-row: 4 / 5;
-  color: #151515;
+  color: #cecbcb;
 }
 
 .contract {
@@ -162,13 +165,14 @@
 .experience {
   font-weight: 500;
   align-self: center;
+  color: #e9e5e5;
 }
 
 .requirement {
   grid-column: 1 / span 3;
   grid-row: 5 / span 2;
   font-size: 0.9em;
-  color: #070707;
+  color: #f3ecec;
   margin: 0.7em 0;
 }
 
@@ -176,7 +180,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 0.5em 0.5em;
+  margin: 0.5em 0 7em 0;
   padding: 0.5em 2em;
   background-color: #73addd35;
 }
@@ -207,18 +211,20 @@
   width: 2.5em;
   height: 2.5em;
   border-radius: 1em;
-  background-color: #eafbff;
-  border: 1px solid #07414e75;
+  background-color: #2c84b8;
+  border: 1px solid #07414e99;
   text-align: center;
+  font-weight: 600;
   padding: 0.4em 0;
-  color: #045280;
-  font-weight: 500;
+  color: #e9f7ff;
   transition: background-color 0.3s;
   cursor: pointer;
 }
 
 .pageIsActive {
-  background-color: #4396bfcd;
+  background-color: #5cd3f7;
+  color: #171717;
+  border: 1px solid #0caace99;
 }
 .page:disabled {
   cursor: default;
@@ -238,7 +244,7 @@
   width: 100%;
   max-width: 890px;
   max-height: 100vh;
-  background-color: #ffffff;
+  background-color: #07295a;
   border-radius: 0.4em;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -251,15 +257,18 @@
 }
 
 .works::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color del pulgar de la scrollbar */
+  background-color: rgb(92, 91, 91); /* Color del pulgar de la scrollbar */
   border-radius: 4px; /* Radio de borde del pulgar de la scrollbar */
+}
+.works::-webkit-scrollbar-track {
+  background-color: #d3d2d2; /* Color de la pista */
 }
 
 .description {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #d2dde2;
+  background-color: #07295a;
   padding: 0.5em;
   border-radius: 0.4em;
   width: 100%;
@@ -269,6 +278,7 @@
 }
 .offerDescription {
   margin: 0.5em 0 0 0;
+  background-color: #020a16;
   padding: 0.5em;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -281,8 +291,11 @@
 }
 
 .offerDescription::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color del pulgar de la scrollbar */
+  background-color: rgb(105, 105, 105); /* Color del pulgar de la scrollbar */
   border-radius: 4px; /* Radio de borde del pulgar de la scrollbar */
+}
+.offerDescription::-webkit-scrollbar-track {
+  background-color: #d3d2d2; /* Color de la pista */
 }
 
 .imagesearch {
@@ -297,6 +310,7 @@
   grid-template-columns: 3fr 1fr;
   grid-template-rows: repeat(3, auto);
   padding: 1em;
+  gap: 0.5em;
   color: #000000;
   background-color: #afcde6;
   border-radius: 0.4em 0.4em 0 0;
@@ -326,6 +340,50 @@
   border-radius: 1em;
 }
 
+.containerVacancies {
+  display: flex;
+  grid-row: 4 / 5;
+  grid-column: 1 / 2;
+  column-gap: 1em;
+  right: 1em;
+  width: max-content;
+  bottom: -1em;
+  background-color: #101636;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+.vacancies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.vacanciesText {
+  font-size: 0.7em;
+  color: #ecebeb;
+}
+.vacanciesNumber {
+  font-size: 0.8em;
+  border-radius: 1.5em;
+  background-color: #4adadf;
+  width: 2em;
+  height: 2em;
+  padding: 0.2em;
+  text-align: center;
+}
+.applicationsText {
+  font-size: 0.7em;
+  color: #ecebeb;
+}
+.applicationsNumber {
+  border-radius: 1.5em;
+  background-color: #b2df4a;
+  width: 2em;
+  height: 2em;
+  padding: 0.2em;
+  font-size: 0.8em;
+  text-align: center;
+}
 @media (max-width: 480px) {
   .headerlogocompany {
     width: 2.8em;
@@ -453,6 +511,7 @@
   border: 1px solid #324ab6cd;
   border-radius: 2em;
   text-align: center;
+  color: #f3f3f3;
 }
 
 .profiledescription {

@@ -8,12 +8,6 @@ export default async function LayoutParameter({ children, params }) {
 
   return (
     <main className={styles.main}>
-      <span>
-        {`Resultados de busqueda para: `}
-        <span className={styles.parameter}>
-          {decodeURIComponent(parameter)}
-        </span>
-      </span>
       <OffersByProvince
         parameter={decodeURIComponent(parameter)
           .normalize("NFD")
