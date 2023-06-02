@@ -6,7 +6,7 @@ import React from "react"
 export default function SearchPage() {
   return (
     <main className={styles.main}>
-      <h3>Busca empleo en tu ciudad</h3>
+      <h3 style={{ margin: "0.5em 0" }}>Busca empleo en tu ciudad</h3>
       <SpainMap />
       <div className={styles.chat}>
         <ChatDrawer />

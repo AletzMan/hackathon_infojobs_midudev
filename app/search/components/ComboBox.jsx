@@ -12,10 +12,24 @@ export function ComboBox({ parameter, arrayItems, title }) {
   }
   //console.log(provinces);
   return (
-    <FormControl variant="filled" sx={{ m: 1, minWidth: 170 }} size="small">
+    <FormControl
+      variant="filled"
+      sx={{
+        m: 1,
+        minWidth: 170,
+        backgroundColor: "#21263d",
+        borderRadius: "0.2em 0.2em 0 0",
+        color: "#FFFFFF",
+      }}
+      size="small"
+    >
       <InputLabel
         className={styles.comboboxLabel}
         id="demo-simple-select-filled-label"
+        sx={{
+          backgroundColor: "#21263d",
+          color: "#85daf0",
+        }}
       >
         {title}
       </InputLabel>
@@ -28,6 +42,10 @@ export function ComboBox({ parameter, arrayItems, title }) {
         defaultValue={""}
         MenuItem
         className={styles.combobox}
+        sx={{
+          backgroundColor: "#21263d",
+          color: "#FFFFFF",
+        }}
       >
         <MenuItem className={styles.comboboxItem} value={""}>
           <em>None</em>

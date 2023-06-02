@@ -1,16 +1,65 @@
 
+export async function GetResponseOpenAI(text) {
+    try {
+        console.log(text)
+        const res = await fetch(`/api/getOpenAIResponse?prompt=${text}`)
+        const data = await res.json()
+        console.log(data)
+        return data.data.choices[0].text
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const { Configuration, OpenAIApi } = require("openai")
 
 
 const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "",
+    }
 })
 const openai = new OpenAIApi(configuration)
 
-export async function ChatBot() {
+export async function ChatBotResponse(text) {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: "The following is a conversation with an AI assistant from a job search company. The assistant is helpful, creative, intelligent, and very friendly. I would like to cancel my subscription, the Human will ask for a job of your interest, and the data you provide will be returned to you in a json, with a job category, salary request, or some other data you provide about the job you are looking for.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I need to look for a web development job.\nAI:",
+        prompt: `Eres un asistente llamado InfoBot de una pagina de busqueda de empleo llamada InfoJobs, responde las dudas de los usuarios, 
+        - Como dato minimo te tendra que proporcionar uno de los siguientes work, location, skills y salary, los otros son opcionales.
+        - Te pasaran un formato JSON como el siguiente, tomando en cuanta los puntos anteriores le haces saber al usuario si faltan datos o si realizaras la busqueda.
+        {
+            "work": "Profesor de Matematicas",
+            "skills": ["matematicas"],
+            "location": "madrid",
+            "salary": "3500"
+        }
+        - Responda de forma concisa y breve, no demasiado larga, 2 líneas como máximo.
+        - Al tener los requisitos minimos de busqueda, di al usuario que realizaras la busquedaa y en breve le proprcionaras los resultados
+        - Al responder que buscaras las ofertas, al principio de tu mensaje escribe un *, solo si se hay un dato de los cuatro.
+        - El asterisco solo si ahi el usuario proporciono uno de los 4 valores del JSON.
+        - No des ofertas, y no digas que no ofreces ofertas.
+        - Cualquier otra progunta contesta solo tu nombre o para quien trabajaas, de ahi en fuera decirle que solo estas para ayudarle.
+        - Pedirle al usuario algunos de los 4 puntos si no los proporciono.
+        - Manten una conversacion de acuerdo a tu posicion.
+        
+        
+        user: ${text}`,
         temperature: 0.9,
         max_tokens: 150,
         top_p: 1,
@@ -21,8 +70,8 @@ export async function ChatBot() {
 
     return response
 }
-
-
+*/
+/*
 export async function GetOpenAIResponse(text) {
     const apiKEY = process.env.NEXT_PUBLIC_OPENAI_API_KEY
 
@@ -35,27 +84,25 @@ export async function GetOpenAIResponse(text) {
             },
             body: JSON.stringify({
                 model: "text-davinci-003",
-                prompt: `Eres un asistente llamado InfoBot de una pagina de busqueda de empleo llamada InfoJobs, responde las dudas de los usuarios, siempre que te pregunte por una oferta, te pasaran un formato como el siguiente, tomando en cuanta los puntos siguientes:
-                - Como dato minimo tendra que tener el work y location, o skills y location, los otros 2 son opcionales.
-                - Responda de forma concisa y breve, no demasiado larga, 2 líneas como máximo.
-                - El salario y las skills, son opcionales.
-                - Al tener los requisitos minimos de busqueda, di al usuario que realizaras la busquedaa y en breve le proprcionaras los resultados
-                - Al responder que buscaras las ofertas, al principio de tu mensaje escribe un *
-                - No des ofertas, y no digas que no ofreces ofertas.
-                user: {
+                prompt: `Eres un asistente llamado InfoBot de una pagina de busqueda de empleo llamada InfoJobs, responde las dudas de los usuarios, 
+                - Como dato minimo te tendra que proporcionar uno de los siguientes work, location, skills y salary, los otros son opcionales.
+                - Te pasaran un formato JSON como el siguiente, tomando en cuanta los puntos anteriores le haces saber al usuario si faltan datos o si realizaras la busqueda.
+                {
                     "work": "Profesor de Matematicas",
                     "skills": ["matematicas"],
                     "location": "madrid",
                     "salary": "3500"
                 }
-                infobot: Responderas que esperes mientras haces la busqueda amablemente.
-                user: {
-                    "work": "",
-                    "skills": [""],
-                    "location": "",
-                    "salary": ""
-                }
-                infobot: Responderas que falta informacion
+                - Responda de forma concisa y breve, no demasiado larga, 2 líneas como máximo.
+                - Al tener los requisitos minimos de busqueda, di al usuario que realizaras la busquedaa y en breve le proprcionaras los resultados
+                - Al responder que buscaras las ofertas, al principio de tu mensaje escribe un *, solo si se hay un dato de los cuatro.
+                - El asterisco solo si ahi el usuario proporciono uno de los 4 valores del JSON.
+                - No des ofertas, y no digas que no ofreces ofertas.
+                - Cualquier otra progunta contesta solo tu nombre o para quien trabajaas, de ahi en fuera decirle que solo estas para ayudarle.
+                - Pedirle al usuario algunos de los 4 puntos si no los proporciono.
+                - Manten una conversacion de acuerdo a tu posicion.
+                
+                
                 user: ${text}`,
                 max_tokens: 60,
                 temperature: 0.9,
@@ -76,7 +123,7 @@ export async function GetOpenAIResponse(text) {
     fetchData()
 
 }
-
+*/
 
 
 export async function GetKeyWords(text) {
@@ -91,7 +138,9 @@ export async function GetKeyWords(text) {
             },
             body: JSON.stringify({
                 model: "command",
-                prompt: `Del parrafo proporcionado extraeras las palabras clave, y responderas con un formato JSON
+                prompt: `
+                
+                Del parrafo proporcionado extraeras las palabras clave, y responderas con un formato JSON
                 solo responderas el formato JSON
                 
                 Pregunta: Busco empleos de desarrollo web con react en Guadalajara con salario de 3000 tiempo completo

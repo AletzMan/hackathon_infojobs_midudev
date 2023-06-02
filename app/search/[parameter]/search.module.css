@@ -5,10 +5,13 @@
   padding: 1rem;
   padding-top: 5em;
   z-index: 1;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: var(--Background);
 }
 .title {
-  margin: 1rem 0 2rem 0;
-  color: rgb(38, 113, 163);
+  margin: 1rem 0 0.5rem 0;
+  color: rgb(244, 250, 253);
 }
 
 .parameter {

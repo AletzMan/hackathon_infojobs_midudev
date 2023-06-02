@@ -4,11 +4,11 @@ const grantType = "authorization_code"
 const tokenEndpoint = 'https://www.infojobs.net/oauth/authorize'
 const clientId = '23456f49ebdd416db1a906c5abfb438e'
 const clientSecret = process.env.INFOJOBS_SECRET
-const redirectUri = "https://hackathon-infojobs-midudev.vercel.app/request-token"
+const redirectUri = "http://hackatoninfojobs.com:3000/request-token"
 
 /*process.env.NODE_ENV === 'development'
     ? 'http://hackatoninfojobs.com:3000/request-token' // URL local de devolución de llamada en entorno de desarrollo
-    : 'https://hackathon-infojobs-midudev.vercel.app/request-token'*/
+    : 'https://vercel.com/aletzman/hackathon-infojobs-midudev/BBmFE1dtvSmdYjYDhLgon4ymog17'*/
 
 export async function POST(query) {
     const { searchParams } = new URL(query.url)

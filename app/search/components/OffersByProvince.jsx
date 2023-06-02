@@ -69,8 +69,6 @@ export function OffersByProvince({ parameter }) {
     toggleDrawer(true)
   }
 
-  console.log(open)
-
   const renderPageButtons = () => {
     const pageRange = 5 // Cantidad de botones intermedios a mostrar
     const pageButtons = []
@@ -107,7 +105,7 @@ export function OffersByProvince({ parameter }) {
 
   return (
     <>
-      <section className={styles.comboboxContainer}>
+      {/*<section className={styles.comboboxContainer}>
         <ComboBox
           parameter={parameter}
           arrayItems={ArrayProvinces}
@@ -134,11 +132,11 @@ export function OffersByProvince({ parameter }) {
           title={"Tipo de contrato"}
         />
         <Box
-          component="form"
           sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
+            m: 1,
+            width: "25ch",
+            color: "#FFFFFF",
           }}
-          noValidate
           autoComplete="off"
         >
           <TextField
@@ -147,6 +145,11 @@ export function OffersByProvince({ parameter }) {
             variant="filled"
             placeholder="Empresa, habilidad, etc."
             size="small"
+            color="primary"
+            sx={{
+              backgroundColor: "#21263d",
+              color: "#FFFFFF",
+            }}
           />
         </Box>
         <Stack
@@ -159,7 +162,7 @@ export function OffersByProvince({ parameter }) {
             Buscar empleo
           </Button>
         </Stack>
-      </section>
+          </section>*/}
       <div className={`${styles.container} ${font.className}`}>
         <div className={styles.works}>
           {offers.product === undefined && <SkeletonLayout />}

@@ -188,6 +188,14 @@ export function SendMessageIcon({ className }) {
     )
 }
 
+export function UsersIcon({ className }) {
+    return (
+        <svg className={className} width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0a4.125 4.125 0 0 1-8.25 0Zm9.75 2.25a3.375 3.375 0 1 1 6.75 0a3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63a13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122Zm15.75.003l-.001.144a2.25 2.25 0 0 1-.233.96a10.088 10.088 0 0 0 5.06-1.01a.75.75 0 0 0 .42-.643a4.875 4.875 0 0 0-6.957-4.611a8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+        </svg>
+    )
+}
+
 export const provinces = [
     {
         id: 0,
@@ -1190,3 +1198,36 @@ export const ArrayContractType = [
         "key": "otros-contratos"
     }
 ]
+
+
+export function GetJobsFoundMessage(user) {
+    const messages = [
+        `He encontrado algunas vacantes que podrían ser de tu interés. Te invito a revisar los detalles y postular a las oportunidades que se ajusten a tus habilidades y experiencia. ¡Buena suerte en tu búsqueda de empleo! `,
+        `Felicitaciones, ${user}, he encontrado una vacante que podría ser perfecta para ti. Adjunto encontrarás los detalles. No dudes en contactarme si necesitas más información. ¡Buena suerte en tu búsqueda laboral!`,
+        `¡Felicitaciones, ${user}! He encontrado una oportunidad laboral que podría ser un excelente ajuste para ti. Échale un vistazo y si te emociona, no dudes en seguir adelante. Estoy aquí para ayudarte en lo que necesites.`,
+        `Estoy encantado de informarte, ${user}, que he encontrado una vacante que se alinea con tus habilidades y experiencia. Adjunto encontrarás los detalles. ¡Te deseo lo mejor y espero que encuentres el empleo de tus sueños!`,
+        `¡Enhorabuena, ${user}! He localizado una oportunidad laboral que podría ser el siguiente paso en tu carrera. Puedes encontrar los detalles adjuntos. ¡Te deseo mucho éxito en tu camino hacia una nueva y emocionante trayectoria profesional!`,
+        `¡Felicitaciones, ${user}! He encontrado una vacante que podría brindarte una nueva y emocionante posibilidad laboral. Echa un vistazo a los detalles adjuntos y si tienes alguna pregunta, no dudes en consultarme. Estoy aquí para ayudarte a alcanzar tus metas profesionales.`,
+    ]
+    const numberOfMessage = Math.floor(Math.random() * 7)
+    const selectedMessage = messages[numberOfMessage]
+
+    return selectedMessage
+
+}
+
+export function GetSuccessfulSearchMessage() {
+    const messages = [
+        `He encontrado algunas vacantes que podrían ser de tu interés. Te invito a revisar los detalles y postular a las oportunidades que se ajusten a tus habilidades y experiencia. ¡Buena suerte en tu búsqueda de empleo! `,
+        `Lamentablemente, no encontré vacantes que coincidan con tu búsqueda actual. Te animo a que realices una consulta más específica para obtener mejores resultados. ¡Estoy aquí para ayudarte en lo que necesites!`,
+        `Lamentablemente, no encontré ninguna vacante adecuada para ti en este momento. Te animo a explorar diferentes opciones y a considerar expandir tu búsqueda. ¡No te rindas!`,
+        `Realicé una búsqueda exhaustiva, pero no encontré ninguna vacante que se ajuste a tus habilidades y experiencia en este momento. Sigue buscando y considera mejorar tus habilidades para aumentar tus posibilidades de éxito.`,
+        `No encontré vacantes que cumplan tus requisitos en este momento. Te recomiendo ampliar tus criterios de búsqueda y explorar diferentes industrias. ¡Mantén la determinación!`,
+        `Lo siento, no encontré ninguna vacante que se ajuste a tu perfil en este momento. Te sugiero que sigas explorando y consideres la posibilidad de mejorar tu currículum para destacar en futuras oportunidades.`
+    ]
+    const numberOfMessage = Math.floor(Math.random() * 7)
+    const selectedMessage = messages[numberOfMessage]
+
+    return selectedMessage
+
+}

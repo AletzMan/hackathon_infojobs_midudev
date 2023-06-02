@@ -1,7 +1,12 @@
 .comboboxItem {
   padding: 0 0.5em;
+  color: #ffffff;
 }
 
 .comboboxLabel {
-  color: rgb(48, 108, 218);
+  color: rgb(196, 206, 224);
+}
+
+.combobox {
+  color: #ffffff;
 }

@@ -1,8 +1,18 @@
 "use client"
 
-import { ChatBotIcon, SendMessageIcon } from "@/app/constants"
+import {
+  ChatBotIcon,
+  GetJobsFoundMessage,
+  GetSuccessfulSearchMessage,
+  SendMessageIcon,
+} from "@/app/constants"
 import { GetOffers } from "@/app/services/infojobsAPI"
-import { GetKeyWords } from "@/app/services/openAI"
+import {
+  ChatBotResponse,
+  GetKeyWords,
+  GetOpenAIResponse,
+  GetResponseOpenAI,
+} from "@/app/services/openAI"
 import {
   CapitalizeFirstLetter,
   GetInitialCapitalLetter,
@@ -11,6 +21,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import uuid from "react-uuid"
 import styles from "./chat.module.css"
+import { ChatOffer } from "./components/ChatOffer"
 const initUser = {
   id: uuid(),
   name: "user",
@@ -45,17 +56,25 @@ export function ConversationChat({
     setAwaitingResponse(true)
     const fetchData = async () => {
       const data = await GetKeyWords(message)
-      //console.log(JSON.parse(data?.replace(/'/g, '"')))
-      //console.log(data)
       const format = data?.replaceAll(/'/g, '"')
-      //console.log(format)
       const matchesJSON = format.match(/\{.*?\}/g)
-      console.log(matchesJSON)
       const formatJSON = JSON.parse(matchesJSON)
       console.log(formatJSON)
       setKeyWords(formatJSON)
-      //const dataResponse = await GetOpenAIResponse(formatJSON)
-      //setResponseBot(dataResponse)
+      //const dataResponse = await GetResponseOpenAI(matchesJSON)
+      const dataResponse = "* Empleos"
+      console.log(dataResponse)
+      if (dataResponse?.includes("*")) {
+        const dataResponse = GetJobsFoundMessage(userInfo?.name || "Invitado")
+        setResponseBot(dataResponse)
+      } else if (dataResponse?.error?.type) {
+        const dataResponse = dataResponse?.error?.message
+        setResponseBot(dataResponse)
+      } else {
+        setKeyWords(null)
+        setResponseBot(dataResponse)
+        setAwaitingResponse(false)
+      }
     }
     fetchData()
     const newMessage = [...conversation]
@@ -87,29 +106,30 @@ export function ConversationChat({
     setSelectedOfferId(idOffer)
     setOpenOffer(true)
   }
-
-  useEffect(() => {
-    if (conversation.length > 1) {
-      setTimeout(() => {
-        const dataResponse = `He realizado la búsqueda y aquí están los resultados para tu búsqueda:`
-        setResponseBot(dataResponse)
-        setAwaitingResponse(false)
-      }, 3500)
-    }
-  }, [keyWords])
-
   useEffect(() => {
     if (responseBot !== "" && conversation.length > 1) {
-      const newResponseBot = responseBot
+      console.log(responseBot)
+      let newResponseBot = responseBot
         .replace("Infobot:", "")
+        .replace("InfoBot:", "")
         .replace("infobot:", "")
+        .replace("infoBot:", "")
+        .replace("Respuesta:", "")
+        .replace("Respuest:", "")
         .replace("*", "")
       const newMessage = [...conversation]
-
+      setAwaitingResponse(true)
+      let dataOffers = null
       const fetchData = async () => {
-        const dataOffers = await GetOffers(keyWords)
-        setOffers(dataOffers?.product?.items)
-        console.log(dataOffers)
+        if (keyWords !== null) {
+          console.log(keyWords)
+          dataOffers = await GetOffers(keyWords)
+          console.log(dataOffers)
+          setOffers(dataOffers?.product?.items)
+          if (dataOffers?.product?.totalResults === 0) {
+            newResponseBot = GetSuccessfulSearchMessage()
+          }
+        }
         const newBotMessage = {
           id: uuid(),
           name: "bot",
@@ -120,33 +140,13 @@ export function ConversationChat({
         newMessage.push(newBotMessage)
         setConversation(newMessage)
         setResponseBot("")
+        setAwaitingResponse(false)
       }
+
       fetchData()
     }
   }, [responseBot])
 
-  /*
-  useEffect(() => {
-    if (responseBot !== "" && conversation.length > 1) {
-      const newResponseBot = responseBot
-        .replace("Infobot:", "")
-        .replace("infobot:", "")
-        .replace("*", "")
-      const newMessage = [...conversation]
-      const newBotMessage = {
-        id: uuid(),responseBot
-        name: "bot",
-        message: newResponseBot,
-        skills: keyWords?.skills,
-      }
-      newMessage.push(newBotMessage)
-      setConversation(newMessage)
-      setResponseBot("")
-    }
-  }, [responseBot])
-  */
-
-  console.log(userInfo)
   return (
     <section className={styles.conversation}>
       {conversation?.map((chat) => (
@@ -194,14 +194,11 @@ export function ConversationChat({
               {chat.offers && (
                 <div className={styles.offersContainer}>
                   {chat?.offers?.map((offer) => (
-                    <button
+                    <ChatOffer
                       key={uuid()}
-                      className={styles.offersSkills}
-                      title={CapitalizeFirstLetter(offer?.title)}
-                      onClick={() => HandleOpenViewOffer(offer?.id)}
-                    >
-                      {CapitalizeFirstLetter(offer?.title)}
-                    </button>
+                      HandleOpenViewOffer={() => HandleOpenViewOffer(offer?.id)}
+                      offer={offer}
+                    />
                   ))}
                 </div>
               )}
@@ -215,7 +212,7 @@ export function ConversationChat({
           value={message}
           onChange={(e) => HandlerChangeMessage(e.target.value)}
           className={styles.input}
-          placeholder="Escribe tu consulta"
+          placeholder="Ingresa un cargo o palabras clave"
           onKeyDown={HandlerKeySend}
         ></input>
         <button className={styles.inputSend} onClick={HandlerButtonSend}>

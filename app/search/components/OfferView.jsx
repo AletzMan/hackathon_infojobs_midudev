@@ -12,6 +12,7 @@ import { ButtonsOffer } from "./ButtonsOffer"
 import uuid from "react-uuid"
 import { ConvertLineBreaks } from "@/app/utilities/functions"
 import { Skeleton } from "@mui/material"
+import { UsersIcon } from "@/app/constants"
 
 export function OfferView({ offerSelected }) {
   const [offers, setOffers] = useState({})
@@ -19,12 +20,11 @@ export function OfferView({ offerSelected }) {
   useEffect(() => {
     const getJobs = async () => {
       const data = await GetInfoJobsOfferDetails(offerSelected)
+      console.log(data)
       setOffers(data)
     }
     getJobs()
   }, [offerSelected])
-
-  //console.log(offers?.details?.minRequirements);
 
   return (
     <>
@@ -78,6 +78,20 @@ export function OfferView({ offerSelected }) {
               alt="resultados de busqueda"
             />
             <ButtonsOffer detailsOffer={offers?.details} />
+            <div className={styles.containerVacancies}>
+              <div className={styles.vacancies}>
+                <div className={styles.vacanciesNumber}>
+                  {offers?.details?.vacancies}
+                </div>
+                <span className={styles.vacanciesText}>Vacantes</span>
+              </div>
+              <div className={styles.vacancies}>
+                <div className={styles.applicationsNumber}>
+                  {offers?.details?.applications}
+                </div>
+                <span className={styles.applicationsText}>Postulaciones</span>
+              </div>
+            </div>
           </header>
           <section className={styles.offerDescription}>
             <section className={styles.typeOffer}>
