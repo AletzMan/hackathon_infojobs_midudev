@@ -4,8 +4,7 @@ const PATH_IMAGE =
   "https://media.infojobs.net/appgrade/pictures/pic-company-logo.png"
 export function OfferApplication({ offer }) {
   let date = new Date(offer?.date) || ""
-  console.log(date)
-  console.log(offer)
+
   return (
     <article className={styles.article}>
       <h1 className={styles.offerTitle}>{offer?.jobOffer?.title}</h1>

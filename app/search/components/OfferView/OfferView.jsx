@@ -19,7 +19,6 @@ export function OfferView({ offerSelected }) {
   useEffect(() => {
     const getJobs = async () => {
       const data = await GetInfoJobsOfferDetails(offerSelected)
-      console.log(data)
       setOffers(data)
     }
     getJobs()

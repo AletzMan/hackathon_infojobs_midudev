@@ -10,7 +10,7 @@ export function ComboBox({ parameter, arrayItems, title }) {
   const handleChange = (event) => {
     setItem(event.target.value)
   }
-  //console.log(provinces);
+
   return (
     <FormControl
       variant="filled"

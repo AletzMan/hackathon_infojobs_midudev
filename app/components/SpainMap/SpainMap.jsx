@@ -25,17 +25,13 @@ export default function SpainMap() {
           }
         })
         const responseProvinces = await Promise.all(promises)
-        console.log(responseProvinces)
         const text = JSON.stringify(responseProvinces)
         sessionStorage.setItem("JobsByProvince", text)
-        console.log(text)
         setJobsByProvince(responseProvinces)
       }
       fetchData()
     } else {
-      console.log(ArrayJobs)
       setJobsByProvince(JSON.parse(ArrayJobs))
-      console.log(JSON.parse(ArrayJobs))
     }
   }, [])
 

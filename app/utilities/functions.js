@@ -39,7 +39,6 @@ export function CapitalizeFirstLetter(text) {
 
 export function CalculateAge(dateOfBirth) {
     if (dateOfBirth != undefined) {
-        console.log("birth", dateOfBirth)
         const currentDate = new Date()
         const birth = new Date(dateOfBirth)
         let age = currentDate.getFullYear() - birth.getFullYear()
