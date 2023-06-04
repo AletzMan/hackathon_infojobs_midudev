@@ -27,9 +27,7 @@ export function JobWidget({ detailsOffer }) {
   function CopyClipboardLink(link) {
     navigator.clipboard
       .writeText(link)
-      .then(function () {
-        console.log("Enlace copiado al portapapeles")
-      })
+      .then(function () {})
       .catch(function (error) {
         console.error("Error al copiar el enlace al portapapeles:", error)
       })

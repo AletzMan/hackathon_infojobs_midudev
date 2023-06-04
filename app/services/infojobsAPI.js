@@ -24,8 +24,6 @@ export async function GetInfoJobsOffers(query) {
 
 export async function GetOffers(arrayQuery, page) {
     let query = arrayQuery?.work?.replace(" ", ",")
-    //const query = arrayQuery?.work + "," + skills
-    console.log(arrayQuery)
     const location = arrayQuery?.location
     const salary = arrayQuery?.salary
     const res = await fetch(`/api/getOffers?q=${query}&p=${location}&s=${salary}&page=${page}`)

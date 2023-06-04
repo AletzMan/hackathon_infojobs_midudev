@@ -17,10 +17,6 @@ import { GetOffers } from "../../services/infojobsAPI"
 import styles from "./offers.module.css"
 import { Montserrat } from "next/font/google"
 import { OfferView } from "./OfferView/OfferView"
-import { ComboBox } from "@/app/search/components/ComboBox/ComboBox"
-import Box from "@mui/material/Box"
-import Stack from "@mui/material/Stack"
-import Button from "@mui/material/Button"
 import SwipeableEdgeDrawer from "./SwipeDrawer"
 import { ExtractQueryParams } from "@/app/utilities/functions"
 import { useRouter } from "next/navigation"
@@ -77,7 +73,7 @@ export function OffersByProvince({ parameter }) {
     setSelectedOfferId(id)
     toggleDrawer(true)
   }
-  console.log(currentPage)
+
   const renderPageButtons = () => {
     const pageRange = 5 // Cantidad de botones intermedios a mostrar
     const pageButtons = []

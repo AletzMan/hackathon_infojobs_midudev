@@ -4,7 +4,6 @@ import styles from "./search.module.css"
 
 export default async function LayoutParameter({ children, params }) {
   const { parameter } = params
-  console.log(parameter)
 
   return (
     <main className={styles.main}>

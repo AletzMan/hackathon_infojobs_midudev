@@ -4,7 +4,6 @@ import Link from "next/link"
 import { links, Menu } from "../constants"
 
 export function Header() {
-  console.log("ENTRO")
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>

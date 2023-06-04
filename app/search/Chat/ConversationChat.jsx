@@ -49,19 +49,14 @@ export function ConversationChat({
     setAwaitingResponse(true)
     const fetchData = async () => {
       const data = await GetKeyWords(message)
-      console.log(data)
       const format = data?.replaceAll(/'/g, '"')
       const matchesJSON = format.match(/\{.*?\}/g)
-      console.log(matchesJSON)
       const formatJSON = JSON.parse(matchesJSON)
-      console.log(formatJSON)
       setKeyWords(formatJSON)
       //const dataResponse = await GetResponseOpenAI(matchesJSON)
       const dataResponse = "* Empleos"
-      console.log(dataResponse)
       if (dataResponse?.includes("*")) {
         let dataOffers = await GetOffers(formatJSON, currentPage)
-        console.log(dataOffers)
         setOffers(dataOffers.product)
         const dataResponse = GetJobsFoundMessage(
           dataOffers?.product?.totalResults
@@ -108,7 +103,6 @@ export function ConversationChat({
   }
   useEffect(() => {
     if (responseBot !== "" && responseBot !== null && conversation.length > 1) {
-      console.log(responseBot)
       let newResponseBot = responseBot
         .replace("Infobot:", "")
         .replace("InfoBot:", "")
@@ -121,8 +115,6 @@ export function ConversationChat({
       setAwaitingResponse(true)
       const fetchData = async () => {
         if (keyWords !== null) {
-          console.log(keyWords)
-
           if (offers?.totalResults === 0) {
             newResponseBot = GetJobsNoFoundMessage()
           }
@@ -143,7 +135,6 @@ export function ConversationChat({
       fetchData()
     }
   }, [responseBot])
-  console.log(offers)
   return (
     <section className={styles.conversation}>
       {conversation?.map((chat) => (

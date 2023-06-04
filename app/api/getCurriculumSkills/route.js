@@ -8,7 +8,6 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url)
     const id = searchParams.get('q')
     const code = searchParams.get('code')
-    console.log('TOKEN', code)
     const res = await fetch(`${API_URL}${id}/skill`, {
         headers: {
             'Content-Type': 'application/json',

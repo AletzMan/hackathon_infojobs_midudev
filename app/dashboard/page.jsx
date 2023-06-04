@@ -32,25 +32,6 @@ export default function Dashboard() {
       //const cv = await GetCurriculum(accessToken?.access_token)
 
       if (accessToken) {
-        /*const dataCV = await GetCurriculumData(
-          accessToken.access_token,
-          cv?.curriculum[0].code
-        )
-
-        const dataFB = await GetCurriculumFutureJob(
-          accessToken.access_token,
-          cv?.curriculum[0].code
-        )
-
-        const dataEX = await GetCurriculumExperience(
-          accessToken.access_token,
-          cv?.curriculum[0].code
-        )
-
-        const dataSkills = await GetCurriculumSkills(
-          accessToken.access_token,
-          cv?.curriculum[0].code
-        )*/
         const userInfo = JSON.parse(sessionStorage?.getItem("userInfo"))
         const futureJob = JSON.parse(sessionStorage?.getItem("futureJob"))
         const userExperience = JSON.parse(

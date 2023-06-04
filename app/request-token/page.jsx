@@ -24,7 +24,6 @@ export default function SolicitarTokenPage() {
     const code = searchParams.get("code")
 
     const getJobs = async () => {
-      console.log(code)
       const data = await getAccessToken(code)
       SetAccess(data)
       sessionStorage.setItem("accessToken", JSON.stringify(data))
@@ -58,8 +57,6 @@ export default function SolicitarTokenPage() {
         cv?.curriculum[0]?.code
       )
       sessionStorage.setItem("userSkills", JSON.stringify(userSkills?.skills))
-
-      console.log(userInfo)
       router.push(`/?login=OK`)
     }
     getJobs()

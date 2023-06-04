@@ -20,7 +20,6 @@ export default function Applications() {
     }
     getCandidate()
   }, [])
-  console.log(applications)
   return (
     <section className={styles.section}>
       <h1 className={styles.title}>Mis Ofertas</h1>
