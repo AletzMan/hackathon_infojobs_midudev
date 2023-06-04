@@ -62,7 +62,6 @@ export function ChatDrawer(props) {
       const handleScroll = (event) => {
         const { currentTarget: target } = event
         target.scroll({ top: target.scrollHeight })
-        console.log("CAMBIO")
       }
 
       chatRef.current?.addEventListener("DOMNodeInserted", handleScroll)

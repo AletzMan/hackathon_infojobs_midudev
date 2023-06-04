@@ -16,7 +16,9 @@ export function ComboBox({ parameter, arrayItems, title }) {
       variant="filled"
       sx={{
         m: 1,
-        minWidth: 170,
+        minWidth: 105,
+        maxWidth: 105,
+        height: 40,
         backgroundColor: "#21263d",
         borderRadius: "0.2em 0.2em 0 0",
         color: "#FFFFFF",
@@ -27,8 +29,8 @@ export function ComboBox({ parameter, arrayItems, title }) {
         className={styles.comboboxLabel}
         id="demo-simple-select-filled-label"
         sx={{
-          backgroundColor: "#21263d",
           color: "#85daf0",
+          fontSize: "0.9em",
         }}
       >
         {title}
@@ -40,11 +42,14 @@ export function ComboBox({ parameter, arrayItems, title }) {
         label="Provincia"
         onChange={handleChange}
         defaultValue={""}
+        autoWidth={false}
         MenuItem
         className={styles.combobox}
         sx={{
-          backgroundColor: "#21263d",
+          backgroundColor: "#FFFFFF15",
           color: "#FFFFFF",
+          fontSize: "0.7em",
+          borderBottom: "1px solid #167db7",
         }}
       >
         <MenuItem className={styles.comboboxItem} value={""}>

@@ -3,25 +3,17 @@
 import {
   ChatBotIcon,
   GetJobsFoundMessage,
-  GetSuccessfulSearchMessage,
+  GetJobsNoFoundMessage,
   SendMessageIcon,
 } from "@/app/constants"
 import { GetOffers } from "@/app/services/infojobsAPI"
-import {
-  ChatBotResponse,
-  GetKeyWords,
-  GetOpenAIResponse,
-  GetResponseOpenAI,
-} from "@/app/services/openAI"
-import {
-  CapitalizeFirstLetter,
-  GetInitialCapitalLetter,
-} from "@/app/utilities/functions"
+import { GetKeyWords } from "@/app/services/openAI"
+import { GetInitialCapitalLetter } from "@/app/utilities/functions"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import uuid from "react-uuid"
+import { SingelOfferView } from "../components/SingleOfferView/SingleOfferView"
 import styles from "./chat.module.css"
-import { ChatOffer } from "./components/ChatOffer"
 const initUser = {
   id: uuid(),
   name: "user",
@@ -47,17 +39,20 @@ export function ConversationChat({
   }
   const [conversation, setConversation] = useState([initConversation])
   const [message, setMessage] = useState("")
-  const [keyWords, setKeyWords] = useState([])
+  const [keyWords, setKeyWords] = useState({})
   const [responseBot, setResponseBot] = useState("")
   const [awaitingResponse, setAwaitingResponse] = useState(false)
   const [offers, setOffers] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
 
   const HandlerSendMessage = () => {
     setAwaitingResponse(true)
     const fetchData = async () => {
       const data = await GetKeyWords(message)
+      console.log(data)
       const format = data?.replaceAll(/'/g, '"')
       const matchesJSON = format.match(/\{.*?\}/g)
+      console.log(matchesJSON)
       const formatJSON = JSON.parse(matchesJSON)
       console.log(formatJSON)
       setKeyWords(formatJSON)
@@ -65,7 +60,12 @@ export function ConversationChat({
       const dataResponse = "* Empleos"
       console.log(dataResponse)
       if (dataResponse?.includes("*")) {
-        const dataResponse = GetJobsFoundMessage(userInfo?.name || "Invitado")
+        let dataOffers = await GetOffers(formatJSON, currentPage)
+        console.log(dataOffers)
+        setOffers(dataOffers.product)
+        const dataResponse = GetJobsFoundMessage(
+          dataOffers?.product?.totalResults
+        )
         setResponseBot(dataResponse)
       } else if (dataResponse?.error?.type) {
         const dataResponse = dataResponse?.error?.message
@@ -107,7 +107,7 @@ export function ConversationChat({
     setOpenOffer(true)
   }
   useEffect(() => {
-    if (responseBot !== "" && conversation.length > 1) {
+    if (responseBot !== "" && responseBot !== null && conversation.length > 1) {
       console.log(responseBot)
       let newResponseBot = responseBot
         .replace("Infobot:", "")
@@ -119,15 +119,12 @@ export function ConversationChat({
         .replace("*", "")
       const newMessage = [...conversation]
       setAwaitingResponse(true)
-      let dataOffers = null
       const fetchData = async () => {
         if (keyWords !== null) {
           console.log(keyWords)
-          dataOffers = await GetOffers(keyWords)
-          console.log(dataOffers)
-          setOffers(dataOffers?.product?.items)
-          if (dataOffers?.product?.totalResults === 0) {
-            newResponseBot = GetSuccessfulSearchMessage()
+
+          if (offers?.totalResults === 0) {
+            newResponseBot = GetJobsNoFoundMessage()
           }
         }
         const newBotMessage = {
@@ -135,7 +132,7 @@ export function ConversationChat({
           name: "bot",
           message: newResponseBot,
           skills: keyWords?.skills,
-          offers: dataOffers?.product?.items,
+          offers: offers?.items,
         }
         newMessage.push(newBotMessage)
         setConversation(newMessage)
@@ -146,7 +143,7 @@ export function ConversationChat({
       fetchData()
     }
   }, [responseBot])
-
+  console.log(offers)
   return (
     <section className={styles.conversation}>
       {conversation?.map((chat) => (
@@ -194,7 +191,7 @@ export function ConversationChat({
               {chat.offers && (
                 <div className={styles.offersContainer}>
                   {chat?.offers?.map((offer) => (
-                    <ChatOffer
+                    <SingelOfferView
                       key={uuid()}
                       HandleOpenViewOffer={() => HandleOpenViewOffer(offer?.id)}
                       offer={offer}
@@ -218,6 +215,16 @@ export function ConversationChat({
         <button className={styles.inputSend} onClick={HandlerButtonSend}>
           <SendMessageIcon className={styles.inputSendIcon} />
         </button>
+      </div>
+      <div className={styles.containerMoreOffers}>
+        {offers?.totalResults > 20 && (
+          <Link
+            className={styles.moreOffers}
+            href={`/search/work=${keyWords?.work}&location=${keyWords?.location}&page=${currentPage}`}
+          >
+            Ver todas las ofertas
+          </Link>
+        )}
       </div>
     </section>
   )

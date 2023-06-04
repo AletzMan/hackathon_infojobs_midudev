@@ -4,7 +4,10 @@
   --PrimaryOpacity: #167db745;
   --Secondary: #4396bf;
   --Terciary: #59a0c3;
-  --Background: #06172e;
+  --Background: #041124;
+  --FirstColor: #04101f;
+  --FirstColorHover: #071930;
+  --SecondColor: #08254d;
   --Success: #ff6340;
   --Alert: #f1c40f;
   --Error: #e93e40;
@@ -19,7 +22,7 @@
   }
 }
 body {
-  background-color: #021227;
+  background-color: var(--Background);
 }
 
 * {
@@ -31,7 +34,7 @@ body {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-    background-color: #021227;
+    background-color: var(--Background);
   }
 }
 

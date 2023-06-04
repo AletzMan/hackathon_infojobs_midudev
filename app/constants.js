@@ -15,7 +15,7 @@ export const links = [
     {
         id: 2,
         name: "Mis ofertas",
-        route: "/myoffers",
+        route: "/applications",
         icon: OffersIcon
     },
     {
@@ -27,25 +27,25 @@ export const links = [
 ]
 
 
-function HomeIcon() {
+export function HomeIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" /></svg>
     )
 }
 
-function SearchIcon() {
+export function SearchIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m21 19l-5.154-5.154a7 7 0 1 0-2 2L19 21l2-2zM5 10c0-2.757 2.243-5 5-5s5 2.243 5 5s-2.243 5-5 5s-5-2.243-5-5z" /></svg>
     )
 }
 
-function OffersIcon() {
+export function OffersIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 21q-.825 0-1.413-.588T2 19V8q0-.825.588-1.413T4 6h4V4q0-.825.588-1.413T10 2h4q.825 0 1.413.588T16 4v2h4q.825 0 1.413.588T22 8v11q0 .825-.588 1.413T20 21H4Zm6-15h4V4h-4v2Z" /></svg>
     )
 }
 
-function CVIcon() {
+export function CVIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z" /></svg>
     )
@@ -60,7 +60,7 @@ export function Menu() {
 export function FavIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 30 30">
-            <path strokeWidth={0.5} stroke="#59a0c3" fill="#59a0c3" d="M22.45 6a5.47 5.47 0 0 1 3.91 1.64a5.7 5.7 0 0 1 0 8L16 26.13L5.64 15.64a5.7 5.7 0 0 1 0-8a5.48 5.48 0 0 1 7.82 0l2.54 2.6l2.53-2.58A5.44 5.44 0 0 1 22.45 6m0-2a7.47 7.47 0 0 0-5.34 2.24L16 7.36l-1.11-1.12a7.49 7.49 0 0 0-10.68 0a7.72 7.72 0 0 0 0 10.82L16 29l11.79-11.94a7.72 7.72 0 0 0 0-10.82A7.49 7.49 0 0 0 22.45 4Z" />
+            <path strokeWidth={0.5} stroke="currentColor" fill="currentColor" d="M22.45 6a5.47 5.47 0 0 1 3.91 1.64a5.7 5.7 0 0 1 0 8L16 26.13L5.64 15.64a5.7 5.7 0 0 1 0-8a5.48 5.48 0 0 1 7.82 0l2.54 2.6l2.53-2.58A5.44 5.44 0 0 1 22.45 6m0-2a7.47 7.47 0 0 0-5.34 2.24L16 7.36l-1.11-1.12a7.49 7.49 0 0 0-10.68 0a7.72 7.72 0 0 0 0 10.82L16 29l11.79-11.94a7.72 7.72 0 0 0 0-10.82A7.49 7.49 0 0 0 22.45 4Z" />
         </svg >
     )
 }
@@ -192,6 +192,63 @@ export function UsersIcon({ className }) {
     return (
         <svg className={className} width="24" height="24" viewBox="0 0 24 24">
             <path fill="currentColor" d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0a4.125 4.125 0 0 1-8.25 0Zm9.75 2.25a3.375 3.375 0 1 1 6.75 0a3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63a13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122Zm15.75.003l-.001.144a2.25 2.25 0 0 1-.233.96a10.088 10.088 0 0 0 5.06-1.01a.75.75 0 0 0 .42-.643a4.875 4.875 0 0 0-6.957-4.611a8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+        </svg>
+    )
+}
+
+export function ClockIcon({ className }) {
+    return (
+        <svg width="20" height="20" viewBox="0 0 256 256">
+            <g fill="currentColor">
+                <path d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96Z" opacity=".2" />
+                <path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88Zm64-88a8 8 0 0 1-8 8h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 8 8Z" />
+            </g>
+        </svg>
+    )
+}
+
+export function NewIcon({ className }) {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9.12 14.47V9.53H8.09v2.88L6.03 9.53H5v4.94h1.03v-2.88l2.1 2.88zm4.12-3.9V9.53h-3.3v4.94h3.3v-1.03h-2.06v-.91h2.06v-1.04h-2.06v-.92zm.82-1.04v4.12c0 .45.37.82.82.82h3.29c.45 0 .82-.37.82-.82V9.53h-1.03v3.71h-.92v-2.89h-1.03v2.9h-.93V9.53h-1.02z" />
+            <path fill="currentColor" d="M4 6h16v12H4z" opacity=".3" />
+            <path fill="currentColor" d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4V6h16v12z" />
+        </svg>
+    )
+}
+
+export function CircleIcon({ className }) {
+    return (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="0" fill="currentColor">
+                <animate id="svgSpinnersPulseMultiple0" fill="freeze" attributeName="r" begin="0;svgSpinnersPulseMultiple2.end" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" />
+                <animate fill="freeze" attributeName="opacity" begin="0;svgSpinnersPulseMultiple2.end" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" />
+            </circle>
+            <circle cx="12" cy="12" r="0" fill="currentColor">
+                <animate id="svgSpinnersPulseMultiple1" fill="freeze" attributeName="r" begin="svgSpinnersPulseMultiple0.begin+0.2s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" /><animate fill="freeze" attributeName="opacity" begin="svgSpinnersPulseMultiple0.begin+0.2s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" /></circle>
+            <circle cx="12" cy="12" r="0" fill="currentColor">
+                <animate id="svgSpinnersPulseMultiple2" fill="freeze" attributeName="r" begin="svgSpinnersPulseMultiple0.begin+0.4s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" />
+                <animate fill="freeze" attributeName="opacity" begin="svgSpinnersPulseMultiple0.begin+0.4s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" />
+            </circle>
+        </svg>
+    )
+}
+
+export function UrgentIcon({ className }) {
+    return (
+        <svg width="20" height="20" viewBox="0 0 20 20">
+            <path fill="currentColor" d="M13.264 2.078a.5.5 0 1 0-.523.852c2.258 1.384 4.12 3.414 4.26 7.09A.5.5 0 0 0 18 9.982c-.157-4.099-2.278-6.398-4.736-7.904Zm-1.178 2.65a.5.5 0 0 1 .694-.134c1.607 1.085 2.715 2.638 2.888 4.424c.016.16.024.323.024.487a.5.5 0 0 1-1 0c0-.132-.007-.262-.02-.39c-.136-1.418-1.024-2.728-2.452-3.693a.5.5 0 0 1-.134-.694Zm-7.006.71a5.158 5.158 0 0 0-2.614 6.811l1.223 2.749l.09 2.32a.75.75 0 0 0 1.054.656l9.727-4.33a.75.75 0 0 0 .218-1.223l-1.664-1.619l-1.224-2.749a5.158 5.158 0 0 0-6.81-2.614Zm-1.7 6.404a4.158 4.158 0 0 1 7.596-3.382l1.302 2.925l1.538 1.495l-9.052 4.03l-.083-2.143l-1.302-2.925Zm7.298 6.034a1.49 1.49 0 0 1-1.848-.54l2.685-1.194a1.49 1.49 0 0 1-.837 1.734Z" />
+        </svg>
+    )
+}
+
+export function ExecutiveIcon({ className }) {
+    return (
+        <svg width="20" height="20" viewBox="0 0 256 256">
+            <g fill="currentColor">
+                <path d="M224 118.31V200a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-81.69A191.14 191.14 0 0 0 128 144a191.08 191.08 0 0 0 96-25.69Z" opacity=".2" />
+                <path d="M104 112a8 8 0 0 1 8-8h32a8 8 0 0 1 0 16h-32a8 8 0 0 1-8-8Zm128-40v128a16 16 0 0 1-16 16H40a16 16 0 0 1-16-16V72a16 16 0 0 1 16-16h40v-8a24 24 0 0 1 24-24h48a24 24 0 0 1 24 24v8h40a16 16 0 0 1 16 16ZM96 56h64v-8a8 8 0 0 0-8-8h-48a8 8 0 0 0-8 8ZM40 72v41.62A184.07 184.07 0 0 0 128 136a184 184 0 0 0 88-22.39V72Zm176 128v-68.37A200.25 200.25 0 0 1 128 152a200.19 200.19 0 0 1-88-20.36V200h176Z" />
+            </g>
         </svg>
     )
 }
@@ -1200,14 +1257,51 @@ export const ArrayContractType = [
 ]
 
 
-export function GetJobsFoundMessage(user) {
+export function GetJobsFoundMessage(quantity) {
     const messages = [
-        `He encontrado algunas vacantes que podrían ser de tu interés. Te invito a revisar los detalles y postular a las oportunidades que se ajusten a tus habilidades y experiencia. ¡Buena suerte en tu búsqueda de empleo! `,
-        `Felicitaciones, ${user}, he encontrado una vacante que podría ser perfecta para ti. Adjunto encontrarás los detalles. No dudes en contactarme si necesitas más información. ¡Buena suerte en tu búsqueda laboral!`,
-        `¡Felicitaciones, ${user}! He encontrado una oportunidad laboral que podría ser un excelente ajuste para ti. Échale un vistazo y si te emociona, no dudes en seguir adelante. Estoy aquí para ayudarte en lo que necesites.`,
-        `Estoy encantado de informarte, ${user}, que he encontrado una vacante que se alinea con tus habilidades y experiencia. Adjunto encontrarás los detalles. ¡Te deseo lo mejor y espero que encuentres el empleo de tus sueños!`,
-        `¡Enhorabuena, ${user}! He localizado una oportunidad laboral que podría ser el siguiente paso en tu carrera. Puedes encontrar los detalles adjuntos. ¡Te deseo mucho éxito en tu camino hacia una nueva y emocionante trayectoria profesional!`,
-        `¡Felicitaciones, ${user}! He encontrado una vacante que podría brindarte una nueva y emocionante posibilidad laboral. Echa un vistazo a los detalles adjuntos y si tienes alguna pregunta, no dudes en consultarme. Estoy aquí para ayudarte a alcanzar tus metas profesionales.`,
+        `¡Hola! ¡Tengo buenas noticias para ti! He encontrado ${quantity} vacantes que podrían ser perfectas para ti. Echa un vistazo:`,
+        `Excelente noticia: he localizado ${quantity} oportunidades laborales que podrían interesarte.`,
+        `¡Felicidades! Acabo de encontrar ${quantity} vacantes que podrían ajustarse a tus habilidades y experiencia.`,
+        `¡Genial! Hay ${quantity} oportunidades laborales que podrían ser ideales para ti. ¡Espero que encuentres lo que buscas!`,
+        `Buenas noticias: he encontrado ${quantity} vacantes que podrían ser justo lo que necesitas para impulsar tu carrera profesional.`,
+        `¡Estoy emocionado de informarte que hay ${quantity} oportunidades laborales esperándote! No pierdas tiempo y empieza a explorarlas.`,
+        `Estoy encantado de decirte que he encontrado ${quantity} vacantes que podrían ser un gran paso adelante en tu camino profesional.`,
+        `¡Tenemos buenas noticias! Hay ${quantity} oportunidades laborales que podrían ser una excelente opción para ti. ¡No las dejes pasar!`,
+        `¡Bravo! He encontrado ${quantity} vacantes que podrían encajar a la perfección con tus habilidades y aspiraciones profesionales.`,
+        `¡Maravilloso! Hay ${quantity} oportunidades laborales esperándote. Aprovecha esta posibilidad de encontrar el trabajo de tus sueños.`,
+        `¡Buen trabajo! Acabo de encontrar ${quantity} vacantes que podrían ser exactamente lo que estás buscando.`,
+        `Estoy feliz de informarte que he encontrado ${quantity} oportunidades laborales que podrían abrirte nuevas puertas en tu carrera profesional.`,
+        `¡Fantástico! Hay ${quantity} vacantes disponibles que podrían darte la oportunidad de crecer y desarrollarte profesionalmente.`,
+        `¡Espera a escuchar esto! He encontrado ${quantity} oportunidades laborales que podrían ser tu próximo gran desafío.`,
+        `¡Estás de suerte! Acabo de encontrar ${quantity} vacantes que podrían ofrecerte una emocionante trayectoria profesional.`,
+        `¡Excelente hallazgo! Hay ${quantity} oportunidades laborales esperándote. Espero que encuentres la perfecta para ti.`
+    ]
+
+    const numberOfMessage = Math.floor(Math.random() * 7)
+    const selectedMessage = messages[numberOfMessage]
+
+    return selectedMessage
+
+}
+
+export function GetJobsNoFoundMessage() {
+    const messages = [
+        `Lamentablemente, no se encontraron vacantes disponibles en este momento.`,
+        `No encontré ninguna vacante que se ajuste a tus criterios de búsqueda.`,
+        `Hemos realizado una búsqueda exhaustiva, pero no encontramos vacantes que cumplan con tus requisitos.`,
+        `Parece que no hay vacantes disponibles actualmente para tu perfil y experiencia.`,
+        `Desafortunadamente, no hay resultados de vacantes que coincidan con tus preferencias laborales.`,
+        `No hemos encontrado ninguna vacante que se ajuste a tus habilidades y experiencia en este momento.`,
+        `Lamentablemente, no se encontraron oportunidades laborales que cumplan con tus especificaciones.`,
+        `Hemos revisado nuestras fuentes de trabajo, pero no encontramos vacantes disponibles para ti.`,
+        `No hemos encontrado ninguna vacante que se ajuste a tu perfil y objetivos profesionales en este momento.`,
+        `No se encontraron resultados de vacantes para las palabras clave que ingresaste.`,
+        `No hemos encontrado vacantes que correspondan a tu área de especialización en este momento.`,
+        `Parece que no hay vacantes disponibles en el área geográfica que especificaste.`,
+        `No se encontraron vacantes que cumplan con los criterios de búsqueda seleccionados.`,
+        `Hemos realizado una búsqueda exhaustiva, pero no encontramos ninguna vacante disponible actualmente.`,
+        `No encontré ninguna vacante que se ajuste a tus intereses y necesidades profesionales en este momento.`,
+        `Lamentablemente, no se encontraron vacantes que se alineen con tus habilidades y experiencia.`
     ]
     const numberOfMessage = Math.floor(Math.random() * 7)
     const selectedMessage = messages[numberOfMessage]
@@ -1216,18 +1310,3 @@ export function GetJobsFoundMessage(user) {
 
 }
 
-export function GetSuccessfulSearchMessage() {
-    const messages = [
-        `He encontrado algunas vacantes que podrían ser de tu interés. Te invito a revisar los detalles y postular a las oportunidades que se ajusten a tus habilidades y experiencia. ¡Buena suerte en tu búsqueda de empleo! `,
-        `Lamentablemente, no encontré vacantes que coincidan con tu búsqueda actual. Te animo a que realices una consulta más específica para obtener mejores resultados. ¡Estoy aquí para ayudarte en lo que necesites!`,
-        `Lamentablemente, no encontré ninguna vacante adecuada para ti en este momento. Te animo a explorar diferentes opciones y a considerar expandir tu búsqueda. ¡No te rindas!`,
-        `Realicé una búsqueda exhaustiva, pero no encontré ninguna vacante que se ajuste a tus habilidades y experiencia en este momento. Sigue buscando y considera mejorar tus habilidades para aumentar tus posibilidades de éxito.`,
-        `No encontré vacantes que cumplan tus requisitos en este momento. Te recomiendo ampliar tus criterios de búsqueda y explorar diferentes industrias. ¡Mantén la determinación!`,
-        `Lo siento, no encontré ninguna vacante que se ajuste a tu perfil en este momento. Te sugiero que sigas explorando y consideres la posibilidad de mejorar tu currículum para destacar en futuras oportunidades.`
-    ]
-    const numberOfMessage = Math.floor(Math.random() * 7)
-    const selectedMessage = messages[numberOfMessage]
-
-    return selectedMessage
-
-}

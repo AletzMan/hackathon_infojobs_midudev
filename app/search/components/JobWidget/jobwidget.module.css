@@ -1,0 +1,105 @@
+.buttonsOffer {
+  display: flex;
+  gap: 0.5em;
+  grid-row: 3 / 4;
+  position: relative;
+}
+
+.buttonApply {
+  background-color: var(--Primary);
+  padding: 0.2em 2em;
+  font-size: 1em;
+  font-weight: 600;
+  max-height: 3em;
+  border-radius: 2em;
+  border: none;
+  transition: background-color 0.25s;
+  cursor: pointer;
+}
+
+.buttonApply:hover {
+  background-color: var(--Secondary);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5em;
+  height: 3.5em;
+  background-color: #59a0c335;
+  border: 2px solid #4ec4ff;
+  border-radius: 2em;
+  color: #4ec4ff;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.button:hover {
+  filter: brightness(140%);
+}
+
+.buttonFavtrue {
+  background-color: #ff513245;
+  border: 2px solid #f7282165;
+  color: #ff2424;
+}
+
+.buttonSharetrue {
+  background-color: #59a0c365;
+  border: 1px solid #034f7565;
+}
+.buttonOptionstrue {
+  background-color: #59a0c365;
+  border: 1px solid #034f7565;
+}
+
+.shareMenu,
+.optionMenu {
+  position: absolute;
+  left: 20.5em;
+  top: 3em;
+  display: flex;
+  flex-direction: column;
+  background-color: #dae2ec;
+  list-style: none;
+  font-size: 0.75em;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  border: 1px solid #222d3a99;
+  width: max-content;
+}
+
+.optionMenu {
+  left: 25em;
+}
+
+.shareMenuCopy,
+.shareMenuWhats,
+.shareMenuTwitter {
+  display: flex;
+  gap: 0.5em;
+  word-wrap: normal;
+  max-width: max-content;
+  margin: 0.2em 0;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.optionMenuPrint,
+.optionMenuReport {
+  display: flex;
+  gap: 0.5em;
+  word-wrap: normal;
+  max-width: max-content;
+  margin: 0.2em 0;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

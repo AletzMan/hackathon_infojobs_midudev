@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "./offers.module.css"
+import styles from "./jobwidget.module.css"
 import {
   CopyLinkIcon,
   FavIcon,
@@ -14,7 +14,7 @@ import {
 import { useState } from "react"
 import Link from "next/link"
 
-export function ButtonsOffer({ detailsOffer }) {
+export function JobWidget({ detailsOffer }) {
   const [stateButtons, setStateButtons] = useState([false, false, false])
 
   const HandlerButtonsState = (button) => {

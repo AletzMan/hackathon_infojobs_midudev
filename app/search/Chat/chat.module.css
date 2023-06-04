@@ -150,6 +150,23 @@
   content: "";
   animation: animationWait 1s infinite alternate;
 }
+.containerMoreOffers {
+  position: absolute;
+  bottom: 2.8em;
+  left: 3em;
+}
+
+.moreOffers {
+  padding: 0.2em 0.8em;
+  background-color: #3b5375;
+  text-decoration: none;
+  color: #f0f0f0;
+  border-radius: 0.3em;
+  transition: background-color 0.3s;
+}
+.moreOffers:hover {
+  background-color: #167db7;
+}
 
 @keyframes animationWait {
   0% {

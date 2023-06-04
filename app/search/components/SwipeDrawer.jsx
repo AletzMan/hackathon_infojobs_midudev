@@ -7,18 +7,18 @@ import { grey } from "@mui/material/colors"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
-import { OfferView } from "./OfferView"
+import { OfferView } from "./OfferView/OfferView"
 import styles from "./offers.module.css"
 import { useState } from "react"
 const drawerBleeding = 10
 
 const Root = styled("div")(({ theme }) => ({
   height: "100%",
-  backgroundColor: "red",
+  backgroundColor: "transparent",
 }))
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor: "#07295a",
+  backgroundColor: "var(--SecondColor)",
 }))
 
 const Puller = styled(Box)(({ theme }) => ({

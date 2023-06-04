@@ -1,0 +1,188 @@
+.imagesearch {
+  max-width: 400px;
+  align-self: center;
+}
+
+.headerdetails {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  padding: 1em;
+  gap: 0.5em;
+  color: #000000;
+  margin: 0.5em 0 0 0;
+  background-color: #193144;
+  border-radius: 0.4em 0.4em 0 0;
+  border: 1px solid #1f1f1f;
+  border-bottom: 1px solid #379bec;
+}
+.headerdetailstitle {
+  grid-column: 1 / span 3;
+  color: #b5daf3;
+}
+.headerdetailscompany {
+  display: flex;
+  grid-row: 2 / 3;
+  grid-column: 1 / span 3;
+  gap: 0.5em;
+  color: #ececec;
+  font-size: 0.8em;
+}
+
+.headerdetailscompanyname {
+  color: #f5c45b;
+  font-weight: 600;
+}
+
+.headerlogocompany {
+  position: absolute;
+  right: 0.7em;
+  top: 0.7em;
+  gap: 0.5em;
+  border-radius: 1em;
+}
+
+.containerVacancies {
+  display: flex;
+  grid-row: 4 / 5;
+  grid-column: 1 / 2;
+  column-gap: 1em;
+  right: 1em;
+  width: max-content;
+  bottom: -1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+.vacancies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.vacanciesText {
+  font-size: 0.7em;
+  font-weight: 600;
+  color: #ecebeb;
+}
+.vacanciesNumber {
+  font-size: 0.8em;
+  border-radius: 1.5em;
+  background-color: #4adadf;
+  width: 3em;
+  height: 2em;
+  padding: 0.3em 0.2em 0 0.2em;
+  text-align: center;
+}
+.applicationsText {
+  font-weight: 600;
+  font-size: 0.7em;
+  color: #ecebeb;
+}
+.applicationsNumber {
+  border-radius: 1.5em;
+  background-color: #b2df4a;
+  width: 3em;
+  height: 2em;
+  padding: 0.3em 0.2em 0 0.2em;
+  font-size: 0.8em;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .headerlogocompany {
+    width: 2.8em;
+    height: 2.8em;
+    right: 0.2em;
+    top: 0.2em;
+  }
+}
+
+.offerDescription {
+  margin: 0.5em 0 0 0;
+  background-color: var(--FirstColor);
+  padding: 0.5em;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 0.8em 0 0 0;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.offerDescription::-webkit-scrollbar {
+  width: 10px; /* Ancho de la scrollbar */
+}
+
+.offerDescription::-webkit-scrollbar-thumb {
+  background-color: rgb(105, 105, 105); /* Color del pulgar de la scrollbar */
+  border-radius: 4px; /* Radio de borde del pulgar de la scrollbar */
+}
+.offerDescription::-webkit-scrollbar-track {
+  background-color: #d3d2d2; /* Color de la pista */
+}
+
+.typeOffer {
+  display: flex;
+  gap: 1em;
+  font-size: 0.8em;
+  color: #171717;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.typeOfferOption {
+  background-color: #408ed635;
+  padding: 0.3em 1em;
+  border: 1px solid #324ab6cd;
+  border-radius: 2em;
+  text-align: center;
+  color: #f3f3f3;
+}
+
+/* ------ SOBRE EL EMPLEO -------*/
+.aboutEmployment {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0 1em 0;
+  padding: 0.5em 0.5em 1em 0.5em;
+  border-bottom: 1px solid #707070;
+  border-radius: 0.4em 0 0 0;
+  background-color: #c9e0ee;
+}
+.aboutEmploymentTitle {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+}
+.aboutEmploymentOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin: 0.35em;
+}
+.category {
+  font-size: 0.8em;
+}
+.categoryDescription {
+  font-size: 0.8em;
+}
+
+.sectionDescription {
+  background-color: #c9e0ee;
+  padding: 0.5em 0.5em 1em 0.5em;
+  border-radius: 0.4em 0 0 0;
+}
+
+.skillContainer {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 1em;
+  row-gap: 0.5em;
+}
+.skill {
+  font-size: 0.8em;
+  background-color: #b6e0bb;
+  padding: 0.3em 1em;
+  width: max-content;
+  border-radius: 1.5em;
+  border: 1px solid #104b1755;
+  white-space: nowrap;
+}
