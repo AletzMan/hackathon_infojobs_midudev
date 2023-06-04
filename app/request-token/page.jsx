@@ -30,7 +30,7 @@ export default function SolicitarTokenPage() {
       sessionStorage.setItem("accessToken", JSON.stringify(data))
       setTimeout(() => {
         sessionStorage.setItem("accessToken", null)
-      }, 30000)
+      }, 43199000)
       const cv = await GetCurriculum(data?.access_token)
       const userInfo = await GetCurriculumData(
         data?.access_token,

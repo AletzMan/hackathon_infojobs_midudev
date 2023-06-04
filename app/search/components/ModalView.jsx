@@ -3,8 +3,8 @@
 import React from "react"
 import Box from "@mui/material/Box"
 import Modal from "@mui/material/Modal"
-import { OfferView } from "./OfferView"
 import { useState } from "react"
+import { OfferView } from "./OfferView/OfferView"
 
 const style = {
   position: "absolute",
@@ -17,7 +17,7 @@ const style = {
   height: 750,
   bgcolor: "background.paper",
   border: "2px solid #000",
-  backgroundColor: "#e9ecff",
+  backgroundColor: "#171717",
   boxShadow: 24,
   p: 4,
   overflowY: "scroll",

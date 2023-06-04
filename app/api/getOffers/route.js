@@ -27,28 +27,41 @@ export async function GET(request) {
     const query = searchParams.get('q')
     const province = searchParams.get('p')
     const salary = searchParams.get('s')
+    const page = searchParams.get('page')
     console.log(query)
 
-    let url = `${API_URL}q=${query}`
+    let url = `${API_URL}q=${query.replace("-", ",")}`
 
     if (province) {
-        url += `&city=${province}`
+        url += `&city=${province.replace(' ', '-'.toLowerCase())}`
     }
 
     if (salary) {
         url += `&salary-quantity=${salary}`
     }
-    console.log(url)
+
     const newURL = url.replace(/,(?=&)/g, ',')
-    console.log(newURL)
-    const res = await fetch(newURL, {
+
+    const res = await fetch(`${newURL}&order=updated-desc&page=${page}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Basic ${infojobsToken}`
         },
     })
+    const keyWords = {
+        work: query,
+        location: province,
+        skills: [],
+        salary: salary
+    }
 
+    //`${newURL}&order=updated-desc&page=${page}`
     const product = await res.json()
 
-    return NextResponse.json({ product })
+    //return NextResponse.json({ product })
+    return new Response(JSON.stringify({ product, keyWords, page }), {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
 }

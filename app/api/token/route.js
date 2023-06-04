@@ -4,7 +4,7 @@ const grantType = "authorization_code"
 const tokenEndpoint = 'https://www.infojobs.net/oauth/authorize'
 const clientId = '23456f49ebdd416db1a906c5abfb438e'
 const clientSecret = process.env.INFOJOBS_SECRET
-const redirectUri = "http://hackatoninfojobs.com:3000/request-token"
+const redirectUri = "https://hackathon-infojobs-midudev.vercel.app/request-token"
 
 /*process.env.NODE_ENV === 'development'
     ? 'http://hackatoninfojobs.com:3000/request-token' // URL local de devolución de llamada en entorno de desarrollo

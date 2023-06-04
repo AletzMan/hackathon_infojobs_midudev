@@ -16,10 +16,31 @@
   color: #4495ff;
   height: 2em;
   font-size: 1.3em;
-  padding: 0.3em 1em;
+  padding: 0.15em 1em 0.2em 1em;
   background-color: #031020;
   border: 1px solid #94949435;
   text-align: center;
   border-radius: 1em;
+  margin: 0 0 0.2em 0;
+}
+
+.containerJobs {
+  display: flex;
   margin: 0 0 1em 0;
+}
+
+.jobsTitle {
+  background-color: #2ca6d665;
+  padding: 0.3em 1em;
+  border-radius: 3em 0 0 3em;
+  border: 1px solid #2da9e2;
+}
+
+.jobsNumber {
+  background-color: #2bb8f085;
+  padding: 0.3em 1em;
+  border-radius: 0 3em 3em 0;
+  border: 1px solid #2da9e2;
+  border-left: none;
+  width: 5em;
 }

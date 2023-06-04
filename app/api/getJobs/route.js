@@ -8,7 +8,7 @@ export async function GET(request) {
     const query = searchParams.get('q')
     const page = searchParams.get('p')
 
-    const res = await fetch(`${API_URL}province=${query}&page=${page}`, {
+    const res = await fetch(`${API_URL}province=${query}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Basic ${infojobsToken}`

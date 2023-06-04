@@ -1,18 +1,17 @@
 "use client"
 
 import React from "react"
-import styles from "./offers.module.css"
+import styles from "./offerview.module.css"
 import Image from "next/image"
 const PATH_IMAGE =
   "https://media.infojobs.net/appgrade/pictures/pic-company-logo.png"
-import imagesearch from "../../../assets/content-card-buscar.svg"
+import imagesearch from "@/assets/content-card-buscar.svg"
 import { GetInfoJobsOfferDetails } from "@/app/services/infojobsAPI"
 import { useEffect, useState } from "react"
-import { ButtonsOffer } from "./ButtonsOffer"
+import { ButtonsOffer, JobWidget } from "../JobWidget/JobWidget"
 import uuid from "react-uuid"
 import { ConvertLineBreaks } from "@/app/utilities/functions"
 import { Skeleton } from "@mui/material"
-import { UsersIcon } from "@/app/constants"
 
 export function OfferView({ offerSelected }) {
   const [offers, setOffers] = useState({})
@@ -30,8 +29,10 @@ export function OfferView({ offerSelected }) {
     <>
       {offerSelected === null && (
         <>
-          <h4>Ofertas de acuerdo a tu búsqueda</h4>
-          <p>Selecciona una de la lista para ver su información.</p>
+          <h4 style={{ color: "#DEDEDE" }}>Ofertas de acuerdo a tu búsqueda</h4>
+          <p style={{ color: "#CDCDCD" }}>
+            Selecciona una de la lista para ver su información.
+          </p>
           <Image
             className={styles.imagesearch}
             src={imagesearch}
@@ -77,7 +78,7 @@ export function OfferView({ offerSelected }) {
               height={70}
               alt="resultados de busqueda"
             />
-            <ButtonsOffer detailsOffer={offers?.details} />
+            <JobWidget detailsOffer={offers?.details} />
             <div className={styles.containerVacancies}>
               <div className={styles.vacancies}>
                 <div className={styles.vacanciesNumber}>

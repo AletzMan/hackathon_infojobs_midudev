@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1em;
+  background-color: var(--SecondColor);
   padding: 0.5em 1em 1em 1em;
   max-width: 1200px;
   margin: 0 auto;
@@ -15,8 +16,10 @@
   align-items: center;
   gap: 0.5em;
   padding: 0.6em;
-  border: 1px solid #999999;
-  border-radius: 0.5em;
+  border: 1px solid #4c99e0ab;
+  border-left: 3px solid #4c99e0;
+  background-color: var(--FirstColor);
+  border-radius: 0 0.5em 0.5em 0;
 }
 
 .photoProfile {
@@ -54,10 +57,11 @@
   align-items: flex-start;
   padding: 0.6em;
   gap: 0.5em;
-  border: 1px solid #999999;
-  border-radius: 0.5em;
+  border: 1px solid #4c99e0ab;
+  border-left: 3px solid #4c99e0;
+  background-color: var(--FirstColor);
+  border-radius: 0 0.5em 0.5em 0;
 }
-
 .futureJob {
   display: grid;
   grid-row: 1 / 2;
@@ -68,8 +72,10 @@
   align-items: flex-start;
   padding: 0.6em;
   gap: 0.5em;
-  border: 1px solid #999999;
-  border-radius: 0.5em;
+  border: 1px solid #4c99e0ab;
+  border-left: 3px solid #4c99e0;
+  background-color: var(--FirstColor);
+  border-radius: 0 0.5em 0.5em 0;
 }
 
 .subcategory {
@@ -87,7 +93,8 @@
 }
 .subcategoryPosition {
   font-size: 0.8em;
-  background-color: #6293aa;
+  background-color: #6293aa99;
+  border: 1px solid #649ab399;
   border-radius: 2em;
   padding: 0.1em 1em;
   margin: 0.3em 0;
@@ -115,14 +122,16 @@
   align-items: flex-start;
   padding: 0.6em;
   gap: 0.5em;
-  border: 1px solid #999999;
-  border-radius: 0.5em;
+  border: 1px solid #4c99e0ab;
+  border-left: 3px solid #4c99e0;
+  background-color: var(--FirstColor);
+  border-radius: 0 0.5em 0.5em 0;
 }
 
 .experience {
   display: flex;
   flex-direction: column;
-  background-color: #1d1d1d;
+  background-color: #04050f;
   padding: 0.5em;
   border-radius: 0.5em;
   border: 1px solid #3d3d3d;
@@ -154,8 +163,9 @@
 }
 
 .experiencesSkill {
-  background-color: #80eba9;
-  color: #123f01;
+  background-color: #4fcef575;
+  border: 1px solid #4fcef599;
+  color: #f5fff4;
   padding: 0.2em 1em;
   width: max-content;
   border-radius: 1em;
@@ -170,8 +180,10 @@
   align-items: flex-start;
   padding: 0.6em;
   gap: 0.5em;
-  border: 1px solid #999999;
-  border-radius: 0.5em;
+  border: 1px solid #4c99e0ab;
+  border-left: 3px solid #4c99e0;
+  background-color: var(--FirstColor);
+  border-radius: 0 0.5em 0.5em 0;
 }
 
 .containerSkills {
@@ -181,8 +193,9 @@
 }
 
 .skill {
-  background-color: #f8dea6;
-  color: #3f2201;
+  background-color: #4fcef575;
+  border: 1px solid #4fcef599;
+  color: #f8ede0;
   padding: 0.2em 1em;
   width: max-content;
   border-radius: 1em;

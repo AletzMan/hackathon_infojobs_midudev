@@ -138,22 +138,35 @@ export async function GetKeyWords(text) {
             },
             body: JSON.stringify({
                 model: "command",
-                prompt: `
-                
-                Del parrafo proporcionado extraeras las palabras clave, y responderas con un formato JSON
-                solo responderas el formato JSON
-                
-                Pregunta: Busco empleos de desarrollo web con react en Guadalajara con salario de 3000 tiempo completo
-                Respuest: {"work":"Desarrollo Web","skills":["react","web"],"location":"Guadalara","salary":"3000","contract":"autonomo","workDay":"completa"}
-                Pregunta: Qué trabajos de técnico de mantenimiento eléctrico hay disponibles de tiempo parcial no importa horario
-                Respuest: {"work":"Tecnico mantenimiento","skills":["eléctrico"],"location":"Guadalara","salary":"3000","contract":"a-tiempo-parcial","workDay":"indiferente"}
-                Pregunta: Empleos de Ingeniero electrico experiencia en autocad, diagramas en barcelona solo por un tiempo
-                Respuest: {"work":"Ingeniero electrico","skills":["autocad","diagramas"],"location":"barcelona","salary":"","contract":"de-duracion-determinada","workDay":""}
-                Pregunta: Operador de produccion habilidad manual salario de 2500 por temporada solo de mañana
-                Respuest: {"work":"Operador de produccion","skills":["manual"],"location":'',"salary":"2500","contract":"de-duracion-determinada","workDay":"parcial-manana"} 
-                Pregunta: quiero un empleo de diseñador experiencia en photoshop en guadalajara por la tarde
-                Respuest: {"work":"diseñador","skills":["photoshop"],"location":'guadalajara',"salary":"","contract":"","workDay":"parcial-tarde"} 
-                Pregunta: ${responseUser}`,
+                prompt: `                
+                El usuario te proporcionara un texto y tu extraeras las palabras clave correspondiente a work, skilis, location, salary y responderas con un formato JSON.
+                Si no hay palabras clave, no las inventes, la variable queda vacia.
+                Solo responderas el formato JSON.  
+                Asegurate que sea un formato JSON.
+                Solo responde el formato JSON.
+                No coloques palabras en el JSON si no hay palabras clave en el texto.
+                Si no hay palabra clave para work en el texto proporcionado por el usuario, no la agregues.
+                Si no hay palabra clave para skills en el texto proporcionado por el usuario, no la agregues.
+                Si no hay palabra clave para location en el texto proporcionado por el usuario, no la agregues.
+                Si no hay palabra clave para salary en el texto proporcionado por el usuario, no la agregues.
+                Los ejemplos siguientes son algunas referencias, pero si no hay palabras clave en el texto del usuario no las agregues:
+                User: electronica
+                Respuest: {"work":"electronica","skills":[],"location":"","salary":""}              
+                User: Busco empleos de desarrollo web con react en Guadalajara con salario de 3000
+                Respuest: {"work":"Desarrollo Web","skills":["react","web"],"location":"Guadalara","salary":"3000"}
+                User: Qué trabajos de técnico de mantenimiento eléctrico
+                Respuest: {"work":"Tecnico mantenimiento","skills":["eléctrico"],"location":"","salary":""}
+                User: Empleos de Ingeniero electrico experiencia en autocad, diagramas en barcelona
+                Respuest: {"work":"Ingeniero electrico","skills":["autocad","diagramas"],"location":"barcelona","salary":""}
+                User: Empleos de Ingeniero electrico
+                Respuest: {"work":"Ingeniero electrico","skills":[""],"location":"","salary":""}
+                User: Ingeniero electrico
+                Respuest: {"work":"Ingeniero electrico","skills":[""],"location":"","salary":""}
+                User: Operador de produccion habilidad manual salario de 2500 por temporada
+                Respuest: {"work":"Operador de produccion","skills":["manual"],"location":'',"salary":"2500"} 
+                User: quiero un empleo de diseñador experiencia en photoshop en guadalajara
+                Respuest: {"work":"diseñador","skills":["photoshop"],"location":'guadalajara',"salary":""} 
+                User: ${responseUser}`,
                 max_tokens: 150,
                 temperature: 0.9,
                 k: 0,

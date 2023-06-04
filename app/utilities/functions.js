@@ -68,3 +68,35 @@ export function ShareLinkTwitter(url, text) {
 export function GetInitialCapitalLetter(word) {
     return word.charAt(0).toUpperCase()
 }
+
+
+export function ExtractQueryParams(queryString) {
+    const params = {}
+
+    const queryParams = queryString.split('&')
+    for (let i = 0; i < queryParams.length; i++) {
+        const [key, value] = queryParams[i].split('=')
+        params[key] = value
+    }
+
+    return params
+}
+
+
+export function RemoveTilde(text) {
+    const tildes = {
+        'á': 'a',
+        'é': 'e',
+        'í': 'i',
+        'ó': 'o',
+        'ú': 'u',
+        'Á': 'A',
+        'É': 'E',
+        'Í': 'I',
+        'Ó': 'O',
+        'Ú': 'U'
+    }
+
+    const regex = /[áéíóúÁÉÍÓÚ]/g
+    return text.replace(regex, (match) => tildes[match])
+}

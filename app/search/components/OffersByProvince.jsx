@@ -10,35 +10,44 @@ import {
   ArrayWorkDay,
   ArrowIcon,
   ArrowPrevIcon,
-  CopyLinkIcon,
+  SearchIcon,
 } from "@/app/constants"
 import { useEffect, useState } from "react"
-import { GetInfoJobsOffers } from "../../services/infojobsAPI"
-import OfferPreview from "./OfferPreview"
+import { GetOffers } from "../../services/infojobsAPI"
 import styles from "./offers.module.css"
 import { Montserrat } from "next/font/google"
-import { OfferView } from "./OfferView"
-import { ComboBox } from "./ComboBox"
+import { OfferView } from "./OfferView/OfferView"
+import { ComboBox } from "@/app/search/components/ComboBox/ComboBox"
 import Box from "@mui/material/Box"
-import TextField from "@mui/material/TextField"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
 import SwipeableEdgeDrawer from "./SwipeDrawer"
+import { ExtractQueryParams } from "@/app/utilities/functions"
+import { useRouter } from "next/navigation"
+import { SingelOfferView } from "./SingleOfferView/SingleOfferView"
 
 const font = Montserrat({ subsets: ["latin"] })
 
 export function OffersByProvince({ parameter }) {
-  const [currentPage, setCurrentPage] = useState(1)
+  const params = ExtractQueryParams(parameter)
+  const router = useRouter()
+  const [currentPage, setCurrentPage] = useState(parseInt(params?.page) || 1)
   const [offers, setOffers] = useState({})
   const [selectedOfferId, setSelectedOfferId] = useState(null)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const getJobs = async () => {
-      const data = await GetInfoJobsOffers(`${parameter}`, `${currentPage}`)
+      const data = await GetOffers(params, `${currentPage}`)
       setOffers(data)
     }
     getJobs()
+  }, [])
+
+  useEffect(() => {
+    router.push(
+      `/search/location=${params.location}&work=${params.work}&page=${currentPage}`
+    )
   }, [currentPage])
 
   const handlePageChange = (page) => {
@@ -68,7 +77,7 @@ export function OffersByProvince({ parameter }) {
     setSelectedOfferId(id)
     toggleDrawer(true)
   }
-
+  console.log(currentPage)
   const renderPageButtons = () => {
     const pageRange = 5 // Cantidad de botones intermedios a mostrar
     const pageButtons = []
@@ -105,74 +114,84 @@ export function OffersByProvince({ parameter }) {
 
   return (
     <>
-      {/*<section className={styles.comboboxContainer}>
-        <ComboBox
-          parameter={parameter}
-          arrayItems={ArrayProvinces}
-          title={"Provincia"}
-        />
-        <ComboBox
-          parameter={"None"}
-          arrayItems={ArrayCategory}
-          title={"Categoría"}
-        />
-        <ComboBox
-          parameter={"None"}
-          arrayItems={ArrayStudies}
-          title={"Estudios mínimos"}
-        />
-        <ComboBox
-          parameter={"None"}
-          arrayItems={ArrayWorkDay}
-          title={"Jornada laboral"}
-        />
-        <ComboBox
-          parameter={"None"}
-          arrayItems={ArrayContractType}
-          title={"Tipo de contrato"}
-        />
-        <Box
-          sx={{
-            m: 1,
-            width: "25ch",
-            color: "#FFFFFF",
-          }}
-          autoComplete="off"
-        >
-          <TextField
-            id="filled-basic"
-            label="Palabra clave"
-            variant="filled"
-            placeholder="Empresa, habilidad, etc."
-            size="small"
-            color="primary"
+      {/*
+        <section className={styles.comboboxContainer}>
+          <ComboBox
+            parameter={params.location}
+            arrayItems={ArrayProvinces}
+            title={"Provincia"}
+          />
+          <ComboBox
+            parameter={"None"}
+            arrayItems={ArrayCategory}
+            title={"Categoría"}
+          />
+          <ComboBox
+            parameter={"None"}
+            arrayItems={ArrayStudies}
+            title={"Estudios"}
+          />
+          <ComboBox
+            parameter={"None"}
+            arrayItems={ArrayWorkDay}
+            title={"Jornada"}
+          />
+          <ComboBox
+            parameter={"None"}
+            arrayItems={ArrayContractType}
+            title={"Contrato"}
+          />
+          <Box
             sx={{
-              backgroundColor: "#21263d",
+              m: 1,
+              maxWidth: "150px",
               color: "#FFFFFF",
             }}
-          />
-        </Box>
-        <Stack
-          spacing={1}
-          direction="row"
-          style={{ minHeight: "3.9em", padding: "0.5em" }}
-        >
-          <Button variant="contained" size="small">
-            <CopyLinkIcon />
-            Buscar empleo
-          </Button>
-        </Stack>
-          </section>*/}
+            autoComplete="off"
+          >
+            <input
+              style={{
+                backgroundColor: "#21263d",
+                border: "none",
+                borderBottom: "1px solid #167db7",
+                fontSize: "0.8em",
+                fontWeight: "100",
+                padding: "0.5em 1em",
+                height: "100%",
+                height: "3.2em",
+                maxWidth: "150px",
+              }}
+              placeholder="puesto, área o empresa"
+            ></input>
+          </Box>
+          <Stack
+            direction="row"
+            style={{
+              height: "100%",
+              maxHeight: "3.6em",
+              padding: "0.5em",
+              marginBottom: "0.7em",
+              justifySelf: "left",
+              display: "flex",
+              gap: "0.8em",
+            }}
+          >
+            <Button variant="contained" size="small">
+              <SearchIcon />
+              Buscar empleo
+            </Button>
+          </Stack>
+        </section>*/}
       <div className={`${styles.container} ${font.className}`}>
         <div className={styles.works}>
           {offers.product === undefined && <SkeletonLayout />}
           {offers?.product?.items?.map((job, index) => (
-            <OfferPreview
+            <SingelOfferView
               key={job.id}
-              Job={job}
+              offer={job}
               id={job.id}
               isSelected={selectedOfferId === job.id}
-              onClick={() => HandlerSelectedOffer(job.id)}
+              HandleOpenViewOffer={() => HandlerSelectedOffer(job.id)}
             />
           ))}
           <nav className={styles.navigationPage}>

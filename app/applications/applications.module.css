@@ -1,0 +1,45 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4em 0 0 0;
+}
+
+.title {
+  padding: 1em;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 1fr 4em;
+  background-color: var(--FirstColor);
+  padding: 0.5em;
+  border: 1px solid #8dc6d475;
+  border-radius: 0.2em;
+}
+
+.offerTitle {
+  grid-column: 1 span 2;
+}
+
+.containerCompany {
+  grid-row: 2 / 3;
+  display: flex;
+  gap: 0.5em;
+  margin: 0.4em 0;
+  color: #f3f3f375;
+}
+
+.date {
+  grid-row: 3 / 4;
+  background-color: #8dc6d475;
+  max-width: fit-content;
+  padding: 0.2em 0.6em;
+  border-radius: 1.5em;
+}
+
+.companyLogo {
+  grid-row: 2 / span 2;
+  grid-column: 2 / 3;
+}

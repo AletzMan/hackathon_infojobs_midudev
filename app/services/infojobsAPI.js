@@ -15,21 +15,23 @@ const API_URL = 'https://api.infojobs.net/api/9/offer?province='
     return data
 }*/
 
-export async function GetInfoJobsOffers(query, page) {
-    const res = await fetch(`/api/getJobs?q=${query}&p=${page}`)
+export async function GetInfoJobsOffers(query) {
+    const res = await fetch(`/api/getJobs?q=${query}`)
 
     const data = await res.json()
     return data
 }
 
-export async function GetOffers(arrayQuery) {
+export async function GetOffers(arrayQuery, page) {
     let query = arrayQuery?.work?.replace(" ", ",")
     //const query = arrayQuery?.work + "," + skills
+    console.log(arrayQuery)
     const location = arrayQuery?.location
     const salary = arrayQuery?.salary
-    const res = await fetch(`/api/getOffers?q=${query}&p=${location}&s=${salary}`)
+    const res = await fetch(`/api/getOffers?q=${query}&p=${location}&s=${salary}&page=${page}`)
 
     const data = await res.json()
+
     return data
 }
 
@@ -80,6 +82,13 @@ export async function GetCurriculumSkills(accessToken, id) {
 
     const data = await res.json()
     return data
+}
+
+export async function GetApplications(accessToken, id) {
+    const res = await fetch(`/api/getApplications?q=${id}&code=${accessToken}`)
+
+    const data = await res.json()
+    return data.applications
 }
 
 export async function getAccessToken(code) {
